@@ -1,0 +1,27 @@
+@charset 'utf-8';
+.wrapper {padding-top:80px;}
+
+
+/* header */
+.header-wrap {width:100%; position:fixed; top:0; left:0; border-bottom:1px solid rgba(0, 0, 0, 8%); background-color:#fff;}
+.header {display:flex; height:80px; justify-content:space-between; align-items:center;}
+.header .logo {flex:1 0 140px;}
+.header .logo a {color:#FF385C;}
+
+.header .sch-wrap .sch-before-wrap {display:flex; border:1px solid #ddd; border-radius:40px; align-items:center; box-shadow:0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%); flex: 0 1 auto;}
+.header .sch-wrap .sch-before-wrap .btn {height:48px; font-weight:600; line-height:48px;}
+.header .sch-wrap .sch-before-wrap .btn .txt {padding:0 16px;}
+.header .sch-wrap .sch-before-wrap .btn + .btn::before {display:inline-block; content:''; position:absolute; top:50%; left:0; width:1px; height:14px; margin-top:-7px; background-color:#ddd;}
+.header .sch-wrap .sch-before-wrap .btn.has-sch-ico {display:inline-flex; align-items:center; color:#888; font-weight:normal;}
+.header .sch-wrap .sch-before-wrap .btn.has-sch-ico .ico {display:flex; width:32px; height:32px; margin:10px 10px 10px 0; border-radius:50%; background-color:#FF385C; align-items:center; justify-content:center; color:#fff;}
+
+.personal-wrap {display:flex; width:100%; align-items:center; flex:1 0 140px; justify-content:flex-end;}
+.personal-wrap .btn {border-radius:40px; padding:10px 12px; border-radius:40px; font-weight:600;}
+.personal-wrap .btn:focus,
+.personal-wrap .btn:hover {background-color:#f7f7f7;}
+.personal-wrap .btn.btn-my {display:flex; align-items:center; margin-left:5px; padding:5px 5px 5px 10px; border:1px solid #ddd; overflow:visible;}
+.personal-wrap .btn.btn-my:focus,
+.personal-wrap .btn.btn-my:hover {background-color:#fff;}
+.personal-wrap .btn.btn-my .hamburger {}
+.personal-wrap .btn.btn-my .profile-img {position:relative; width:30px; height:30px; margin-left:12px; color:#717171;}
+.personal-wrap .btn.btn-my .profile-img::before {position:absolute; display:block; top:-3px; right:-3px; width:12px; height:12px; border-radius:50%; background-color:#FF385C; border:1px solid #fff; content:'';}
