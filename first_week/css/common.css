@@ -30,7 +30,7 @@ a {text-decoration:none;}
 table {width:100%; border-spacing:0; border-collapse:collapse;}
 caption {display:block; position:absolute; left:-9999px;}
 legend {position:absolute; left:-9999em; top:-9999em;}
-button {overflow:hidden; background-color:transparent; cursor:pointer;}
+button {/*overflow:hidden;*/ background-color:transparent; cursor:pointer;}
 button::-moz-focus-inner {border:0px; padding:0px;}
 input[type='checkbox'],input[type='radio'],select {appearance:none; -webkit-appearance:none; -moz-appearance:none; -o-appearance:none;}
 select::-ms-expand {display:none;}
