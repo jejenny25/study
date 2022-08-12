@@ -1,19 +1,24 @@
 @charset 'utf-8';
-.wrapper {padding:80px 0 120px;}
+.wrapper {padding:0 0 120px;}
+.wrapper.main-page  {padding:80px 0 120px;}
 
 
 /* header */
-.header-wrap {width:100%; position:fixed; top:0; left:0; border-bottom:1px solid rgba(0, 0, 0, 8%); background-color:#fff; z-index:500;}
+.header-wrap {width:100%; border-bottom:1px solid rgba(0, 0, 0, 8%); background-color:#fff; z-index:500;}
+.main-page .header-wrap { position:fixed; top:0; left:0;}
 .header {display:flex; height:80px; justify-content:space-between; align-items:center;}
 .header .logo {flex:1 0 140px;}
-.header .logo a {color:#FF385C;}
+.header .logo a {display:flex; height:80px; color:#FF385C; align-items:center;}
 
 .header .sch-wrap .sch-before-wrap {display:flex; border:1px solid #ddd; border-radius:40px; align-items:center; box-shadow:0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%); flex: 0 1 auto;}
 .header .sch-wrap .sch-before-wrap .btn {height:48px; font-weight:600; line-height:48px;}
 .header .sch-wrap .sch-before-wrap .btn .txt {padding:0 16px;}
 .header .sch-wrap .sch-before-wrap .btn + .btn::before {display:inline-block; content:''; position:absolute; top:50%; left:0; width:1px; height:14px; margin-top:-7px; background-color:#ddd;}
-.header .sch-wrap .sch-before-wrap .btn.has-sch-ico {display:inline-flex; align-items:center; color:#888; font-weight:normal;}
+.header .sch-wrap .sch-before-wrap .btn.btn-where {margin-left:10px;}
+.header .sch-wrap .sch-before-wrap .btn.has-sch-ico {display:inline-flex; align-items:center; color:#888; font-weight:normal; justify-content:space-between;}
 .header .sch-wrap .sch-before-wrap .btn.has-sch-ico .ico {display:flex; width:32px; height:32px; margin:10px 10px 10px 0; border-radius:50%; background-color:#FF385C; align-items:center; justify-content:center; color:#fff;}
+
+.header .sch-wrap .sch-before-wrap.type-one-btn .btn {width:300px; font-weight:600; padding-left:10px; color:#222;}
 
 .personal-wrap {display:flex; width:100%; align-items:center; flex:1 0 140px; justify-content:flex-end;}
 .personal-wrap .btn {border-radius:40px; padding:10px 12px; border-radius:40px; font-weight:600;}
@@ -105,8 +110,10 @@
 
 
 /* footer */
-.footer {position:fixed; bottom:0; left:0; width:100%; border-top:1px solid #ddd; background-color:#fff; z-index:25;}
+.main-page .footer {position:fixed; bottom:0; left:0; width:100%; border-top:1px solid #ddd; background-color:#fff; z-index:25;}
+.footer {}
 .footer .btn-map {display:flex; position:absolute; top:-90px; left:50%; padding:14px 19px; transform: translateX(-50%); background-color:#222; border-radius:45px; font-weight:600; color:#fff; align-items:center;}
+.footer .btn-map .ico {margin-left:8px;}
 .footer .top-area {display:flex; padding:13px 0; justify-content:space-between;}
 .footer .top-area .policy-list {display:flex; }
 .footer .top-area .policy-list li {display:flex; color:#222;}
@@ -120,3 +127,178 @@
 .footer .top-area .stting-list li.item02 .btn .ico{margin-right:8px;}
 .footer .top-area .stting-list li.item03 .btn .ico{margin-left:8px;}
 .footer .bottom-area { border-top:1px solid #ddd; font-size:10px; color:#717171; padding:8px 0;}
+
+
+/* 숙소 상세 페이지 */
+/* 공통 */
+.containner-roomdetail .explain-item {padding:40px 0 40px; border-top:1px solid #d3d3d3;}
+.containner-roomdetail .explain-item .tit-wrap .tit {font-size:22px; font-weight:600;}
+.containner-roomdetail .explain-item .tit-wrap {margin-bottom:24px;}
+
+/* 숙소 이름 부분 */
+.preview-area .tit-area {padding-top:24px;}
+.preview-area .tit-area .tit-wrap .tit {display:flex;}
+.preview-area .tit-area .tit-wrap .tit p {margin-left: 12px; font-size:26px; font-weight:600;}
+.preview-area .sub-txt-wrap {display:flex; justify-content:space-between;}
+.preview-area .sub-txt-wrap .info-txt {display:flex; margin-top:4px; align-content:center;}
+.preview-area .sub-txt-wrap .info-txt li {display:flex; align-content:center;}
+.preview-area .sub-txt-wrap .info-txt li + li::before {display:block; margin:0 8px; content:'·';}
+.preview-area .sub-txt-wrap .info-txt li span {line-height:20px;}
+.preview-area .sub-txt-wrap .btn-wrap .btn + .btn {margin-left:5px;}
+
+/* 숙소 사진 */
+.preview-area .picture-area {position:relative; margin-top:20px; border-radius:20px; overflow:hidden;}
+.preview-area .picture-area .pictures-wrap {display:grid; height:500px; grid-template-columns:50% 1fr 1fr; grid-gap:8px; }
+.preview-area .picture-area .pictures-wrap .item:first-child {grid-row: 1 / span 2;}
+.preview-area .picture-area .pictures-wrap .item .btn {width:100%; height:100%;}
+.preview-area .picture-area .pictures-wrap .item .btn img{width:100%; height:100%; object-fit: cover; vertical-align: bottom;}
+.preview-area .picture-area .pictures-wrap .item .btn:hover img {filter: contrast(90%);}
+.preview-area .picture-area .btn-basic-border {position:absolute; bottom:24px; right:24px}
+
+
+.room-detail-area {display:flex; margin-top:48px;}
+.room-detail-area .room-explain-area {width:59%;}
+.room-detail-area .room-explain-area .explain-item:first-child{padding-top:0; border-top:none;}
+.room-detail-area .room-explain-area .explain-item:first-child .tit-wrap {margin-bottom:0;}
+
+
+.room-explain-area .room-name-wrap {display:flex; align-items:center; justify-content:space-between;}
+.room-explain-area .room-name-wrap .tit-wrap .info-list {display:flex; font-size:16px;}
+.room-explain-area .room-name-wrap .tit-wrap .info-list li {display:flex;}
+.room-explain-area .room-name-wrap .tit-wrap .info-list li + li:before {display:block; margin:0 8px; content:' · ';}
+.room-explain-area .room-name-wrap .host-pic-wrap {position:relative;}
+.room-explain-area .room-name-wrap .host-pic-wrap .host-pic {width:56px; height:56px; border-radius:50%; overflow:hidden;} 
+.room-explain-area .room-name-wrap .host-pic-wrap .host-pic img {width:100%;}
+.room-explain-area .room-name-wrap .host-pic-wrap .ico {position:absolute; font-size:28px; bottom:-4px; right:-6px;}
+
+.room-explain-area .summury-wrap .summury-list li {display:flex;}
+.room-explain-area .summury-wrap .summury-list li + li {margin-top:24px;}
+.room-explain-area .summury-wrap .summury-list li .txt-wrap {margin-left:16px;}
+.room-explain-area .summury-wrap .summury-list li .txt-wrap .tit {margin-bottom:4px; font-size:16px; font-weight:600;}
+.room-explain-area .summury-wrap .summury-list li .txt-wrap .txt {color:#717171;}
+
+.room-explain-area .air-cover-wrap .air-tit {width:98px; margin-bottom:16px;}
+.room-explain-area .air-cover-wrap .air-tit img {width:100%;}
+.room-explain-area .air-cover-wrap .desc-wrap + .btn-wrap {margin-top:16px;}
+
+.room-explain-area .room-detail-wrap .translate-wrap {display:flex; margin-bottom:32px;}
+.room-explain-area .room-detail-wrap .translate-wrap p {margin-left:10px;}
+.room-explain-area .room-detail-wrap .desc-wrap + .btn-wrap {margin-top:16px;}
+
+.room-explain-area .room-type-wrap .swiper-room-type-wrap {position:relative;}
+.room-explain-area .room-type-wrap .swiper-room-type {position:static;}
+.room-explain-area .room-type-wrap .swiper-room-type .room-box {/*height:163px;*/ padding:24px; border-radius:15px; border:1px solid #d3d3d3;}
+.room-explain-area .room-type-wrap .swiper-room-type .room-box .ico-wrap {display:flex; margin-bottom:16px; align-items:center;}
+.room-explain-area .room-type-wrap .swiper-room-type .room-box .ico-wrap .ico + .ico {margin-left:10px;}
+.room-explain-area .room-type-wrap .swiper-room-type .room-box .txt-wrap .tit {display:inline-block; margin-bottom:8px; font-size:16px; font-weight:600;}
+.room-explain-area .room-type-wrap .swiper-room-type .swiper-button-next, 
+.room-explain-area .room-type-wrap .swiper-room-type .swiper-button-prev {width:32px; height:32px; right:-16px;}
+.room-explain-area .room-type-wrap .swiper-room-type .swiper-button-prev {left:-16px; right:inherit;}
+.room-explain-area .room-type-wrap .swiper-room-type .swiper-button-next:after, 
+.room-explain-area .room-type-wrap .swiper-room-type .swiper-button-prev:after {font-size:0;}
+.room-explain-area .room-type-wrap .swiper-room-type .swiper-button-next span, 
+.room-explain-area .room-type-wrap .swiper-room-type .swiper-button-prev span {display:flex; align-items:center; justify-content:center; position:relative; width:100%; height:100%; border-radius:50%; right:0; border:1px solid rgba(0, 0, 0, 0.08); background:#fff; z-index:11;}
+.room-explain-area .room-type-wrap .swiper-room-type .swiper-button-next span:after, 
+.room-explain-area .room-type-wrap .swiper-room-type .swiper-button-prev span:after {display:block; font-size:0; width:8px;height:8px; border-right:2px solid #000;border-bottom:2px solid #000;transform: rotate(-45deg); margin-left:-2px; content:'';}
+.room-explain-area .room-type-wrap .swiper-room-type .swiper-button-prev span:after {transform:rotate(135deg); margin-left:3px;}
+.room-explain-area .room-type-wrap .swiper-room-type .swiper-button-next.swiper-button-disabled, 
+.room-explain-area .room-type-wrap .swiper-room-type .swiper-button-prev.swiper-button-disabled {display:none;}
+
+.room-explain-area .facilities-wrap .facilities-list {display:grid;  grid-template-columns: repeat(2, 1fr); grid-gap:16px;}
+.room-explain-area .facilities-wrap .facilities-list li {display:flex; align-items:center;}
+.room-explain-area .facilities-wrap .facilities-list li .ico {margin-right:16px;}
+.room-explain-area .facilities-wrap .btn-wrap {margin-top:34px;}
+
+.room-detail-area .book-area {position:relative; width:41%; margin-left:8%;}
+.book-area .book-box {position:relative; width:100%; padding:24px; border:1px solid #d3d3d3; border-radius:12px; box-shadow:rgb(0 0 0 / 12%) 0px 6px 16px;}
+.book-area .book-box .top-area {display:flex; justify-content:space-between;}
+.book-area .book-box .top-area .price {font-size:22px; font-weight:800;}
+.book-area .book-box .top-area .price .day {font-size:16px; font-weight:normal;}
+.book-area .book-box .top-area .review-info {display:flex; align-items:center;}
+.book-area .book-box .top-area .review-info .btn-txt-link {margin-left:5px; color:#717171;}
+.book-area .book-box .checkin-box {margin-top:24px; border:1px solid #000; border-radius:8px;}
+.book-area .book-box .checkin-box .top-wrap {display:flex;}
+.book-area .book-box .checkin-box .top-wrap .btn {width:50%; height:56px; padding:0 12px; text-align:left;}
+.book-area .book-box .checkin-box .top-wrap .btn + .btn {border-left:1px solid #000;}
+.book-area .book-box .checkin-box .top-wrap .btn em {display:block; margin-bottom:3px; font-size:10px; font-weight:800;}
+.book-area .book-box .checkin-box .bot-wrap { border-top:1px solid #000;}
+.book-area .book-box .checkin-box .bot-wrap .btn {position:relative; width:100%; height:56px; padding:0 12px; text-align:left;}
+.book-area .book-box .checkin-box .bot-wrap .btn:after {display:block; position:absolute; width:8px; height:8px; top:50%; right:20px; margin-top:-3px; margin-left:3px; border-right:2px solid #000; border-bottom:2px solid #000;transform: rotate(45deg); content:'';}
+.book-area .book-box .checkin-box .bot-wrap .btn em {display:block; margin-bottom:3px; font-size:10px; font-weight:800;}
+.book-area .book-box .btn-wrap {margin-top:16px;}
+.book-area .book-box .explain {margin-top:16px; text-align:center;}
+.book-area .book-box .price-items {margin-top:24px;}
+.book-area .book-box .price-items li {display:flex; font-size:16px; justify-content: space-between;}
+.book-area .book-box .price-items li + li {margin-top:16px;}
+.book-area .book-box .tot-wrap {display: flex; margin-top:24px; padding-top:24px; border-top:1px solid #d3d3d3; justify-content:space-between;}
+.book-area .book-box .btn-report {position:absolute; display: flex; bottom:-40px; left:50%; transform: translateX(-50%); color:#717171; align-items:center;}
+.book-area .book-box .btn-report .ico {margin-right:12px;}
+
+.review-area .score-wrap .score-list {display:grid; grid-template-columns: repeat(2, 1fr); grid-gap:16px 120px;}
+.review-area .score-wrap .score-list .item {display:flex; justify-content:space-between;}
+.review-area .score-wrap .score-list .item .txt {font-size:16px;}
+.review-area .score-wrap .score-list .item .score {display:flex; align-items:center;}
+.review-area .score-wrap .score-list .item .bar-wrap {width:120px; height:4px; border-radius:2px; background-color:#d3d3d3;}
+.review-area .score-wrap .score-list .item .bar-wrap .bar {display:block; height:4px; border-radius:2px;  background-color:#222;}
+.review-area .score-wrap .score-list .item .num {margin-left:10px; font-size:12px; font-weight:600;}
+
+.review-area .review-txt-wrap {margin-top:24px}
+.review-area .review-txt-wrap .review-list {display:grid; grid-template-columns: repeat(2, 1fr); grid-gap:35px 120px;}
+.review-area .review-txt-wrap .review-list .reviewer-info {display:flex; align-items:center;}
+.review-area .review-txt-wrap .review-list .reviewer-info .profile-img {width:40px; height:40px; overflow:hidden; border-radius:50%;}
+.review-area .review-txt-wrap .review-list .reviewer-info .profile-img img {width:100%;}
+.review-area .review-txt-wrap .review-list .reviewer-info .txt-wrap {margin-left:12px;}
+.review-area .review-txt-wrap .review-list .review-cont {margin-top:16px;}
+.review-area .review-txt-wrap .review-list .review-cont .desc {font-size:16px; line-height:24px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;}
+.review-area .review-txt-wrap .review-list .btn-wrap {margin-top:10px;}
+.review-area > .btn-wrap {margin-top:30px;}
+
+.location-area .desc-wrap{margin-top:25px;}
+.location-area .desc-wrap .desc + .desc {margin-top:16px;}
+.location-area .btn-wrap {margin-top:20px;}
+
+.host-info-area .host-profile-wrap {display:flex; align-items:center;}
+.host-info-area .host-profile-wrap .go-profile {display:block; position:relative; }
+.host-info-area .host-profile-wrap .go-profile .host-profile-pic {width:64px; height:64px; border-radius:50%; overflow:hidden;}
+.host-info-area .host-profile-wrap .go-profile .host-profile-pic img {width:100%;}
+.host-info-area .host-profile-wrap .go-profile .ico {position:absolute; bottom:-5px; right:-3px; font-size:24px;}
+.host-info-area .host-profile-wrap .txt-wrap {margin-left:16px;}
+.host-info-area .host-profile-wrap .txt-wrap .tit {font-size:22px; font-weight:600;}
+.host-info-area .host-profile-wrap .txt-wrap .txt {color:#717171;}
+
+.host-info-area .host-detail {display:flex; margin-top:24px;}
+.host-info-area .host-detail .item {width:calc(50% - 90px);}
+.host-info-area .host-detail .item + .item {margin-left:90px;}
+.host-info-area .host-detail .medal-wrap {margin-bottom:16px;}
+.host-info-area .host-detail .medal-wrap .host-medal-list {display:flex; align-items:center;}
+.host-info-area .host-detail .medal-wrap .host-medal-list li {display:flex; align-items:center; font-size:16px;}
+.host-info-area .host-detail .medal-wrap .host-medal-list li + li {margin-left:25px;}
+.host-info-area .host-detail .medal-wrap .host-medal-list li .ico {margin-right:10px;}
+.host-info-area .host-detail .right-item .desc + .desc,
+.host-info-area .host-detail .right-item .btn-wrap,
+.host-info-area .host-detail .right-item .warn-wrap {margin-top:16px;}
+.host-info-area .host-detail .right-item .warn-wrap {display:flex; width:300px; align-items:center;}
+.host-info-area .host-detail .right-item .warn-wrap .txt {margin-left:16px; font-size:12px;}
+
+.aware-info-area .aware-list-wrap {display:grid; grid-template-columns: repeat(3, 1fr); grid-gap:16px 50px;}
+.aware-info-area .aware-list-wrap .tit {font-size:16px; margin-bottom:16px; font-weight:600;}
+.aware-info-area .aware-list-wrap .aware-list li {display:flex; align-items:center; font-size:16px;}
+.aware-info-area .aware-list-wrap .aware-list li + li {margin-top:8px;}
+.aware-info-area .aware-list-wrap .aware-list li .ico {margin-right:16px; display: flex; align-self: baseline; margin-top: 2px;}
+.aware-info-area .aware-list-wrap .btn-wrap {margin-top:24px;}
+
+.header-wrap.is-fixed {position:fixed;}
+.header-wrap.is-fixed .header {display:none;}
+.header-wrap.is-fixed .sub-header {display:flex; justify-content:space-between;}
+.header-wrap .sub-header {height:80px;}
+.sub-header .quick-menu-list {display:flex;}
+.sub-header .quick-menu-list li + li {margin-left:24px;}
+.sub-header .quick-menu-list li a {display:block; position:relative; height:100%; line-height:80px; font-weight:600;}
+.sub-header .quick-menu-list li a:after {display:none; position:absolute; width:100%; height:4px; bottom:0; left:0; background-color:#222; content:'';}
+.sub-header .quick-menu-list li a:hover:after {display:block;}
+.sub-header .book-summury-wrap {display:flex;  align-items:center;}
+.sub-header .book-summury-wrap .book-info {margin-right:16px;}
+.sub-header .book-summury-wrap .price {font-size:18px; font-weight:600;}
+.sub-header .book-summury-wrap .day {font-size:14px; font-weight:normal;}
+.sub-header .book-summury-wrap .review-info {display:flex; font-size:12px; align-items:center; line-height:1;}
+.sub-header .book-summury-wrap .review-info .btn-txt-link {color:#717171;}
