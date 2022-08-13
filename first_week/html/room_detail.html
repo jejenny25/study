@@ -6,13 +6,14 @@
     <title>특별한 프라이빗 아일랜드 리조트: 플로럴 아일랜드 - 에어비앤비</title>
     <link rel="shortcut icon" sizes="76x76" type="image/x-icon" href="https://a0.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico"/>
     <link href="/first_week/css/swiper-bundle.min.css" rel="stylesheet" type="text/css">
+    <link href="/first_week/css/main.min.css" rel="stylesheet" type="text/css">
     <link href="/first_week/css/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div class="wrapper sub-page">
 
         <!-- Header -->
-        <header class="header-wrap is-fixed">
+        <header class="header-wrap">
             <div class="inner">
                 <div class="header">
                     <h1 class="logo">
@@ -48,16 +49,16 @@
                     <div class="quick-menu">
                         <ul class="quick-menu-list">
                             <li>
-                                <a href="#"><span>사진</span></a>
+                                <a href="#previewArea"><span>사진</span></a>
                             </li>
                             <li>
-                                <a href="#"><span>편의시설</span></a>
+                                <a href="#facilitiesArea"><span>편의시설</span></a>  
                             </li>
                             <li>
-                                <a href="#"><span>후기</span></a>
+                                <a href="#reviewArea"><span>후기</span></a>
                             </li>
                             <li>
-                                <a href="#"><span>위치</span></a>
+                                <a href="#locationArea"><span>위치</span></a>
                             </li>
                         </ul>
                     </div>
@@ -84,7 +85,7 @@
             <div class="inner">
                 <div class="content">
                     
-                    <div class="preview-area">
+                    <div class="preview-area" id="previewArea">
                         <div class="tit-area">
                             <div class="tit-wrap">
                                 <h2 class="tit">
@@ -304,7 +305,7 @@
                                 </div>
                             </div>
 
-                            <div class="explain-item facilities-wrap">
+                            <div class="explain-item facilities-area" id="facilitiesArea">
                                 <div class="tit-wrap">
                                     <p class="tit">숙소 편의시설</p>
                                 </div>
@@ -342,13 +343,16 @@
                             </div>
 
                             
-                            <div class="explain-item date-wrap">
+                            <div class="explain-item calendar-area">
                                 <div class="tit-wrap">
                                     <p class="tit">El Nido에서 7박</p>
                                     <p class="txt">2022년 8월 20일 - 2022년 8월 27일</p>
                                 </div>
 
-                                <div class="calander-wrap" style="height:343px; background-color:aliceblue"></div>
+                                <div class="calendar-wrap">
+                                    <div class="item-calendar calendar1" id="calendar1"></div>
+                                    <div class="item-calendar calendar2" id="calendar2"></div>
+                                </div>
 
                                 <div class="btn-wrap align-both-end">
                                     <button type="button" class="btn btn-hover ico-only"><span><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 24px; width: 24px; fill: currentcolor;"><path d="M29 5a2 2 0 0 1 1.995 1.85L31 7v18a2 2 0 0 1-1.85 1.995L29 27H3a2 2 0 0 1-1.995-1.85L1 25V7a2 2 0 0 1 1.85-1.995L3 5zm0 2H3v18h26zm-8 13v2H11v-2zm3-5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-4 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-4 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-4 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-4 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm16-4a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-4 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-4 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-4 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-4 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path></svg></span></button>
@@ -358,64 +362,66 @@
                         </div>
                         
                         <div class="book-area">
-                            <div class="book-box">
-                                <div class="top-area">
-                                    <div class="price-info">
-                                        <p class="price">₩789,844 <span class="day">/박</span></p>
+                            <div class="book-box-wrap">
+                                <div class="book-box">
+                                    <div class="top-area">
+                                        <div class="price-info">
+                                            <p class="price">₩789,844 <span class="day">/박</span></p>
+                                        </div>
+                                        <div class="review-info">
+                                            <span class="txt-medium">★ 4.6  · </span>
+                                            <button type="button" class="btn btn-txt-link"><span class="txt txt-medium">후기 128개</span></button>
+                                        </div>
                                     </div>
-                                    <div class="review-info">
-                                        <span class="txt-medium">★ 4.6  · </span>
-                                        <button type="button" class="btn btn-txt-link"><span class="txt txt-medium">후기 128개</span></button>
+
+                                    <div class="checkin-box">
+                                        <div class="top-wrap">
+                                            <button type="button" class="btn"><em>체크인</em><span>2022. 8. 20</span></button>
+                                            <button type="button" class="btn"><em>체크아웃</em><span>2022. 8. 27</span></button>
+                                        </div>
+                                        <div class="bot-wrap">
+                                            <button type="button" class="btn"><em>인원</em><span>게스트 1명</span></button>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="checkin-box">
-                                    <div class="top-wrap">
-                                        <button type="button" class="btn"><em>체크인</em><span>2022. 8. 20</span></button>
-                                        <button type="button" class="btn"><em>체크아웃</em><span>2022. 8. 27</span></button>
+                                    <div class="btn-wrap">
+                                        <button type="button" class="btn w-100 btn-basic btn-red"><span>예약하기</span></button>
                                     </div>
-                                    <div class="bot-wrap">
-                                        <button type="button" class="btn"><em>인원</em><span>게스트 1명</span></button>
+
+                                    <div class="explain"><p>예약 확정 전에는 요금이 청구되지 않습니다.</p></div>
+
+                                    <ul class="price-items">
+                                        <li>
+                                            <button type="button" class="btn btn-txt-link"><span class="txt">₩779,097 x 7박</span></button>
+                                            <p class="txt-basic">₩5,453,682</p>
+                                        </li>
+                                        <li>
+                                            <button type="button" class="btn btn-txt-link"><span class="txt">주간 할인</span></button>
+                                            <p class="txt-medium txt-green">- ₩272,682</p>
+                                        </li>
+                                        <li>
+                                            <button type="button" class="btn btn-txt-link"><span class="txt">청소비</span></button>
+                                            <p class="txt-basic">₩117,536</p>
+                                        </li>
+                                        <li>
+                                            <button type="button" class="btn btn-txt-link"><span class="txt">서비스 수수료</span></button>
+                                            <p class="txt-basic">₩748,032</p>
+                                        </li>
+                                    </ul>
+                                    <div class="tot-wrap">
+                                        <span class="txt-medium f16">총 합계</span>
+                                        <span class="txt-medium f16">₩6,046,563</span>
                                     </div>
+                                    <button type="button" class="btn btn-txt-link btn-report">
+                                        <span class="ico"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 16px; width: 16px; fill: currentcolor;"><path d="M28 6H17V4a2 2 0 0 0-2-2H3v28h2V18h10v2a2 2 0 0 0 2 2h11l.115-.006a1 1 0 0 0 .847-1.269L27.039 14l1.923-6.724A1 1 0 0 0 28 6z"></path></svg></span>
+                                        <span class="txt txt-medium">숙소 신고하기</span>
+                                    </button>
                                 </div>
-
-                                <div class="btn-wrap">
-                                    <button type="button" class="btn w-100 btn-basic btn-red"><span>예약하기</span></button>
-                                </div>
-
-                                <div class="explain"><p>예약 확정 전에는 요금이 청구되지 않습니다.</p></div>
-
-                                <ul class="price-items">
-                                    <li>
-                                        <button type="button" class="btn btn-txt-link"><span class="txt">₩779,097 x 7박</span></button>
-                                        <p class="txt-basic">₩5,453,682</p>
-                                    </li>
-                                    <li>
-                                        <button type="button" class="btn btn-txt-link"><span class="txt">주간 할인</span></button>
-                                        <p class="txt-medium txt-green">- ₩272,682</p>
-                                    </li>
-                                    <li>
-                                        <button type="button" class="btn btn-txt-link"><span class="txt">청소비</span></button>
-                                        <p class="txt-basic">₩117,536</p>
-                                    </li>
-                                    <li>
-                                        <button type="button" class="btn btn-txt-link"><span class="txt">서비스 수수료</span></button>
-                                        <p class="txt-basic">₩748,032</p>
-                                    </li>
-                                </ul>
-                                <div class="tot-wrap">
-                                    <span class="txt-medium f16">총 합계</span>
-                                    <span class="txt-medium f16">₩6,046,563</span>
-                                </div>
-                                <button type="button" class="btn btn-txt-link btn-report">
-                                    <span class="ico"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 16px; width: 16px; fill: currentcolor;"><path d="M28 6H17V4a2 2 0 0 0-2-2H3v28h2V18h10v2a2 2 0 0 0 2 2h11l.115-.006a1 1 0 0 0 .847-1.269L27.039 14l1.923-6.724A1 1 0 0 0 28 6z"></path></svg></span>
-                                    <span class="txt txt-medium">숙소 신고하기</span>
-                                </button>
                             </div>
                         </div>
                     </div>
 
-                    <div class="explain-item review-area">
+                    <div class="explain-item review-area"  id="reviewArea">
                         <div class="tit-wrap">
                             <p class="tit">★ 4.96 · 후기 128개</p>
                         </div>
@@ -579,7 +585,7 @@
                         </div>
                     </div>
 
-                    <div class="explain-item location-area">
+                    <div class="explain-item location-area"  id="locationArea">
                         <div class="tit-wrap">
                             <p class="tit">호스팅 지역</p>
                         </div>
@@ -776,7 +782,7 @@
     </div>
     <script src="/first_week/js/jquery-3.6.0.min.js"></script>
     <script src="/first_week/js/swiper-bundle.min.js"></script>
-
+    <script src="/first_week/js/main.min.js"></script>
     <script>
         const swiper  = {
             swiper_room : () =>{
@@ -797,6 +803,55 @@
         }
 
         swiper.swiper_room();
+
+
+        //var calendarEl = $('#calendar1');
+        var calendarEl =  document.getElementById('calendar1');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            contentHeight: 250,
+            headerToolbar:{
+                left:'prev',
+                right:'',
+                center:'title',
+            }
+        });
+
+        calendar.render();
+
+        //var calendarEl =  $('#calendar2');
+        var calendarEl2 =  document.getElementById('calendar2');
+        var calendar2 = new FullCalendar.Calendar(calendarEl2, {
+            contentHeight: 250,
+            headerToolbar:{
+                left:'',
+                right:'next',
+                center:'title',
+            }
+        });
+
+        calendar2.render();
+
+        $( document ).ready(function() {
+            var scrolltop;
+            var room_detail_offset = $('.room-detail-area').offset().top;
+            var reserv_btn_offset = $('.book-box .btn-red').offset().top;
+            
+            window.addEventListener('scroll', function() {
+                scrolltop = $(window).scrollTop();
+                if(scrolltop > room_detail_offset){
+                    $('.header-wrap').addClass('is-fixed');
+                }else{
+                    $('.header-wrap').removeClass('is-fixed');
+                }
+                
+                if(scrolltop > reserv_btn_offset){
+                    $('.book-summury-wrap').addClass('is-active');
+                }else{
+                    $('.book-summury-wrap').removeClass('is-active');
+                }
+            });
+        })
+
     </script>
 </body>
 </html>
