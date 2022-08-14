@@ -85,6 +85,7 @@ input::-webkit-calendar-picker-indicator {-webkit-appearance:none;}
 .btn-hover.ico-only {padding:12px; border-radius:50%;}
 
 .btn-basic {height:48px; padding:0 24px; line-height:48px; border-radius:8px; font-size:16px; font-weight:600;}
+.btn-basic.btn-big {height:56px; padding:0 32px; line-height:56px; font-size:18px;}
 
 .btn-red {background:linear-gradient(to right,#E61E4D 0%,#E31C5F 50%,#D70466 100%); color:#fff;}
 
@@ -96,6 +97,10 @@ input::-webkit-calendar-picker-indicator {-webkit-appearance:none;}
 .btn-more {display:flex; font-size:16px; font-weight:600; align-items:center;}
 .btn-more:after {width:8px; height:8px; margin-left:3px; border-right:1px solid #000; border-bottom:1px solid #000;transform: rotate(-45deg); content:'';}
 
+.btn-goback span {font-size:0; display:block; width:8px; height:8px; margin-left:3px; border-right:1px solid #000; border-bottom:1px solid #000;transform: rotate(135deg);}
+.btn-goback::before {display:block; position:absolute; top:0%; left:-20px; width:48px; height:48px; border-radius:50%; content:'';}
+.btn-goback:hover::before {background-color:#F7F7F7;}
+
 /* txt */
 .txt-basic {font-weight:normal !important;}
 .txt-medium {font-weight:600 !important;}
@@ -105,7 +110,9 @@ input::-webkit-calendar-picker-indicator {-webkit-appearance:none;}
 .txt-right {text-align:right !important;}
 .txt-center {text-align:center !important;}
 
+.txt-blue {color:#004cc4 !important;}
 .txt-green {color:#008705 !important;}
+.txt-gray {color:#717171 !important;}
 
 .desc-wrap + .desc-wrap {margin-top:20px;}
 .desc-wrap .desc {font-size:16px; line-height:24px;}
@@ -119,3 +126,30 @@ input::-webkit-calendar-picker-indicator {-webkit-appearance:none;}
 /* icon */
 .ico-exclamation {display:flex; width:15px; height:15px; border-radius:50%; background-color:#000; font-size:12px; font-weight:600; color:#fff; align-items:center; justify-content:center;}
 .ico-exclamation span {display:inline-block; height:15px; margin-left:1px;}
+
+/* margin */
+
+/* padding */
+.pad-l24 {padding-left:24px !important;}
+
+/* 버튼형 셀렉트 */
+.selectbox-wrap {position:relative;}
+.selectbox-wrap .btn-select {display:flex; width:100%; padding:16px 40px 16px 16px; border:1px solid #b0b0b0; border-radius:8px; align-items:center;}
+.selectbox-wrap .btn-select:after {display:block; position:absolute; width:10px; height:10px; top:50%; right:20px; margin-top:-8px; border-right:1px solid #000; border-bottom:1px solid #000; transform: rotate(45deg); content:'';}
+.selectbox-wrap .btn-select .img + .txt {margin-left:16px;}
+.selectbox-wrap .btn-select .txt {font-size:16px; color:#484848;}
+.selectbox-wrap .select-list-wrap {display:none; position:absolute; left:0; bottom:-215px; width:100%; max-height:210px; background-color:#fff;  border:1px solid #b0b0b0; border-radius:8px; z-index:1; overflow-y:auto;}
+.selectbox-wrap .select-list-wrap .btn-select-item {display:flex; width:100%; padding:16px 40px 16px 16px; align-items:center;}
+.selectbox-wrap .select-list-wrap .btn-select-item .img + .txt {margin-left:16px;}
+.selectbox-wrap .select-list-wrap .btn-select-item .txt {font-size:16px; color:#484848;}
+.selectbox-wrap .select-list-wrap .btn-select-item.is-checked,
+.selectbox-wrap .select-list-wrap .btn-select-item:hover,
+.selectbox-wrap .select-list-wrap .btn-select-item:focus {background-color:#f2f2f2;}
+.selectbox-wrap .select-list-wrap .btn-select-item .img-chk {position:absolute; top:50%; right:0; margin-top:-24px;}
+.selectbox-wrap .select-list-wrap li .tit {padding:16px 12px 4px 16px; font-size:12px; font-weight:600; color:#484848;}
+.selectbox-wrap.is-active .btn-select:after {transform: rotate(-135deg);}
+.selectbox-wrap.is-active .select-list-wrap {display:block;}
+
+/* input */
+.inp {border:1px solid #b0b0b0; border-radius:8px;}
+.inp-textarea {width:100%; padding:8px; font-size:16px; line-height:20px;}

@@ -112,14 +112,22 @@
 
 
 /* footer */
-.main-page .footer {position:fixed; bottom:0; left:0; width:100%; border-top:1px solid #ddd; background-color:#fff; z-index:25;}
-.footer {}
+.wrapper.sub-page .footer .inner {width:1227px;}
+.footer {background-color:#f7f7f7; border-top:1px solid #ddd;}
+.footer .inner {position:relative;}
 .footer .btn-map {display:flex; position:absolute; top:-90px; left:50%; padding:14px 19px; transform: translateX(-50%); background-color:#222; border-radius:45px; font-weight:600; color:#fff; align-items:center;}
 .footer .btn-map .ico {margin-left:8px;}
+.footer .site-map-area {padding:48px 0; display:flex;}
+.footer .site-map-area .item {flex:1;}
+.footer .site-map-area .item .tit {font-weight:600;}
+.footer .site-map-area .item ul {margin-top:16px;}
+.footer .site-map-area .item ul li + li {margin-top:16px;}
+.footer .site-map-area  + .top-area {border-top:1px solid #ddd;}
 .footer .top-area {display:flex; padding:13px 0; justify-content:space-between;}
 .footer .top-area .policy-list {display:flex; }
 .footer .top-area .policy-list li {display:flex; color:#222;}
 .footer .top-area .policy-list li + li:before {display:block; width:18px; content:'·'; text-align:center;}
+.footer .top-area .stting-wrap {display:flex;}
 .footer .top-area .stting-list {display:flex; }
 .footer .top-area .stting-list li + li {margin-left:24px;}
 .footer .top-area .stting-list li .btn {display:flex; color:#222; font-weight:600; align-items:center;}
@@ -128,7 +136,12 @@
 .footer .top-area .stting-list li.item01 .btn .ico{margin-right:8px;}
 .footer .top-area .stting-list li.item02 .btn .ico{margin-right:8px;}
 .footer .top-area .stting-list li.item03 .btn .ico{margin-left:8px;}
+.footer .top-area .stting-list + .sns-list {margin-left:30px;}
+.footer .top-area .sns-list {display:flex;}
+.footer .top-area .sns-list li + li {margin-left:24px;}
 .footer .bottom-area { border-top:1px solid #ddd; font-size:10px; color:#717171; padding:8px 0;}
+
+.main-page .footer {position:fixed; bottom:0; left:0; width:100%; border-top:1px solid #ddd; background-color:#fff; z-index:25;}
 
 
 /* 숙소 상세 페이지 */
@@ -239,7 +252,7 @@
 .book-area .book-box .checkin-box .bot-wrap .btn em {display:block; margin-bottom:3px; font-size:10px; font-weight:800;}
 .book-area .book-box .btn-wrap {margin-top:16px;}
 .book-area .book-box .explain {margin-top:16px; text-align:center;}
-.book-area .book-box .price-items {margin-top:24px;}
+.book-area .book-box .explain + .price-items-wrap {margin-top:24px;}
 .book-area .book-box .price-items li {display:flex; font-size:16px; justify-content: space-between;}
 .book-area .book-box .price-items li + li {margin-top:16px;}
 .book-area .book-box .tot-wrap {display: flex; margin-top:24px; padding-top:24px; border-top:1px solid #d3d3d3; justify-content:space-between;}
@@ -315,3 +328,64 @@
 .sub-header .book-summury-wrap .day {font-size:14px; font-weight:normal;}
 .sub-header .book-summury-wrap .review-info {display:flex; font-size:12px; align-items:center; line-height:1;}
 .sub-header .book-summury-wrap .review-info .btn-txt-link {color:#717171;}
+
+
+/* 예약 신청 페이지 */
+.containner-reserve .reserve-area .reserve-content {display:flex;}
+.containner-reserve .reserve-area .reserve-content .reserve-info-area {width:50%;}
+.containner-reserve .reserve-area .reserve-content .book-area {width: 41.6667%; margin-left: 8.33333%;}
+.containner-reserve .reserve-area .reserve-content .book-area .book-box-wrap {position:sticky; top:80px;}
+
+.reserve-tit-area {display:flex; padding:64px 0 48px;}
+.reserve-tit-area .tit {font-size:32px; font-weight:600;}
+.reserve-tit-area .btn-goback {margin-right:32px;}
+
+.reserve-item {padding:32px 0;}
+.reserve-item + .reserve-item {border-top: 1px solid #d3d3d3;}
+.reserve-item .tit-wrap {display:flex; margin-bottom:24px;}
+.reserve-item .tit-wrap .tit {font-size:22px; font-weight:600;}
+
+.reserve-content .reserve-info-wrap {padding-top:0;}
+.reserve-content .reserve-info-wrap .reserve-info-list li {display:flex; justify-content:space-between; font-size:16px; align-items: flex-start;}
+.reserve-content .reserve-info-wrap .reserve-info-list li + li {margin-top:24px;}
+.reserve-content .reserve-info-wrap .reserve-info-list li .txt-wrap p {margin-top:8px;}
+
+.reserve-content .pay-info-wrap .tit-wrap {justify-content:space-between;}
+.reserve-content .pay-info-wrap .card-type-wrap ul {display:flex;}
+.reserve-content .pay-info-wrap .card-type-wrap ul li + li {margin-left:6px;}
+
+.reserve-content .pay-info-wrap .selectbox-wrap + .btn-wrap {margin-top:24px}
+
+.reserve-content .msg-info-wrap .host-wrap {display:flex; padding:32px 0; align-items:center;}
+.reserve-content .msg-info-wrap .host-wrap .img {width:42px; height:42px; margin-right:16px; border-radius:50%; overflow:hidden;}
+.reserve-content .msg-info-wrap .host-wrap .img img {width:100%;}
+
+.reserve-content .refund-info-wrap .desc-wrap .btn-txt-link {display:inline-block;}
+
+.reserve-content .confirm-info-wrap .confirm-info {display:flex;}
+.reserve-content .confirm-info-wrap .confirm-info p {line-height:22px;}
+.reserve-content .confirm-info-wrap .confirm-info .img {margin-right:25px;}
+
+.reserve-content .policy-info-wrap .policy-txt-wrap p {margin:8px 0; font-size:12px; line-height:16px;}
+.reserve-content .policy-info-wrap .policy-txt-wrap p .btn-txt-link {display:inline-block;}
+.reserve-content .policy-info-wrap .policy-txt-wrap + .btn-wrap {margin-top:24px;}
+
+
+.reserve-content .book-box{box-shadow:none;}
+.reserve-content .book-box .room-info-wrap {display:flex;}
+.reserve-content .book-box .room-info-wrap .room-thumbnail {width:124px; height:106px;  border-radius:8px; overflow:hidden;}
+.reserve-content .book-box .room-info-wrap .room-thumbnail img {width:100%; height:100%; object-fit: cover;}
+.reserve-content .book-box .room-info-wrap .txt-wrap {display:flex; margin-left:16px; flex-direction:column;}
+.reserve-content .book-box .room-info-wrap .txt-wrap .top-wrap span {display:block;}
+.reserve-content .book-box .room-info-wrap .txt-wrap .top-wrap .room-type {font-size:12px; color:#717171;}
+.reserve-content .book-box .room-info-wrap .txt-wrap .top-wrap .room-name {margin-top:4px; word-break:keep-all;}
+.reserve-content .book-box .room-info-wrap .txt-wrap .bot-wrap {margin-top:auto;}
+.reserve-content .book-box .room-info-wrap .txt-wrap .bot-wrap ul {display:flex;}
+.reserve-content .book-box .room-info-wrap .txt-wrap .bot-wrap ul li {display:flex; font-size:12px; align-items:center;}
+.reserve-content .book-box .room-info-wrap .txt-wrap .bot-wrap ul li + li:before {display:block; margin:0 5px; font-size:16px; content:'•';}
+.reserve-content .book-box .air-corver-wrap {margin-top:24px; padding:24px 0; border-top:1px solid #d3d3d3;}
+.reserve-content .book-box .air-corver-wrap .txt-wrap {display:flex; align-items:center;}
+.reserve-content .book-box .air-corver-wrap .txt-wrap .img {position:relative; width:50px; top:-2px;}
+.reserve-content .book-box .air-corver-wrap .txt-wrap .img img {width:100%;}
+.reserve-content .book-box .price-items-wrap { border-top:1px solid #d3d3d3;}
+.reserve-content .book-box .price-items-wrap .tit-wrap {padding:24px 0; font-size:22px; font-weight:600;}
