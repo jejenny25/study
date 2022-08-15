@@ -225,13 +225,37 @@
 .room-explain-area .facilities-area .btn-wrap {margin-top:34px;}
 
 .room-explain-area .calendar-area .tit-wrap .txt {color:#717171}
-.calendar-wrap {display:flex; justify-content:space-between;}
-.calendar-wrap .item-calendar {width:calc(50% - 15px);}
-.calendar-wrap .fc .fc-toolbar-title {font-size:16px;}
-.calendar-wrap .fc .fc-button-primary {background-color: #fff; color:#222; border:none;}
-.calendar-wrap .fc .fc-toolbar.fc-header-toolbar {margin-bottom:10px;}
-.calendar-wrap .fc .fc-scrollgrid-liquid,
-.calendar-wrap .fc-theme-standard td, .fc-theme-standard th {border:none;}
+.calendar-wrap {display:flex; width:730px; justify-content:space-between;}
+.calendar-wrap .item-calendar {width:calc(50% - 10px);}
+.calendar-wrap .ui-widget.ui-widget-content {width:100%; border:none;}
+.calendar-wrap .ui-widget-header {border:none; background:none; font-size:16px;}
+.calendar-wrap .ui-datepicker th {font-size:12px; color:#717171;}
+.calendar-wrap .ui-datepicker .ui-datepicker-unselectable{opacity:1;}
+.calendar-wrap .ui-datepicker .ui-datepicker-unselectable span, 
+.calendar-wrap .ui-datepicker .ui-datepicker-unselectable a {color:#b0b0b0; text-decoration: line-through; font-weight:400;}
+
+.calendar-wrap .ui-state-default, 
+.calendar-wrap .ui-widget-content .ui-state-default, 
+.calendar-wrap .ui-widget-header .ui-state-default, 
+.calendar-wrap .ui-button, 
+html .calendar-wrap  .ui-button.ui-state-disabled:hover, 
+html .calendar-wrap  .ui-button.ui-state-disabled:active {display:flex; width:47px; height:47px; border:none; border-radius:50%; background:none; box-sizing:border-box; align-items:center; justify-content:center; font-weight:600;}
+
+.calendar-wrap .ui-state-active, 
+.calendar-wrap .ui-widget-content .ui-state-active, 
+.calendar-wrap .ui-widget-header .ui-state-active, 
+.calendar-wrap a.ui-button:active, 
+.calendar-wrap .ui-button:active, 
+.calendar-wrap .ui-button.ui-state-active:hover {background-color:#222; color:#fff;}
+.calendar-wrap .ui-datepicker .ui-datepicker-prev span, 
+.calendar-wrap .ui-datepicker .ui-datepicker-next span {position:relative;}
+.calendar-wrap .ui-datepicker .ui-datepicker-prev span::before, 
+.calendar-wrap .ui-datepicker .ui-datepicker-next span::before {position:absolute; top:4px; left:-1px; width:8px; height:8px; margin-left:3px; border-right:1px solid #000; border-bottom:1px solid #000;transform: rotate(-45deg); content:'';}
+.calendar-wrap .ui-datepicker .ui-datepicker-prev span::before {transform: rotate(135deg);}
+.calendar-wrap .ui-widget-header .ui-state-hover{background:#F7F7F7;; border:none; border-radius:50%;}
+.calendar-wrap .ui-datepicker .ui-datepicker-prev, 
+.calendar-wrap .ui-datepicker .ui-datepicker-next {cursor:pointer; top:2px; right:2px; border-radius:50%;}
+.calendar-wrap .ui-datepicker .ui-datepicker-prev {right:inherit; left:2px;}
 
 .room-detail-area .book-area {position:relative; width:41%; padding-bottom:90px; margin-left:8%;}
 .room-detail-area .book-area .book-box-wrap {position:sticky; top:128px;}
