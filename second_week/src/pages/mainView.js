@@ -30,7 +30,7 @@ const mainView = () => {
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
-        },
+        }, 
     };
 
     const thumb_settings = {
