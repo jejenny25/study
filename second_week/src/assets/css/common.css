@@ -6,9 +6,9 @@
 /*-------------------------------------------------------------------
 	@웹폰트
 -------------------------------------------------------------------*/
-@font-face {font-family:"Circular"; font-weight:normal; src:url('./fonts/Airbnb_Cereal-Book.woff2') format('woff2');}
-@font-face {font-family:"Circular"; font-weight:600; src:url('./fonts/Airbnb_Cereal-Medium.woff2') format('woff2');}
-@font-face {font-family:"Circular"; font-weight:8; src:url('./fonts/Airbnb_Cereal-Bold.woff2') format('woff2');}
+@font-face {font-family:"Circular"; font-weight:normal; src:url('../fonts/Airbnb_Cereal-Book.woff2') format('woff2');}
+@font-face {font-family:"Circular"; font-weight:600; src:url('../fonts/Airbnb_Cereal-Medium.woff2') format('woff2');}
+@font-face {font-family:"Circular"; font-weight:8; src:url('../fonts/Airbnb_Cereal-Bold.woff2') format('woff2');}
 
 /*-------------------------------------------------------------------
 	@초기화
