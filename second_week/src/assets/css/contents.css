@@ -130,13 +130,13 @@
 .footer .top-area .policy-list li + li:before {display:block; width:18px; content:'·'; text-align:center;}
 .footer .top-area .stting-wrap {display:flex;}
 .footer .top-area .stting-list {display:flex; }
-.footer .top-area .stting-list li + li {margin-left:24px;}
-.footer .top-area .stting-list li .btn {display:flex; color:#222; font-weight:600; align-items:center;}
-.footer .top-area .stting-list li .btn span {display:inline-block; line-height:1.2;}
-.footer .top-area .stting-list li .btn:hover .txt {text-decoration:underline;}
-.footer .top-area .stting-list li.item01 .btn .ico{margin-right:8px;}
-.footer .top-area .stting-list li.item02 .btn .ico{margin-right:8px;}
-.footer .top-area .stting-list li.item03 .btn .ico{margin-left:8px;}
+.footer .top-area .stting-list .item + .item {margin-left:24px;}
+.footer .top-area .stting-list .item .btn {display:flex; color:#222; font-weight:600; align-items:center;}
+.footer .top-area .stting-list .item .btn span {display:inline-block; line-height:1.2;}
+.footer .top-area .stting-list .item .btn:hover .txt {text-decoration:underline;}
+.footer .top-area .stting-list .item.item01 .btn .ico{margin-right:8px;}
+.footer .top-area .stting-list .item.item02 .btn .ico{margin-right:8px;}
+.footer .top-area .stting-list .item.item03 .btn .ico{margin-left:8px;}
 .footer .top-area .stting-list + .sns-list {margin-left:30px;}
 .footer .top-area .sns-list {display:flex;}
 .footer .top-area .sns-list li + li {margin-left:24px;}

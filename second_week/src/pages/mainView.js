@@ -18,7 +18,7 @@ import { ReactComponent as IcoFilter } from "../assets/images/ico-filter.svg";
 import { ReactComponent as IcoMap } from "../assets/images/ico-map.svg";
 import { ReactComponent as IcoArr } from "../assets/images/ico-arr.svg";
 
-const mainView = () => {
+const MainView = () => {
     
     Swipercore.use([Navigation, Pagination]);
 
@@ -414,4 +414,4 @@ const mainView = () => {
     )
 }
 
-export default mainView
+export default MainView
