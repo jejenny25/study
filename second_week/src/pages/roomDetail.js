@@ -2,12 +2,22 @@ import React, { useState, useEffect, useRef } from 'react';
 import Header from "../component/Header";
 import Footer from "../component/Footer";
 
+//스와이퍼
 import { Swiper, SwiperSlide } from "swiper/react";
 import Swipercore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import "swiper/css"; //basic
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+//달력
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
+import DatePicker from "../component/DatePicker";
+
+// 지도
+import Map from "../component/Map";
+
+// 아이콘 목록
 import { ReactComponent as BtnTranslate } from "../assets/images/btn-translate.svg";
 import { ReactComponent as IcoShare } from "../assets/images/ico-share.svg";
 import { ReactComponent as IcoSave } from "../assets/images/ico-save.svg";
@@ -41,7 +51,7 @@ const RoomDetail = () => {
         slidesPerGroup : 1,
         spaceBetween: 16, 
         touchRatio: 0,//드래그 금지
-        speed : 1000,
+        speed : 1200,
 
         // Navigation arrows
         navigation: {
@@ -51,37 +61,52 @@ const RoomDetail = () => {
     };
 
     // 스크롤 관련
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll, { capture: true }); // 스크롤 이벤트 등록
-            return () => {
-        window.removeEventListener('scroll', handleScroll); // 스크롤 이벤트 등록 제거(성능저하방지)
-    };
-    }, []);
+    // useEffect(() => { 
+    //     window.addEventListener('scroll', handleScroll); // 스크롤 이벤트 등록
+    //         return () => {
+    //     window.removeEventListener('scroll', handleScroll); // 스크롤 이벤트 등록 제거(성능저하방지)
+    // };
+    // }, []);
+
+    // const [fixed_header,setFixed] = useState(1);
+    // const roomDetail = document.getElementById('roomDetailArea');
+    // const handleScroll = () => {
+    //     const scrollY = window.scrollY;
+    //     const room_detail_offset = roomDetail.offsetTop;
+
+    //     if (scrollY >= room_detail_offset) {
+    //         setFixed(1);
+    //     } else {		         
+    //         setFixed(0);
+    //     }
+
+    //     return;
+    // }
     
-    const refRoomDetail = useRef(null);
-    let fixed_header = false;
-    const handleScroll = () => {
-        const scrollY = window.scrollY;
-        const room_detail_offset = refRoomDetail.current.offsetTop;
+    // const refRoomDetail = useRef(null);
+    // const [fixed_header,setFixed] = useState(1);
+    // const el = document.getElementById('roomDetailArea');
+    // const handleScroll = () => {
+    //     const scrollY = window.scrollY;
+    //     const room_detail_offset = refRoomDetail.current.offsetTop;
+    //     const room_detail_offset2 = el.current.offsetTop;
 
-        //console.log(scrollY);
-        //console.log("room : " + room_detail_offset);
+    //     //console.log(scrollY);
+    //     //console.log("room : " + room_detail_offset);
 
-        if (scrollY >= room_detail_offset) {
-            fixed_header = true;
-        } else {		         
-            fixed_header = false;
-        }
-        console.log(fixed_header);
+    //     if (scrollY >= room_detail_offset) {
+    //         setFixed(1);
+    //     } else {		         
+    //         setFixed(0);
+    //     }
+    //     console.log(room_detail_offset);
+    //     return fixed_header;
+    // }
 
-        return fixed_header;
-    }
-    
 
     return(
         <div className="wrapper sub-page">
-            <Header currentPage={"roomDetail"} isFixed={fixed_header} />
-            
+            <Header currentPage={"roomDetail"} fixed_header />
             {/* Container */}
             <main role="main" className="container containner-roomdetail">
 
@@ -141,7 +166,7 @@ const RoomDetail = () => {
                             </div>
                         </div>
 
-                        <div className="room-detail-area" id="roomDetailArea" ref={refRoomDetail}>
+                        <div className="room-detail-area" id="roomDetailArea"> 
                             <div className="room-explain-area">
                                 <div className="explain-item room-name-wrap">
                                     <div className="tit-wrap">
@@ -347,15 +372,8 @@ const RoomDetail = () => {
 
                                 
                                 <div className="explain-item calendar-area">
-                                    <div className="tit-wrap">
-                                        <p className="tit">El Nido에서 7박</p>
-                                        <p className="txt">2022년 8월 20일 - 2022년 8월 27일</p>
-                                    </div>
 
-                                    <div className="calendar-wrap">
-                                        <div className="item-calendar calendar1" id="calendar1"></div>
-                                        <div className="item-calendar calendar2" id="calendar2"></div>
-                                    </div>
+                                    <DatePicker />
 
                                     <div className="btn-wrap align-both-end">
                                         <button type="button" className="btn btn-hover ico-only"><span><IcoKeyboard /></span></button>
@@ -595,7 +613,8 @@ const RoomDetail = () => {
                                 <p className="tit">호스팅 지역</p>
                             </div>
                             <div className="map-wrap">
-                                <div id="googleMap" style={{width:'100%', height:'480px'}}></div>
+                                <Map />
+                                {/* <div id="googleMap" style={{width:'100%', height:'480px'}}></div> */}
                             </div>
 
                             <div className="desc-wrap">
