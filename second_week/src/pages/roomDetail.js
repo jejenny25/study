@@ -82,31 +82,57 @@ const RoomDetail = () => {
 
     //     return;
     // }
+
+    // 스크롤 관련
+    useEffect(() => { 
+        window.addEventListener('scroll', handleScroll); // 스크롤 이벤트 등록
+            return () => {
+        window.removeEventListener('scroll', handleScroll); // 스크롤 이벤트 등록 제거(성능저하방지)
+    };
+    }, []);
     
-    // const refRoomDetail = useRef(null);
-    // const [fixed_header,setFixed] = useState(1);
-    // const el = document.getElementById('roomDetailArea');
-    // const handleScroll = () => {
-    //     const scrollY = window.scrollY;
-    //     const room_detail_offset = refRoomDetail.current.offsetTop;
-    //     const room_detail_offset2 = el.current.offsetTop;
+    const refRoomDetail = useRef();
+    const refBtnReserve = useRef();
+    //const refBookArea = useRef();
+    const book_area_h = document.getElementById('bookArea').clientHeight;
+    const [isFixed,setFixed] = useState(false);
+    const [isReservBtn,setReserveBtn] = useState(false); 
+    const handleScroll = () => {
+        const scrollY = window.scrollY;
+        if(refRoomDetail.current) {
+            const room_detail_offset = refRoomDetail.current.offsetTop;
 
-    //     //console.log(scrollY);
-    //     //console.log("room : " + room_detail_offset);
+            if (scrollY >= room_detail_offset) {
+                setFixed(current => {
+                    return true;
+                });
+            } else {		      
+                setFixed(current => {
+                    return false;
+                });
+            }
+        }
 
-    //     if (scrollY >= room_detail_offset) {
-    //         setFixed(1);
-    //     } else {		         
-    //         setFixed(0);
-    //     }
-    //     console.log(room_detail_offset);
-    //     return fixed_header;
-    // }
-
+        if(refBtnReserve.current) {
+            const btn_offset = refBtnReserve.current.offsetTop;
+            if (scrollY >= (book_area_h + btn_offset) + 100 ) {
+                setReserveBtn(current => {
+                    return true;
+                });
+            } else {		      
+                setReserveBtn(current => {
+                    return false;
+                });
+            }
+        }
+    }
 
     return(
         <div className="wrapper sub-page">
-            <Header currentPage={"roomDetail"} fixed_header />
+            <div className={`header-wrapper ${isFixed ? 'is-fixed' : ''} ${isReservBtn ? 'is-reserve-btn' : ''}`} // 얘를 변경 해서 메뉴바를 붙여줌 
+            >
+                <Header currentPage={"roomDetail"} />
+            </div>
             {/* Container */}
             <main role="main" className="container containner-roomdetail">
 
@@ -166,7 +192,7 @@ const RoomDetail = () => {
                             </div>
                         </div>
 
-                        <div className="room-detail-area" id="roomDetailArea"> 
+                        <div className="room-detail-area" id="roomDetailArea" ref={refRoomDetail}> 
                             <div className="room-explain-area">
                                 <div className="explain-item room-name-wrap">
                                     <div className="tit-wrap">
@@ -382,7 +408,7 @@ const RoomDetail = () => {
                                 </div>
                             </div>
                             
-                            <div className="book-area">
+                            <div className="book-area" id="bookArea" >
                                 <div className="book-box-wrap">
                                     <div className="book-box">
                                         <div className="top-area">
@@ -405,13 +431,13 @@ const RoomDetail = () => {
                                             </div>
                                         </div>
 
-                                        <div className="btn-wrap" id="btnReserv">
+                                        <div className="btn-wrap" ref={refBtnReserve}>
                                             <button type="button" className="btn w-100 btn-basic btn-red"><span>예약하기</span></button>
                                         </div>
 
                                         <div className="explain"><p>예약 확정 전에는 요금이 청구되지 않습니다.</p></div>
 
-                                        <div className="price-items-wrap">
+                                        <div className="price-items-wrap" >
                                             <ul className="price-items">
                                                 <li>
                                                     <button type="button" className="btn btn-txt-link"><span className="txt">₩779,097 x 7박</span></button>

@@ -6,9 +6,8 @@ import { ReactComponent as IcoProfile } from "../assets/images/ico-profile.svg";
 
 const Header = (props) =>{
     return(
-        <header className={props.isFixed ? 'header-wrap is-fixed' : 'header-wrap'} id={props.currentPage} >
-            {props.isFixed}
-            <div className="inner">
+        <header className='header-wrap' id={props.currentPage} >
+            <div className={props.currentPage != "reserve" ? 'inner' : ''}>
                 <div className={props.currentPage === "reserve" ? 'header pad-l24' : 'header'}>
                     <h1 className="logo">
                         <a href="#" title="에어비앤비 메인으로 가기">
@@ -16,7 +15,7 @@ const Header = (props) =>{
                         </a>
                     </h1>
 
-                    {props.currentPage === "reserve" &&  
+                    {props.currentPage === "main" &&  
                         <div className="sch-wrap">
                             <div className="sch-before-wrap">
                                 <button type="button" className="btn btn-where"><span className="txt">어디든지</span></button>

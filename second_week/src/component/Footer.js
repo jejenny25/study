@@ -96,7 +96,7 @@ const Footer = ({currentPage}) => {
                                 </div>
                             }
                         </div>
-                        {currentPage === "roomDetail" &&  
+                        {currentPage != "main" &&  
                             <ul className="sns-list">
                                 <li className="item">
                                     <a target="_blank" href="https://www.facebook.com/AirbnbKorea"><BtnFacebook /></a>
