@@ -8,21 +8,58 @@
 /* header */
 .header-wrap {position:absolute; width:100%; top:0; left:0; border-bottom:1px solid rgba(0, 0, 0, 8%); background-color:#fff; z-index:500;}
 .main-page .header-wrap { position:fixed; }
+
 .header {display:flex; height:80px; justify-content:space-between; align-items:center;}
 .header .logo {flex:1 0 140px;}
 .header .logo a {display:flex; height:80px; color:#FF385C; align-items:center;}
 
-.header .sch-wrap .sch-before-wrap {display:flex; border:1px solid #ddd; border-radius:40px; align-items:center; box-shadow:0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%); flex: 0 1 auto;}
+.header .sch-wrap .sch-before-wrap {display:flex; visibility:visible; border:1px solid #ddd; border-radius:40px; align-items:center; box-shadow:0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%); flex: 0 1 auto; height:48px; opacity:1; transform:scale(1); transition: transform 250ms ease,opacity 100ms ease,visibility 0ms 50ms;}
 .header .sch-wrap .sch-before-wrap .btn {height:48px; font-weight:600; line-height:48px;}
 .header .sch-wrap .sch-before-wrap .btn .txt {padding:0 16px;}
 .header .sch-wrap .sch-before-wrap .btn + .btn::before {display:inline-block; content:''; position:absolute; top:50%; left:0; width:1px; height:14px; margin-top:-7px; background-color:#ddd;}
 .header .sch-wrap .sch-before-wrap .btn.btn-where {margin-left:10px;}
 .header .sch-wrap .sch-before-wrap .btn.has-sch-ico {display:inline-flex; align-items:center; color:#888; font-weight:normal; justify-content:space-between;}
-.header .sch-wrap .sch-before-wrap .btn.has-sch-ico .ico {display:flex; width:32px; height:32px; margin:10px 10px 10px 0; border-radius:50%; background-color:#FF385C; align-items:center; justify-content:center; color:#fff;}
-
+.header .sch-wrap .sch-before-wrap .btn.has-sch-ico p {display:flex; width:32px; height:32px; margin:10px 10px 10px 0; border-radius:50%; background-color:#FF385C; align-items:center; justify-content:center; color:#fff;}
+.header .sch-wrap .sch-before-wrap .btn.has-sch-ico .ico {width:12px; height:12px;}
 .header .sch-wrap .sch-before-wrap.type-one-btn .btn {width:300px; font-weight:600; padding-left:10px; color:#222;}
 
-.personal-wrap {display:flex; width:100%; align-items:center; flex:1 0 140px; justify-content:flex-end;}
+.header .sch-wrap .sch-after-wrap {position:absolute; top:0; left:0; visibility:hidden; opacity:0; height:162px; width:100%; transform:scale(0); transition:transform 250ms ease,opacity 200ms ease;}
+.header .sch-wrap .sch-after-wrap .after-inner {width:850px; margin:auto;}
+
+.sch-after-wrap .sch-type-wrap .sch-type-list {display:flex; height:80px; align-items:center; justify-content:center;}
+.sch-after-wrap .sch-type-wrap .sch-type-list .btn {margin:10px 12px; font-size:16px; font-weight:600;}
+.sch-after-wrap .sch-type-wrap .sch-type-list .btn span {position:relative;}
+.sch-after-wrap .sch-type-wrap .sch-type-list .btn span:after {content: ''; visibility:hidden; height: 2px; position: absolute; top: calc(100% + 8px); width: 100%; background-color: currentcolor; inset-inline: 0; transform: scaleX(0); transition: transform 0.2s ease;}
+.sch-after-wrap .sch-type-wrap .sch-type-list .btn:hover {opacity:0.65;}
+.sch-after-wrap .sch-type-wrap .sch-type-list .btn:hover span:after{visibility:visible; transform: scaleX(1);}
+.sch-after-wrap .sch-type-wrap .sch-type-list .btn.is-active,
+.sch-after-wrap .sch-type-wrap .sch-type-list .btn.is-active:hover {opacity:1;}
+.sch-after-wrap .sch-type-wrap .sch-type-list .btn.is-active span:after{visibility:visible; transform: scaleX(1);}
+
+.sch-after-wrap .sch-detail-wrap {display: flex; height: 66px; position: relative; width: 100%; border:1px solid #ddd; background:#EBEBEB; border-radius:32px;}
+.sch-after-wrap .sch-detail-wrap .sch-tab-wrap {display:flex; width:100%;}
+.sch-after-wrap .sch-detail-wrap .sch-tab-wrap .item {display:flex; position:relative; flex:1 0 0%; align-items:center;}
+.sch-after-wrap .sch-detail-wrap .sch-tab-wrap .item.item-place {flex:1.25 0 0%;}
+.sch-after-wrap .sch-detail-wrap .sch-tab-wrap .item + .item:before {display:block; width:1px; height:32px; background:#ddd; content:'';}
+.sch-after-wrap .sch-detail-wrap .sch-tab-wrap .item .input-wrap {display:flex; width:100%; padding:13px 32px; margin:-1px; flex-direction:column; border-radius: 32px; cursor:pointer; border:1px solid transparent;}
+.sch-after-wrap .sch-detail-wrap .sch-tab-wrap .item .input-wrap:hover {background:#ddd;}
+.sch-after-wrap .sch-detail-wrap .sch-tab-wrap .item.is-active .input-wrap {background:#fff; box-shadow:0px 7px 12px 7px rgb(0 0 0 / 10%);}
+.sch-after-wrap .sch-detail-wrap .sch-tab-wrap .item .input-wrap .txt-label {display:inline-block; padding-bottom:2px; font-size:12px; font-weight:600;}
+.sch-after-wrap .sch-detail-wrap .sch-tab-wrap .item .input-wrap .txt-input {color:#717171}
+.sch-after-wrap .sch-detail-wrap .item-guest .btn-wrap {position:absolute; top:8px; right:8px;}
+.sch-after-wrap .sch-detail-wrap .btn-sch {display:flex; height:48px; padding:16px; border-radius:24px; background:linear-gradient(to right,#E61E4D 0%,#E31C5F 50%,#D70466 100%); color:#fff; font-size:16px; font-weight:600; align-items:center;}
+.sch-after-wrap .sch-detail-wrap .btn-sch .ico {width:16px; height:16px;}
+.sch-after-wrap .sch-detail-wrap .btn-sch .txt {display:block; padding:0 4px 0 8px; }
+.sch-after-wrap .sch-detail-wrap .item .item-detail{display:none; width:100%; width:850px; height:474px; position:absolute; bottom:-486px; left:0; background:#fff; border-radius: 32px; box-shadow: 0 0 0 1px rgb(0 0 0 / 4%), 0 8px 16px rgb(0 0 0 / 15%); margin-top: 12px; padding: 16px 32px;}
+.sch-after-wrap .sch-detail-wrap .item.is-active .item-detail {display:block;}
+
+/* active */
+.main-page .header-wrap.is-active {height:162px;}
+.main-page .header-wrap.is-active .header {align-items:flex-start;}
+.main-page .header-wrap.is-active .header .sch-wrap .sch-before-wrap {visibility:hidden; opacity:0; transform:scale(0);}
+.main-page .header-wrap.is-active .header .sch-wrap .sch-after-wrap {visibility:visible; opacity:1; transform:scale(1);}
+
+.personal-wrap {display:flex; width:100%; height:80px; align-items:center; flex:1 0 140px; justify-content:flex-end;}
 .personal-wrap .btn {border-radius:40px; padding:10px 12px; border-radius:40px; font-weight:600;}
 .personal-wrap .btn:focus,
 .personal-wrap .btn:hover {background-color:#f7f7f7;}

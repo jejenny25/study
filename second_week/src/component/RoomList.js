@@ -37,7 +37,7 @@ const RoomList = () => {
                         <div className="swiper swiper-thumbnail1">
                             <Swiper {...thumb_settings}>
                                 {item.pictures.map((picture) => (
-                                    <SwiperSlide className='img'>
+                                    <SwiperSlide className='img' key={picture.index}>
                                         <a href="#"><img src={picture} /></a>
                                     </SwiperSlide>
                                 ))}

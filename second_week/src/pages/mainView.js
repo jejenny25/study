@@ -8,15 +8,9 @@ import "swiper/css"; //basic
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import { ReactComponent as AirbnbLogo } from "../assets/images/logo.svg";
-import { ReactComponent as IcoSch } from "../assets/images/ico-sch.svg";
-import { ReactComponent as IcoLang } from "../assets/images/ico-lang.svg";
-import { ReactComponent as IcoHamburger } from "../assets/images/ico-hamburger.svg";
-import { ReactComponent as IcoProfile } from "../assets/images/ico-profile.svg";
 import { ReactComponent as IcoFilter } from "../assets/images/ico-filter.svg";
 // import { ReactComponent as IcoHeart } from "../assets/images/ico-heart.svg";
-import { ReactComponent as IcoMap } from "../assets/images/ico-map.svg";
-import { ReactComponent as IcoArr } from "../assets/images/ico-arr.svg";
+
 
 const MainView = () => {
     

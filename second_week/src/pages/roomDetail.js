@@ -61,29 +61,6 @@ const RoomDetail = () => {
     };
 
     // 스크롤 관련
-    // useEffect(() => { 
-    //     window.addEventListener('scroll', handleScroll); // 스크롤 이벤트 등록
-    //         return () => {
-    //     window.removeEventListener('scroll', handleScroll); // 스크롤 이벤트 등록 제거(성능저하방지)
-    // };
-    // }, []);
-
-    // const [fixed_header,setFixed] = useState(1);
-    // const roomDetail = document.getElementById('roomDetailArea');
-    // const handleScroll = () => {
-    //     const scrollY = window.scrollY;
-    //     const room_detail_offset = roomDetail.offsetTop;
-
-    //     if (scrollY >= room_detail_offset) {
-    //         setFixed(1);
-    //     } else {		         
-    //         setFixed(0);
-    //     }
-
-    //     return;
-    // }
-
-    // 스크롤 관련
     useEffect(() => { 
         window.addEventListener('scroll', handleScroll); // 스크롤 이벤트 등록
             return () => {
@@ -93,8 +70,8 @@ const RoomDetail = () => {
     
     const refRoomDetail = useRef();
     const refBtnReserve = useRef();
-    //const refBookArea = useRef();
-    const book_area_h = document.getElementById('bookArea').clientHeight;
+    const refBookArea = useRef();
+    //const btn_offset = refBtnReserve.current.offsetTop;
     const [isFixed,setFixed] = useState(false);
     const [isReservBtn,setReserveBtn] = useState(false); 
     const handleScroll = () => {
@@ -113,8 +90,11 @@ const RoomDetail = () => {
             }
         }
 
-        if(refBtnReserve.current) {
+        if(refBtnReserve.current && refBookArea.current) {
+            const book_area_h = refBookArea.current.clientHeight;
             const btn_offset = refBtnReserve.current.offsetTop;
+            console.log(" book_area_h : " + book_area_h)
+            console.log(" btn_offset : " + btn_offset)
             if (scrollY >= (book_area_h + btn_offset) + 100 ) {
                 setReserveBtn(current => {
                     return true;
@@ -408,7 +388,7 @@ const RoomDetail = () => {
                                 </div>
                             </div>
                             
-                            <div className="book-area" id="bookArea" >
+                            <div className="book-area" id="bookArea" ref={refBookArea}>
                                 <div className="book-box-wrap">
                                     <div className="book-box">
                                         <div className="top-area">

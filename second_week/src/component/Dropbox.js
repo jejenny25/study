@@ -11,7 +11,6 @@ const Dropbox = () =>{
     const dropdownRef = useRef(null);
     const [isActive, setIsActive] = useState(false);
     const onClick = () => setIsActive(!isActive);
-    console.log(isActive);
 
     return (
         <div className={`selectbox-wrap ${isActive ? "is-active" : ""}`}>

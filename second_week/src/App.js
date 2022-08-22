@@ -7,8 +7,8 @@ function App() {
 
 	return (
 			<div>
-				{/* <MainView/> */}
-				<RoomDetail />
+				<MainView/>
+				{/* <RoomDetail /> */}
                 {/* <Reserve /> */}
 			</div>
 		);
