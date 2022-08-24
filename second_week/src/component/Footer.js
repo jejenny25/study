@@ -1,6 +1,6 @@
-import { ReactComponent as IcoMap } from "../assets/images/ico-map.svg";
-import { ReactComponent as IcoArr } from "../assets/images/ico-arr.svg";
-import { ReactComponent as IcoLang } from "../assets/images/ico-lang.svg";
+import { ReactComponent as IcoMap } from "../assets/svg/ico-map.svg";
+import { ReactComponent as IcoArr } from "../assets/svg/ico-arr.svg";
+import { ReactComponent as IcoLang } from "../assets/svg/ico-lang.svg";
 
 import { ReactComponent as BtnFacebook } from "../assets/images/btn-facebook.svg";
 import { ReactComponent as BtnTwitter } from "../assets/images/btn-twitter.svg";

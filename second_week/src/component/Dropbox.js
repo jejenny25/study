@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 
 import { ReactComponent as ImgCardMaster } from "../assets/images/img-card-master.svg";
-import { ReactComponent as IcoCheck } from "../assets/images/ico-check.svg";
-import { ReactComponent as IcoCard } from "../assets/images/ico-card.svg";
+import { ReactComponent as IcoCheck } from "../assets/svg/ico-check.svg";
+import { ReactComponent as IcoCard } from "../assets/svg/ico-card.svg";
 /*
  * Read the blog post here:
  * https://letsbuildui.dev/articles/building-a-dropdown-menu-component-with-react-hooks

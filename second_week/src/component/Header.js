@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 import { ReactComponent as AirbnbLogo } from "../assets/images/logo.svg";
-import { ReactComponent as IcoSch } from "../assets/images/ico-sch.svg";
-import { ReactComponent as IcoLang } from "../assets/images/ico-lang.svg";
-import { ReactComponent as IcoHamburger } from "../assets/images/ico-hamburger.svg";
-import { ReactComponent as IcoProfile } from "../assets/images/ico-profile.svg";
+import { ReactComponent as IcoSch } from "../assets/svg/ico-sch.svg";
+import { ReactComponent as IcoLang } from "../assets/svg/ico-lang.svg";
+import { ReactComponent as IcoHamburger } from "../assets/svg/ico-hamburger.svg";
+import { ReactComponent as IcoProfile } from "../assets/svg/ico-profile.svg";
 
 const Header = (props) =>{
 

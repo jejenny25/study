@@ -20,9 +20,9 @@
             ],
             "name":"MV,몰디브",
             "rate":"NEW",
-            "distance":"6,596",
+            "distance":"6596",
             "date":"10월 12일~17일",
-            "price":"783,725"
+            "price":"783725"
         },
         {
             "id":2,
@@ -49,9 +49,9 @@
             ],
             "name":"El Nido, 필리핀브",
             "rate":"NEW",
-            "distance":"3,050",
+            "distance":"3050",
             "date":"8월 20일~25일",
-            "price":"952,725"
+            "price":"952725"
         },
         {
             "id":3,
@@ -77,9 +77,9 @@
             ],
             "name":"Raa Atoll, 몰디브",
             "rate":"NEW",
-            "distance":"6,596",
+            "distance":"6596",
             "date":"8월 19일~25일",
-            "price":"1,283,725"
+            "price":"1283725"
         },
         {
             "id":4,
@@ -106,9 +106,9 @@
             ],
             "name":"Bandos Maldives, Garden Villa",
             "rate":"NEW",
-            "distance":"6,596",
+            "distance":"6596",
             "date":"0월 12일~17",
-            "price":"892,725"
+            "price":"892725"
         },
         {
             "id":5,
@@ -134,9 +134,9 @@
             ],
             "name":"San Juan, 필리핀",
             "rate":"4.8",
-            "distance":"3,180",
+            "distance":"3180",
             "date":"11월 12일~19일",
-            "price":"168,725"
+            "price":"168725"
         },
         {
             "id":6,
@@ -163,9 +163,9 @@
             ],
             "name":"Kumarakom, 인도",
             "rate":"NEW",
-            "distance":"5,550",
+            "distance":"5550",
             "date":"10월 12일~17일",
-            "price":"608,725"
+            "price":"608725"
         },
         {
             "id":7,
@@ -192,9 +192,9 @@
             ],
             "name":"Cavinti, 필리핀",
             "rate":"NEW",
-            "distance":"2,547",
+            "distance":"2547",
             "date":"10월 12일~17일",
-            "price":"133,982"
+            "price":"133982"
         },
         {
             "id":8,
@@ -221,9 +221,9 @@
             ],
             "name":"Surat Thani, 태국",
             "rate":"NEW",
-            "distance":"4,142",
+            "distance":"4142",
             "date":"8월 7일~17일",
-            "price":"482,252"
+            "price":"482252"
         },
         {
             "id":9,
@@ -245,9 +245,9 @@
             ],
             "name":"Maafushi, 몰디브",
             "rate":"NEW",
-            "distance":"6,596",
+            "distance":"6596",
             "date":"11월 3일~17일",
-            "price":"54,851"
+            "price":"54851"
         },
         {
             "id":10,
@@ -274,9 +274,9 @@
             ],
             "name":"MV,몰디브",
             "rate":"NEW",
-            "distance":"6,596",
+            "distance":"6596",
             "date":"10월 12일~17일",
-            "price":"783,725"
+            "price":"783725"
         },
         {
             "id":11,
@@ -304,9 +304,9 @@
             ],
             "name":"Lumban, 필리핀",
             "rate":"4.88",
-            "distance":"2,648",
+            "distance":"2648",
             "date":"9월 1일~10일",
-            "price":"93,840"
+            "price":"93840"
         },
         {
             "id":12,
@@ -329,9 +329,9 @@
             ],
             "name":"Project Ö - Private island",
             "rate":"NEW",
-            "distance":"7,199",
+            "distance":"7199",
             "date":"8월 11일~16일",
-            "price":"2,783,325"
+            "price":"2783325"
         },
         {
             "id":13,
@@ -358,9 +358,9 @@
             ],
             "name":"Horubadhoo,몰디브",
             "rate":"4.9",
-            "distance":"6,596",
+            "distance":"6596",
             "date":"9월 22일~30일",
-            "price":"267,725"
+            "price":"267725"
         },
         {
             "id":14,
@@ -386,9 +386,9 @@
             ],
             "name":"The Resthouse, Perhentian Island,말레이시아",
             "rate":"4.99",
-            "distance":"4,296",
+            "distance":"4296",
             "date":"1월 1일~6일",
-            "price":"362,725"
+            "price":"362725"
         },
         {
             "id":15,
@@ -415,9 +415,302 @@
             ],
             "name":"Koh Phi Phi,태국",
             "rate":"NEW",
-            "distance":"4,296",
+            "distance":"4296",
             "date":"1월 1일~6일",
-            "price":"62,725"
+            "price":"62725"
+        }
+    ],
+
+    "filters" : [
+        {
+            "id":1,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"섬"
+        },
+        {
+            "id":2,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"국립공원"
+        },
+        {
+            "id":3,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"통나무집"
+        },
+        {
+            "id":4,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"기상천외한 숙소"
+        },
+        {
+            "id":5,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"해변 근처"
+        },
+        {
+            "id":6,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"초소형 주택"
+        },
+        {
+            "id":7,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"디자인"
+        },
+        {
+            "id":8,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"캠핑장"
+        },
+        {
+            "id":9,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"A자형 주택"
+        },
+        {
+            "id":10,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"호숫가"
+        },
+        {
+            "id":11,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"북극"
+        },
+        {
+            "id":12,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"멋진 수영장"
+        },
+        {
+            "id":13,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"동굴"
+        },
+        {
+            "id":14,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"서핑"
+        },
+        {
+            "id":15,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"최고의 전망"
+        },
+        {
+            "id":16,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"복토 주택"
+        },
+        {
+            "id":17,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"열대 지역"
+        },
+        {
+            "id":18,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"셰어하우스"
+        },
+        {
+            "id":19,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"Luxe"
+        },
+        {
+            "id":20,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"B&B"
+        },
+        {
+            "id":21,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"캐슬"
+        },
+        {
+            "id":22,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"농장"
+        },
+        {
+            "id":23,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"농장"
+        },
+        {
+            "id":24,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"한적한 시골"
+        },
+        {
+            "id":25,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"저택"
+        },
+        {
+            "id":26,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"상징적 도시"
+        },
+        {
+            "id":27,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"객잔"
+        },
+        {
+            "id":28,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"해변 바로 앞"
+        },
+        {
+            "id":29,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"골프장"
+        },
+        {
+            "id":30,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"유서 깊은 주택"
+        },
+        {
+            "id":31,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"돔하우스"
+        },
+        {
+            "id":32,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"캠핑카"
+        },
+        {
+            "id":33,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"키클라데스 주택"
+        },
+        {
+            "id":34,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"풍차"
+        },
+        {
+            "id":35,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"와인 농장"
+        },
+        {
+            "id":36,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"전문가급 주방"
+        },
+        {
+            "id":37,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"보트"
+        },
+        {
+            "id":38,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":""
+        },
+        {
+            "id":39,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"스키"
+        },
+        {
+            "id":40,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"민수"
+        },
+        {
+            "id":41,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"컨테이너 하우스"
+        },
+        {
+            "id":42,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"카사 파르티쿨라르"
+        },
+        {
+            "id":43,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"창작공간"
+        },
+        {
+            "id":44,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"마차"
+        },
+        {
+            "id":45,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"트리하우스"
+        },
+        {
+            "id":46,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"료칸"
+        },
+        {
+            "id":47,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"타워"
+        },
+        {
+            "id":48,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"사막"
+        },
+        {
+            "id":49,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"유르트"
+        },
+        {
+            "id":50,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"헛간"
+        },
+        {
+            "id":51,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"하우스보트"
+        },
+        {
+            "id":52,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"속세를 벗어난 숙소"
+        },
+        {
+            "id":53,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"그랜드 피아노"
+        },
+        {
+            "id":54,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"리아드"
+        },
+        {
+            "id":55,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"트룰로"
+        },
+        {
+            "id":56,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"담무소"
+        },
+        {
+            "id":57,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"스키를 탄 채로 출입 가능"
+        },
+        {
+            "id":58,
+            "icon": "../assets/svg/ico-filter-island.jpg",
+            "name":"호수"
         }
     ]
 }

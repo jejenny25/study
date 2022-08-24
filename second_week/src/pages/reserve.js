@@ -5,9 +5,9 @@ import Dropbox from "../component/Dropbox";
 
 // 아이콘 목록
 import { ReactComponent as ImgCardMaster } from "../assets/images/img-card-master.svg";
-import { ReactComponent as IcoCheck } from "../assets/images/ico-check.svg";
-import { ReactComponent as IcoCard } from "../assets/images/ico-card.svg";
-import { ReactComponent as IcoCalendar } from "../assets/images/ico-calendar.svg";
+import { ReactComponent as IcoCheck } from "../assets/svg/ico-check.svg";
+import { ReactComponent as IcoCard } from "../assets/svg/ico-card.svg";
+import { ReactComponent as IcoCalendar } from "../assets/svg/ico-calendar.svg";
 
 
 const Reserve = () => {

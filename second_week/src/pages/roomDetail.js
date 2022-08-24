@@ -19,27 +19,27 @@ import Map from "../component/Map";
 
 // 아이콘 목록
 import { ReactComponent as BtnTranslate } from "../assets/images/btn-translate.svg";
-import { ReactComponent as IcoShare } from "../assets/images/ico-share.svg";
-import { ReactComponent as IcoSave } from "../assets/images/ico-save.svg";
-import { ReactComponent as IcoPicAll } from "../assets/images/ico-picall.svg";
-import { ReactComponent as IcoHostMark } from "../assets/images/ico-host-mark.svg";
-import { ReactComponent as IcoSuperHost } from "../assets/images/ico-superhost.svg";
-import { ReactComponent as IcoLocation } from "../assets/images/ico-location.svg";
-import { ReactComponent as IcoCheckin } from "../assets/images/ico-checkin.svg";
-import { ReactComponent as IcoBedKing } from "../assets/images/ico-bed-king.svg";
-import { ReactComponent as IcoBedQueen } from "../assets/images/ico-bed-queen.svg";
-import { ReactComponent as IcoBay } from "../assets/images/ico-bay.svg";
-import { ReactComponent as IcoGarden } from "../assets/images/ico-garden.svg";
-import { ReactComponent as IcoSea } from "../assets/images/ico-sea.svg";
-import { ReactComponent as IcoKitchen } from "../assets/images/ico-kitchen.svg";
-import { ReactComponent as IcoWifi } from "../assets/images/ico-wifi.svg";
-import { ReactComponent as IcoCarbon } from "../assets/images/ico-carbon.svg";
-import { ReactComponent as IcoKeyboard } from "../assets/images/ico-keyboard.svg";
-import { ReactComponent as IcoFlag } from "../assets/images/ico-flag.svg";
-import { ReactComponent as IcoCertify } from "../assets/images/ico-certify.svg";
-import { ReactComponent as IcoSecurity } from "../assets/images/ico-security.svg";
-import { ReactComponent as IcoClock } from "../assets/images/ico-clock.svg";
-import { ReactComponent as IcoPet } from "../assets/images/ico-pet.svg";
+import { ReactComponent as IcoShare } from "../assets/svg/ico-share.svg";
+import { ReactComponent as IcoSave } from "../assets/svg/ico-save.svg";
+import { ReactComponent as IcoPicAll } from "../assets/svg/ico-picall.svg";
+import { ReactComponent as IcoHostMark } from "../assets/svg/ico-host-mark.svg";
+import { ReactComponent as IcoSuperHost } from "../assets/svg/ico-superhost.svg";
+import { ReactComponent as IcoLocation } from "../assets/svg/ico-location.svg";
+import { ReactComponent as IcoCheckin } from "../assets/svg/ico-checkin.svg";
+import { ReactComponent as IcoBedKing } from "../assets/svg/ico-bed-king.svg";
+import { ReactComponent as IcoBedQueen } from "../assets/svg/ico-bed-queen.svg";
+import { ReactComponent as IcoBay } from "../assets/svg/ico-bay.svg";
+import { ReactComponent as IcoGarden } from "../assets/svg/ico-garden.svg";
+import { ReactComponent as IcoSea } from "../assets/svg/ico-sea.svg";
+import { ReactComponent as IcoKitchen } from "../assets/svg/ico-kitchen.svg";
+import { ReactComponent as IcoWifi } from "../assets/svg/ico-wifi.svg";
+import { ReactComponent as IcoCarbon } from "../assets/svg/ico-carbon.svg";
+import { ReactComponent as IcoKeyboard } from "../assets/svg/ico-keyboard.svg";
+import { ReactComponent as IcoFlag } from "../assets/svg/ico-flag.svg";
+import { ReactComponent as IcoCertify } from "../assets/svg/ico-certify.svg";
+import { ReactComponent as IcoSecurity } from "../assets/svg/ico-security.svg";
+import { ReactComponent as IcoClock } from "../assets/svg/ico-clock.svg";
+import { ReactComponent as IcoPet } from "../assets/svg/ico-pet.svg";
 
 
 const RoomDetail = () => {

@@ -6,7 +6,7 @@ import "swiper/css"; //basic
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import { ReactComponent as IcoHeart } from "../assets/images/ico-heart.svg";
+import { ReactComponent as IcoHeart } from "../assets/svg/ico-heart.svg";
 
 const RoomList = () => {
 
