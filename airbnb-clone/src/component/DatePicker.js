@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 
@@ -8,8 +8,9 @@ import moment from "moment";
 import "moment/locale/ko"
 
 //function DatePicker() {
-const DatePicker = () => {    
+const DatePicker = (props) => {    
     const [dates, setDates] = useState({ startDate: null, endDate: null });
+    const [days, setDays] = useState(0);
 
     const defaultFocusedInput = "startDate";
     const [focusedInput, setFocusedInput] = useState(defaultFocusedInput);
@@ -18,7 +19,6 @@ const DatePicker = () => {
     };
 
     const onFocusChange = (focusedInput) => {
-        console.log(onFocusChange);
         setFocusedInput(focusedInput);
     };
 
@@ -26,12 +26,23 @@ const DatePicker = () => {
         return date ? moment(date).format("YYYY년 MM월 DD일") : null;
     };
 
+    const renderDate2 = (date) => {
+        return date ? moment(date).format("YYYYMMDD") : null;
+    };
+
+
     moment.locale('ko');
+
+    useEffect(() => {
+        props.setDates(dates);
+        console.log("날짜가 바뀌었나요?");
+        setDays(renderDate2(dates.endDate) - renderDate2(dates.startDate));
+    }, [dates])
     
     return (
         <div>
             <div className="tit-wrap">
-                <p className="tit">El Nido에서 7박</p>
+                <p className="tit">El Nido에서 {days > 0 ? days : ''}박</p>
                 <p className="txt">{renderDate(dates.startDate)} - {renderDate(dates.endDate)}</p>
             </div>
 

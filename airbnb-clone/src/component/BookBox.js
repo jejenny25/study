@@ -1,9 +1,10 @@
-import React, {useRef, useEffect} from 'react'
+import React from 'react'
 import { useNavigate } from "react-router-dom";
+import moment from "moment";
 
 import { ReactComponent as IcoFlag } from "../assets/svg/ico-flag.svg";
 
-const BookBox = (props) => {
+const BookBox = React.forwardRef((props,ref) => {
 
     // 네비게이트
     const navigate = useNavigate();
@@ -12,10 +13,18 @@ const BookBox = (props) => {
         navigate('/reserve');
     }
 
-    const refBtnReserve = useRef();
+    // const refBtnReserve = useRef();
     // useEffect(() => {
     //     props.setBtnOffset(refBtnReserve.current.offsetTop);
     // }, [])
+
+    const renderDate = (date) => {
+        return date ? moment(date).format("YYYY.MM.DD") : null;
+    };
+
+    const startDate = renderDate(props.dates.startDate);
+    const endDate = renderDate(props.dates.endDate);
+   
 
   return (
     <div className="book-box-wrap">
@@ -32,15 +41,15 @@ const BookBox = (props) => {
 
             <div className="checkin-box">
                 <div className="top-wrap">
-                    <button type="button" className="btn"><em>체크인</em><span>2022. 8. 20</span></button>
-                    <button type="button" className="btn"><em>체크아웃</em><span>2022. 8. 27</span></button>
+                    <button type="button" className="btn"><em>체크인</em><span>{startDate === null ? '2022.08.25' :  startDate}</span></button>
+                    <button type="button" className="btn"><em>체크아웃</em><span>{endDate === null ? '2022.08.31' :  endDate}</span></button>
                 </div>
                 <div className="bot-wrap">
                     <button type="button" className="btn"><em>인원</em><span>게스트 1명</span></button>
                 </div>
             </div>
 
-            <div className="btn-wrap" ref={refBtnReserve}>
+            <div className="btn-wrap" ref={ref}>
                 <button type="button" className="btn w-100 btn-basic btn-red" onClick={goToReserve}><span>예약하기</span></button>
             </div>
 
@@ -77,6 +86,6 @@ const BookBox = (props) => {
         </div>
     </div>
   )
-}
+})
 
 export default BookBox

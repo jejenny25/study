@@ -3,7 +3,7 @@ import React from 'react'
 import data from "../db/data.json" // json 객체를 rooms라는 변수에 넣어 임포트
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import Swipercore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import Swipercore, { Navigation, Pagination } from 'swiper';
 import "swiper/css"; //basic
 import "swiper/css/navigation";
 import "swiper/css/pagination";

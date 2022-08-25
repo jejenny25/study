@@ -8,6 +8,7 @@
 /* header */
 .header-wrap {position:absolute; width:100%; top:0; left:0; border-bottom:1px solid rgba(0, 0, 0, 8%); background-color:#fff; z-index:500;}
 .main-page .header-wrap { position:fixed; }
+.main-page .container {padding-top:110px;}
 
 .header {display:flex; height:80px; justify-content:space-between; align-items:center;}
 .header .logo {flex:1 0 140px;}
@@ -71,7 +72,7 @@
 .personal-wrap .btn.btn-my .profile-img::before {position:absolute; display:block; top:-3px; right:-3px; width:12px; height:12px; border-radius:50%; background-color:#FF385C; border:1px solid #fff; content:'';}
 
 /* filter */
-.filter-wrap {display:flex; padding-top:20px; align-items:center; justify-content: space-between; background-color:#fff;}
+.filter-wrap {display:flex; position:fixed; width:100%; padding-top:20px; align-items:center; justify-content: space-between; background-color:#fff; z-index:50; top:81px;}
 .filter-wrap .inner {display:flex; align-items:center; justify-content: space-between;}
 .filter-wrap .swiper-variety {position:relative; width:calc(100% - 104px); height:78px; margin:0;}
 .filter-wrap .swiper-variety .swiper {height:100%;}
@@ -123,7 +124,8 @@
 .room-list .item .img {width:100%; height:280px; border-radius:16px; border-radius:15px; overflow:hidden;}
 .room-list .item .img img{width:100%; height:100%; object-fit: cover; vertical-align: bottom;}
 .room-list .thumbnail-wrap {position:relative; margin-bottom:12px;}
-.room-list .thumbnail-wrap .btn-variety {position:absolute; top:15px; right:15px; z-index:15;}
+.room-list .thumbnail-wrap .btn-variety {position:absolute; top:15px; right:15px; z-index:15; display: block; fill: rgba(0, 0, 0, 0.5); height: 24px; width: 24px; stroke: #fff; stroke-width: 2; overflow: visible;}
+.room-list .thumbnail-wrap .btn-variety.is-liked {fill:#FF385C;}
 .room-list .thumbnail-wrap .swiper-button-next, 
 .room-list .thumbnail-wrap .swiper-button-prev {display:none;  width:28px; height:28px; z-index: 15;}
 .room-list .thumbnail-wrap:hover .swiper-button-next,
@@ -293,16 +295,7 @@
 .calendar-wrap .CalendarDay__selected_span {border: none; background-color:#f7f7f7; color:#222; border-radius:0;}
 .calendar-wrap .CalendarDay__selected_start:hover,
 .calendar-wrap .CalendarDay__selected_end:hover {color:#fff;}
-/* .calendar-wrap .CalendarDay__selected_span:last-of-type { border-top-right-radius: 50%; border-bottom-right-radius: 50%; }
-.calendar-wrap .CalendarDay__selected_span:first-of-type {border-top-left-radius: 50%;border-bottom-left-radius: 50%;} */
-
-/* .CalendarDay__selected,
-.CalendarDay__selected:active,
-.CalendarDay__selected:hover {background: black; border: none; color: white;} */
 .calendar-wrap .DayPickerKeyboardShortcuts_buttonReset {display:none;}
-
-
-
 
 
 .room-detail-area .book-area {position:relative; width:41%; padding-bottom:90px; margin-left:8%;}
@@ -318,6 +311,7 @@
 .book-area .book-box .checkin-box .top-wrap .btn {width:50%; height:56px; padding:0 12px; text-align:left;}
 .book-area .book-box .checkin-box .top-wrap .btn + .btn {border-left:1px solid #000;}
 .book-area .book-box .checkin-box .top-wrap .btn em {display:block; margin-bottom:3px; font-size:10px; font-weight:800;}
+.book-area .book-box .checkin-box .top-wrap .btn span {display:block; height:18px;}
 .book-area .book-box .checkin-box .bot-wrap { border-top:1px solid #000;}
 .book-area .book-box .checkin-box .bot-wrap .btn {position:relative; width:100%; height:56px; padding:0 12px; text-align:left;}
 .book-area .book-box .checkin-box .bot-wrap .btn:after {display:block; position:absolute; width:8px; height:8px; top:50%; right:20px; margin-top:-3px; margin-left:3px; border-right:2px solid #000; border-bottom:2px solid #000;transform: rotate(45deg); content:'';}
@@ -467,3 +461,7 @@
 .reserve-content .book-box .air-corver-wrap .txt-wrap .img img {width:100%;}
 .reserve-content .book-box .price-items-wrap { border-top:1px solid #d3d3d3;}
 .reserve-content .book-box .price-items-wrap .tit-wrap {padding:24px 0; font-size:22px; font-weight:600;}
+
+/* dim */
+.dim {display:none; position:fixed; width:100%; height:100vh; bottom: 0; top: 0; background-color: rgba(0,0,0,0.25); z-index: 99;} 
+.dim.is-active {display:block;} 

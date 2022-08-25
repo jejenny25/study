@@ -37,11 +37,10 @@ import { ReactComponent as IcoPet } from "../assets/svg/ico-pet.svg";
 
 const RoomDetail = () => {
 
-    
-    
     // 스크롤 관련
     useEffect(() => { 
-        window.addEventListener('scroll', handleScroll); // 스크롤 이벤트 등록fset);
+        //window.addEventListener('scroll', handleScroll); // 스크롤 이벤트 등록fset);
+        window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll); // 스크롤 이벤트 등록 제거(성능저하방지)
         };
@@ -53,9 +52,7 @@ const RoomDetail = () => {
     const [isFixed,setFixed] = useState(false);
     const [isReservBtn,setReserveBtn] = useState(false); 
 
-    const [btn_offset, setBtnOffset] = useState(0);
-
-    const handleScroll = ({btn_offset}) => {
+    const handleScroll = ({}) => {
         const scrollY = window.scrollY;
         if(refRoomDetail.current) {
             const room_detail_offset = refRoomDetail.current.offsetTop;
@@ -71,26 +68,10 @@ const RoomDetail = () => {
             }
         }
 
-        // if(refBookArea.current) {
-        //     const book_area_h = refBookArea.current.clientHeight;
-        //     console.log("btn_offset 33 : " +  btn_offset );
-
-        //     if (scrollY >= (book_area_h + btn_offset) + 100 ) {
-        //         setReserveBtn(current => {
-        //             return true;
-        //         });
-        //     } else {		      
-        //         setReserveBtn(current => {
-        //             return false;
-        //         });
-        //     }
-        // }
-
         if(refBtnReserve.current && refBookArea.current) {
             const book_area_h = refBookArea.current.clientHeight;
             const btn_offset = refBtnReserve.current.offsetTop;
 
-            console.log(btn_offset);
             if (scrollY >= (book_area_h + btn_offset) + 100 ) {
                 setReserveBtn(current => {
                     return true;
@@ -102,6 +83,8 @@ const RoomDetail = () => {
             }
         }
     }
+
+    const [dates, setDates] = useState({ startDate: null, endDate: null });
 
     return(
         <div className="wrapper sub-page">
@@ -297,7 +280,7 @@ const RoomDetail = () => {
                                 
                                 <div className="explain-item calendar-area">
 
-                                    <DatePicker />
+                                    <DatePicker setDates={setDates}/>
 
                                     <div className="btn-wrap align-both-end">
                                         <button type="button" className="btn btn-hover ico-only"><span><IcoKeyboard /></span></button>
@@ -307,7 +290,7 @@ const RoomDetail = () => {
                             </div>
                             
                             <div className="book-area" id="bookArea" ref={refBookArea}>
-                                <BookBox />
+                                <BookBox ref={refBtnReserve} dates={dates}/>
                             </div>
                         </div>
 

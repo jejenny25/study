@@ -9,7 +9,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import { ReactComponent as IcoFilter } from "../assets/svg/ico-filter.svg";
-// import { ReactComponent as IcoHeart } from "../assets/svg/ico-heart.svg";
 
 
 const MainView = () => {

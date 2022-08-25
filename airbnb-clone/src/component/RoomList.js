@@ -1,5 +1,6 @@
 import data from "../db/data.json" // json 객체를 rooms라는 변수에 넣어 임포트
 import { Link } from "react-router-dom";
+import Likebtn from "./Likebtn";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import Swipercore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
@@ -7,7 +8,7 @@ import "swiper/css"; //basic
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import { ReactComponent as IcoHeart } from "../assets/svg/ico-heart.svg";
+//import { ReactComponent as IcoHeart } from "../assets/svg/ico-heart.svg";
 
 const RoomList = () => {
 
@@ -29,7 +30,19 @@ const RoomList = () => {
             dynamicMainBullets : 4,
         },
     };
+    
+    // 좋아요
+    // const [like, setLike] = useState(false); // ***
 
+    // const toggleLike = () => { // ***
+    //     if(like){
+    //         setLike(false)
+    //     }else{
+    //         setLike(true)
+    //     }
+
+    //     console.log("좋아요 : " + like);
+    // }
     return(
         <div className="room-list">
             {data.rooms.map((item) => (
@@ -48,7 +61,7 @@ const RoomList = () => {
                                 <button type="button" className="swiper-button-next"><span></span></button>
                             </Swiper>
                         </div>
-                        <button type="button" className="btn btn-variety"><IcoHeart /><span className="blind">좋아요</span></button>
+                        <Likebtn isLiked={item.isLiked}/>
                     </div>
                     <div className="txt-wrap">
                         <div className="tit-wrap">
