@@ -39,14 +39,13 @@ const RoomDetail = () => {
 
     // 스크롤 관련
     useEffect(() => { 
-        //window.addEventListener('scroll', handleScroll); // 스크롤 이벤트 등록fset);
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll); // 스크롤 이벤트 등록
         return () => {
             window.removeEventListener('scroll', handleScroll); // 스크롤 이벤트 등록 제거(성능저하방지)
         };
     }, []);
-    
-    const refRoomDetail = useRef();
+
+    const refRoomDetail = useRef(); // 설명시작되는 곳
     const refBookArea = useRef();
     const refBtnReserve = useRef();
     const [isFixed,setFixed] = useState(false);
@@ -84,13 +83,38 @@ const RoomDetail = () => {
         }
     }
 
-    const [dates, setDates] = useState({ startDate: null, endDate: null });
+    const previewArea = useRef(); // 사진
+    const facilitiesArea = useRef(); //편의시설
+    const reviewArea = useRef(); //후기
+    const locationArea = useRef(); //위치
+    
+    const onMoveToElement = (wchichArea) => {
+        let y = 0;
+        if(wchichArea === "previewArea"){
+            y = previewArea.current.offsetTop;
+        } else if(wchichArea === "facilitiesArea"){
+            y = (facilitiesArea.current.offsetTop) - 80;
+        } else if(wchichArea === "reviewArea"){
+            y = (reviewArea.current.offsetTop) - 80;
+        } else if(wchichArea === "locationArea"){
+            y = (locationArea.current.offsetTop) - 80;
+        }
+        console.log("y = " + y);
+        window.scrollTo({top: y, behavior: 'smooth'});
+    };
+
+
+    // 날짜 관련
+    const [dates, setParentDates] = useState({ startDate: null, endDate: null });
+    const [days, setParentDays] = useState(0);
+
+    const dateRef = useRef();
 
     return(
         <div className="wrapper sub-page">
             <div className={`header-wrapper ${isFixed ? 'is-fixed' : ''} ${isReservBtn ? 'is-reserve-btn' : ''}`} // 얘를 변경 해서 메뉴바를 붙여줌 
             >
-                <Header currentPage={"roomDetail"} />
+                <Header currentPage={"roomDetail"} onMoveToElement={onMoveToElement} />
             </div>
             {/* Container */}
             <main role="main" className="container containner-roomdetail">
@@ -98,7 +122,7 @@ const RoomDetail = () => {
                 <div className="inner">
                     <div className="content">
                         
-                        <div className="preview-area" id="previewArea">
+                        <div className="preview-area" ref={previewArea}>
                             <div className="tit-area">
                                 <div className="tit-wrap">
                                     <h2 className="tit">
@@ -240,7 +264,7 @@ const RoomDetail = () => {
                                     </div>
                                 </div>
 
-                                <div className="explain-item facilities-area" id="facilitiesArea">
+                                <div className="explain-item facilities-area" ref={facilitiesArea}>
                                     <div className="tit-wrap">
                                         <p className="tit">숙소 편의시설</p>
                                     </div>
@@ -280,21 +304,21 @@ const RoomDetail = () => {
                                 
                                 <div className="explain-item calendar-area">
 
-                                    <DatePicker setDates={setDates}/>
+                                    <DatePicker setParentDates={setParentDates} setParentDays={setParentDays} ref={dateRef}/>
 
                                     <div className="btn-wrap align-both-end">
                                         <button type="button" className="btn btn-hover ico-only"><span><IcoKeyboard /></span></button>
-                                        <button type="button" className="btn btn-txt-link btn-hover"><span className="txt txt-medium">날짜 지우기</span></button>
+                                        <button type="button" className="btn btn-txt-link btn-hover" onClick={() => {setParentDates({ startDate: null, endDate: null }); dateRef.current.setDates({ startDate: null, endDate: null })} }><span className="txt txt-medium">날짜 지우기</span></button>
                                     </div>
                                 </div>
                             </div>
                             
                             <div className="book-area" id="bookArea" ref={refBookArea}>
-                                <BookBox ref={refBtnReserve} dates={dates}/>
+                                <BookBox ref={refBtnReserve} dates={dates} days={days}/>
                             </div>
                         </div>
 
-                        <div className="explain-item review-area" id="reviewArea">
+                        <div className="explain-item review-area" ref={reviewArea}>
                             <div className="tit-wrap">
                                 <p className="tit">★ 4.96 · 후기 128개</p>
                             </div>
@@ -367,7 +391,7 @@ const RoomDetail = () => {
                             </div>
                         </div>
 
-                        <div className="explain-item location-area"  id="locationArea">
+                        <div className="explain-item location-area" ref={locationArea}>
                             <div className="tit-wrap">
                                 <p className="tit">호스팅 지역</p>
                             </div>

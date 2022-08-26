@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useImperativeHandle, forwardRef } from "react";
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 
@@ -8,9 +8,13 @@ import moment from "moment";
 import "moment/locale/ko"
 
 //function DatePicker() {
-const DatePicker = (props) => {    
-    const [dates, setDates] = useState({ startDate: null, endDate: null });
+const DatePicker = forwardRef((props, ref)  => {    
+    const [dates, setDates] = useState({ startDate: moment().add(1, "d") , endDate: moment().add(8, "d") });
     const [days, setDays] = useState(0);
+
+    useImperativeHandle(ref, () => ({
+        setDates
+    }))
 
     const defaultFocusedInput = "startDate";
     const [focusedInput, setFocusedInput] = useState(defaultFocusedInput);
@@ -26,24 +30,28 @@ const DatePicker = (props) => {
         return date ? moment(date).format("YYYY년 MM월 DD일") : null;
     };
 
-    const renderDate2 = (date) => {
-        return date ? moment(date).format("YYYYMMDD") : null;
-    };
-
-
     moment.locale('ko');
 
     useEffect(() => {
-        props.setDates(dates);
-        console.log("날짜가 바뀌었나요?");
-        setDays(renderDate2(dates.endDate) - renderDate2(dates.startDate));
+        props.setParentDates(dates);
+        if(dates.endDate != null && dates.startDate != null){
+            setDays(dates.endDate.diff(dates.startDate, "days"));
+            props.setParentDays(dates.endDate.diff(dates.startDate, "days"));
+        }else{
+            setDays(0);
+            props.setParentDays(0);
+        }
     }, [dates])
     
     return (
         <div>
             <div className="tit-wrap">
-                <p className="tit">El Nido에서 {days > 0 ? days : ''}박</p>
-                <p className="txt">{renderDate(dates.startDate)} - {renderDate(dates.endDate)}</p>
+                <p className="tit">{days > 0 ? 'El Nido에서 '+ days +'박' : '체크인 날짜를 선택해주세요.'}</p>
+                <p className="txt">
+                    {dates.startDate != null && dates.endDate != null
+                    ? renderDate(dates.startDate) + " - " + renderDate(dates.endDate)
+                    : '여행 날짜를 입력하여 정확한 요금을 확인하세요.'}
+                </p>
             </div>
 
             <div className="calendar-wrap">
@@ -63,6 +71,6 @@ const DatePicker = (props) => {
         </div>
     
     );
-}
+})
 
 export default DatePicker;

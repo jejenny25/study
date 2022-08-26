@@ -9,7 +9,7 @@ import { ReactComponent as IcoLang } from "../assets/svg/ico-lang.svg";
 import { ReactComponent as IcoHamburger } from "../assets/svg/ico-hamburger.svg";
 import { ReactComponent as IcoProfile } from "../assets/svg/ico-profile.svg";
 
-const Header = (props) =>{
+const Header = React.forwardRef((props,ref) =>{
 
     const [isActive, setIsActive] = useState(false);
     const onClick = () => setIsActive(!isActive);
@@ -141,22 +141,22 @@ const Header = (props) =>{
                             <div className="quick-menu">
                                 <ul className="quick-menu-list">
                                     <li>
-                                        <Link to="#previewArea"><span>사진</span></Link>
+                                        <Link to="#" onClick={() => props.onMoveToElement("previewArea")}><span>사진</span></Link>
                                     </li>
                                     <li>
-                                        <Link to="#facilitiesArea"><span>편의시설</span></Link>  
+                                        <Link to="#" onClick={() => props.onMoveToElement("facilitiesArea")}><span>편의시설</span></Link>  
                                     </li>
                                     <li>
-                                        <Link to="#reviewArea"><span>후기</span></Link>
+                                        <Link to="#" onClick={() => props.onMoveToElement("reviewArea")}><span>후기</span></Link>
                                     </li>
                                     <li>
-                                        <Link to="#locationArea"><span>위치</span></Link>
+                                        <Link to="#" onClick={() => props.onMoveToElement("locationArea")}><span>위치</span></Link>
                                     </li>
                                 </ul>
                             </div>
                             <div className="book-summury-wrap">
                                 <div className="book-info">
-                                    <p className="price"> ₩740,142 <span className="day">/박</span></p>
+                                    <p className="price"> ₩130,338 <span className="day">/박</span></p>
                                     <div className="review-info">
                                         <span className="txt-medium">★ 4.6  · </span>
                                         <button type="button" className="btn btn-txt-link"><span className="txt txt-medium">후기 128개</span></button>
@@ -176,6 +176,6 @@ const Header = (props) =>{
         </div> 
 
     )
-}
+})
 
 export default Header
