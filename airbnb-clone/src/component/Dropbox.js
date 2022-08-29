@@ -8,9 +8,14 @@ import { ReactComponent as IcoCard } from "../assets/svg/ico-card.svg";
  * https://letsbuildui.dev/articles/building-a-dropdown-menu-component-with-react-hooks
  */
 const Dropbox = () =>{
-    const dropdownRef = useRef(null);
     const [isActive, setIsActive] = useState(false);
     const onClick = () => setIsActive(!isActive);
+
+    const [payment, setPayment] = useState("9417");
+    const selPayment = (e) =>{
+        setPayment(e.target.value);
+        setIsActive(!isActive);
+    }
 
     return (
         <div className={`selectbox-wrap ${isActive ? "is-active" : ""}`}>
@@ -18,30 +23,49 @@ const Dropbox = () =>{
                 <span className="img">
                     <ImgCardMaster />
                 </span>
-                <span className="txt">•••• 9417</span>
+                <span className="txt">•••• {payment}</span>
             </button>
             <div className="select-list-wrap">
                 <ul className="select-list">
                     <li>
-                        <button type="button" className="btn btn-select-item btn-card">
-                            <span className="img">
-                                <ImgCardMaster />
-                            </span>
-                            <span className="txt">•••• 9417</span>
-                        </button>
+                        <div className="radio-btn btn-select-item btn-card">
+                            <input type="radio" name="card_sel" id="card01" value="9417" checked={payment === "9417"} onChange={selPayment}/>
+                            <label htmlFor="card01">
+                                <span className="img">
+                                    <ImgCardMaster />
+                                </span>
+                                <span className="txt">•••• 9417</span>
+                                <div className="img-chk"><IcoCheck /></div>
+                            </label>
+                        </div>
                     </li>
                     <li>
-                        <button type="button" className="btn btn-select-item btn-card is-checked">
-                            <span className="img">
-                                <ImgCardMaster />
-                            </span>
-                            <span className="txt">•••• 9417</span>
-                            <div className="img-chk"><IcoCheck /></div>
-                        </button>
+                        <div className="radio-btn btn-select-item btn-card">
+                            <input type="radio" name="card_sel" id="card02" value="5684" checked={payment === "5684"} onChange={selPayment}/>
+                            <label htmlFor="card02">
+                                <span className="img">
+                                    <ImgCardMaster />
+                                </span>
+                                <span className="txt">•••• 5684</span>
+                                <div className="img-chk"><IcoCheck /></div>
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="radio-btn btn-select-item btn-card">
+                            <input type="radio" name="card_sel" id="card03" value="7526" checked={payment === "7526"} onChange={selPayment}/>
+                            <label htmlFor="card03">
+                                <span className="img">
+                                    <ImgCardMaster />
+                                </span>
+                                <span className="txt">•••• 7526</span>
+                                <div className="img-chk"><IcoCheck /></div>
+                            </label>
+                        </div>
                     </li>
                     <li>
                         <div className="tit">결제수단 추가하기</div>
-                        <button type="button" className="btn btn-select-item btn-card">
+                        <button type="button" className="btn btn-select-item btn-pay-add" onClick={onClick}>
                             <span className="img">
                                 <IcoCard />
                             </span>

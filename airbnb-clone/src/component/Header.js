@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import DimBox from '../component/DimBox'; // DimBox 컴포넌트 추가
 
@@ -13,6 +13,13 @@ const Header = React.forwardRef((props,ref) =>{
 
     const [isActive, setIsActive] = useState(false);
     const onClick = () => setIsActive(!isActive);
+
+     // 네비게이트
+    const navigate = useNavigate();
+
+    const goToReserve = () =>{
+        navigate('/reserve');
+    }
 
     return(
         <div>    
@@ -163,7 +170,7 @@ const Header = React.forwardRef((props,ref) =>{
                                     </div>
                                 </div>
                                 <div className="btn-wrap">
-                                    <button type="button" className="btn btn-basic btn-red"><span>예약하기</span></button>
+                                    <button type="button" className="btn btn-basic btn-red" onClick={goToReserve}><span>예약하기</span></button>
                                 </div>
                             </div>
                         </div>
