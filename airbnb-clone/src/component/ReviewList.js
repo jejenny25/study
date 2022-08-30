@@ -3,10 +3,13 @@ import React from 'react'
 import data from "../db/data.json" // json 객체를 data라는 변수에 넣어 임포트
 
 const ReviewList = () => {
+    
     return (
         <div>
             <ul className="review-list">
-                {data.reviews.map((item) => (
+                {data.reviews
+                .filter((item, index) => index < 6)
+                .map((item) => (
                     <li key={item.id}>
                         <div className="reviewer-info">
                             <div className="profile-img"><img src={item.profile} /></div>
