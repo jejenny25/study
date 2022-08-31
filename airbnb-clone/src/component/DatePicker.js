@@ -3,6 +3,8 @@ import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 
 import { DayPickerRangeController } from "react-dates";
+import { useRecoilState } from "recoil";
+import { startDateState, endDateState, daysState } from "../recoil/ReserveInfo";
 
 import moment from "moment";
 import "moment/locale/ko"
@@ -10,7 +12,10 @@ import "moment/locale/ko"
 //function DatePicker() {
 const DatePicker = forwardRef((props, ref)  => {    
     const [dates, setDates] = useState({ startDate: moment().add(1, "d") , endDate: moment().add(8, "d") });
-    const [days, setDays] = useState(0);
+    
+    const [startDate, setStartDate] = useRecoilState(startDateState);
+    const [endDate, setEndDate] = useRecoilState(endDateState);
+    const [days, setDays] = useRecoilState(daysState);
 
     useImperativeHandle(ref, () => ({
         setDates
@@ -33,13 +38,13 @@ const DatePicker = forwardRef((props, ref)  => {
     moment.locale('ko');
 
     useEffect(() => {
-        props.setParentDates(dates);
+        //props.setParentDates(dates);
+        setStartDate(dates.startDate);
+        setEndDate(dates.endDate);
         if(dates.endDate != null && dates.startDate != null){
-            setDays(dates.endDate.diff(dates.startDate, "days"));
-            props.setParentDays(dates.endDate.diff(dates.startDate, "days"));
+            setDays(dates.endDate.diff(dates.startDate, "days"))
         }else{
             setDays(0);
-            props.setParentDays(0);
         }
     }, [dates])
     

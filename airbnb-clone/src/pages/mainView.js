@@ -14,7 +14,7 @@ const MainView = () => {
 
     // 스크롤 관련
     useEffect(() => { 
-        window.addEventListener('scroll', handleScroll); // 스크롤 이벤트 등록fset);
+        window.addEventListener('scroll', handleScroll); // 스크롤 이벤트 등록;
         return () => {
             window.removeEventListener('scroll', handleScroll); // 스크롤 이벤트 등록 제거(성능저하방지)
         };

@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react'
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
 
+import { useRecoilValue, useRecoilState } from "recoil";
+import { startDateState, endDateState, daysState, dayPriceState, cntPriceState, totPriceState } from "../recoil/ReserveInfo";
+
 import { ReactComponent as IcoFlag } from "../assets/svg/ico-flag.svg";
 
 const BookBox = React.forwardRef((props,ref) => {
@@ -18,24 +21,34 @@ const BookBox = React.forwardRef((props,ref) => {
         return date ? moment(date).format("YYYY.MM.DD") : null;
     };
 
-    const startDate = renderDate(props.dates.startDate);
-    const endDate = renderDate(props.dates.endDate);
+    const startDate = useRecoilValue(startDateState);
+    const endDate = useRecoilValue(endDateState);
+    const days = useRecoilValue(daysState);
 
     //가격 관련
-    const [dayPrice, setDayPrice ] = useState(130338); // 하루가격
-    const [cntPrice, setCntPrice] = useState(dayPrice * props.days); // 몇박에 얼마인지
+    const [dayPrice, setDayPrice] = useRecoilState(dayPriceState); // 하루가격
+    //const [cntPrice, setCntPrice] = useState(dayPrice * days); // 몇박에 얼마인지
+    const [cntPrice, setCntPrice] = useRecoilState(cntPriceState); // 몇박에 얼마인지
     const [discount, setDiscount] = useState(0); //할인
     const [cleanPrice, setCleanPrice] =  useState(87536); //청소비
     const [feePrice, setFeePrice] =  useState(38379); //수수료
-    const [totPrice, setTotPrice] =  useState(0); //총 가격
+    const [totPrice, setTotPrice] = useRecoilState(totPriceState); //총 가격
 
     useEffect(() => {
-        if(props.days > 0){
-            setCntPrice(dayPrice * props.days);
-            setDiscount(Math.floor((dayPrice * props.days) * (5 / 100)));
-            setTotPrice(((dayPrice * props.days) - Math.floor((dayPrice * props.days) * (5 / 100))) + cleanPrice + feePrice);
+        if(days > 0){
+            setCntPrice(dayPrice * days);
+            setDiscount(Math.floor((dayPrice * days) * (5 / 100)));
+            setTotPrice(((dayPrice * days) - Math.floor((dayPrice * days) * (5 / 100))) + cleanPrice + feePrice);
         }
-    }, [props.days])
+    }, [days])
+
+    // useEffect(() => {
+    //     if(props.days > 0){
+    //         setCntPrice(dayPrice * props.days);
+    //         setDiscount(Math.floor((dayPrice * props.days) * (5 / 100)));
+    //         setTotPrice(((dayPrice * props.days) - Math.floor((dayPrice * props.days) * (5 / 100))) + cleanPrice + feePrice);
+    //     }
+    // }, [props.days])
 
   return (
     <div className="book-box-wrap">
@@ -52,8 +65,8 @@ const BookBox = React.forwardRef((props,ref) => {
 
             <div className="checkin-box">
                 <div className="top-wrap">
-                    <button type="button" className="btn"><em>체크인</em><span>{startDate === null ? '날짜 추가' :  startDate}</span></button>
-                    <button type="button" className="btn"><em>체크아웃</em><span>{endDate === null ? '날짜 추가' :  endDate}</span></button>
+                    <button type="button" className="btn"><em>체크인</em><span>{startDate === null ? '날짜 추가' :  renderDate(startDate)}</span></button>
+                    <button type="button" className="btn"><em>체크아웃</em><span>{endDate === null ? '날짜 추가' :  renderDate(endDate)}</span></button>
                 </div>
                 <div className="bot-wrap">
                     <button type="button" className="btn"><em>인원</em><span>게스트 1명</span></button>
@@ -64,7 +77,7 @@ const BookBox = React.forwardRef((props,ref) => {
                 <button type="button" className="btn w-100 btn-basic btn-red" onClick={goToReserve}><span>예약하기</span></button>
             </div>
             {
-                props.days > 0 
+                days > 0 
                 ?
                 <div>
                     <div className="explain"><p>예약 확정 전에는 요금이 청구되지 않습니다.</p></div>
@@ -72,7 +85,7 @@ const BookBox = React.forwardRef((props,ref) => {
                     <div className="price-items-wrap" >
                         <ul className="price-items">
                             <li>
-                                <button type="button" className="btn btn-txt-link"><span className="txt">₩{dayPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} x {props.days}박</span></button>
+                                <button type="button" className="btn btn-txt-link"><span className="txt">₩{dayPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} x {days}박</span></button>
                                 <p className="txt-basic">₩{cntPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
                             </li>
                             <li>

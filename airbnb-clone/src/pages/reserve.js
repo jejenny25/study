@@ -3,14 +3,30 @@ import Header from "../component/Header";
 import Footer from "../component/Footer";
 import Dropbox from "../component/Dropbox";
 
+import { useRecoilValue } from "recoil";
+import { startDateState , endDateState, daysState, cntPriceState, dayPriceState, totPriceState} from "../recoil/ReserveInfo";
+
+import moment from "moment";
+import "moment/locale/ko"
+
 // 아이콘 목록
-import { ReactComponent as ImgCardMaster } from "../assets/svg/img-card-master.svg";
-import { ReactComponent as IcoCheck } from "../assets/svg/ico-check.svg";
-import { ReactComponent as IcoCard } from "../assets/svg/ico-card.svg";
 import { ReactComponent as IcoCalendar } from "../assets/svg/ico-calendar.svg";
 
 
 const Reserve = () => {
+    const startDate = useRecoilValue(startDateState);
+    const endDate = useRecoilValue(endDateState);
+    const days = useRecoilValue(daysState);
+    const dayPrice = useRecoilValue(dayPriceState);
+    const cntPrice = useRecoilValue(cntPriceState);
+    const totPrice = useRecoilValue(totPriceState);
+
+
+    const renderDate = (date) => {
+        return date ? moment(date).format("MM월 DD일") : null;
+    };
+
+
     return(
         <div className="wrapper sub-page">
             <Header currentPage={"reserve"} />
@@ -36,7 +52,7 @@ const Reserve = () => {
                                                 <li>
                                                     <div className="txt-wrap">
                                                         <span className="txt-medium">날짜</span>
-                                                        <p>8월 20일~25일</p>
+                                                        <p>{renderDate(startDate)}~{renderDate(endDate)}</p>
                                                     </div>
                                                     <div className="btn-wrap">
                                                         <button type="button" className="btn btn-txt-link"><span className="txt txt-medium">수정</span></button>
@@ -165,22 +181,22 @@ const Reserve = () => {
                                                 </div>
                                                 <ul className="price-items">
                                                     <li>
-                                                        <button type="button" className="btn btn-txt-link"><span className="txt">₩779,097 x 7박</span></button>
-                                                        <p className="txt-basic">₩5,453,682</p>
+                                                        <button type="button" className="btn btn-txt-link"><span className="txt">₩{dayPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} x {days}박</span></button>
+                                                        <p className="txt-basic">₩{cntPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
                                                     </li>
                                                     <li>
                                                         <button type="button" className="btn btn-txt-link"><span className="txt">청소비</span></button>
-                                                        <p className="txt-basic">₩117,536</p>
+                                                        <p className="txt-basic">₩87,536</p>
                                                     </li>
                                                     <li>
                                                         <button type="button" className="btn btn-txt-link"><span className="txt">서비스 수수료</span></button>
-                                                        <p className="txt-basic">₩748,032</p>
+                                                        <p className="txt-basic">₩38,379</p>
                                                     </li>
                                                 </ul>
                                             </div>
                                             <div className="tot-wrap">
                                                 <span className="txt-medium f16">총 합계</span>
-                                                <span className="txt-medium f16">₩6,046,563</span>
+                                                <span className="txt-medium f16">₩{totPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
                                             </div>
                                         </div>
                                     </div>

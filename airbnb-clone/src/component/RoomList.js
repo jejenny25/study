@@ -31,18 +31,6 @@ const RoomList = () => {
         },
     };
     
-    // 좋아요
-    // const [like, setLike] = useState(false); // ***
-
-    // const toggleLike = () => { // ***
-    //     if(like){
-    //         setLike(false)
-    //     }else{
-    //         setLike(true)
-    //     }
-
-    //     console.log("좋아요 : " + like);
-    // }
     return(
         <div className="room-list">
             {data.rooms.map((item) => (

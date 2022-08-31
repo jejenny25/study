@@ -105,9 +105,6 @@ const RoomDetail = () => {
 
 
     // 날짜 관련
-    const [dates, setParentDates] = useState({ startDate: null, endDate: null });
-    const [days, setParentDays] = useState(0);
-
     const dateRef = useRef();
 
     return(
@@ -304,17 +301,17 @@ const RoomDetail = () => {
                                 
                                 <div className="explain-item calendar-area">
 
-                                    <DatePicker setParentDates={setParentDates} setParentDays={setParentDays} ref={dateRef}/>
+                                    <DatePicker ref={dateRef}/>
 
                                     <div className="btn-wrap align-both-end">
                                         <button type="button" className="btn btn-hover ico-only"><span><IcoKeyboard /></span></button>
-                                        <button type="button" className="btn btn-txt-link btn-hover" onClick={() => {setParentDates({ startDate: null, endDate: null }); dateRef.current.setDates({ startDate: null, endDate: null })} }><span className="txt txt-medium">날짜 지우기</span></button>
+                                        <button type="button" className="btn btn-txt-link btn-hover" onClick={() => {dateRef.current.setDates({ startDate: null, endDate: null })} }><span className="txt txt-medium">날짜 지우기</span></button>
                                     </div>
                                 </div>
                             </div>
                             
                             <div className="book-area" id="bookArea" ref={refBookArea}>
-                                <BookBox ref={refBtnReserve} dates={dates} days={days}/>
+                                <BookBox ref={refBtnReserve}/>
                             </div>
                         </div>
 
