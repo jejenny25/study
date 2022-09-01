@@ -3,6 +3,10 @@ import Header from "../component/Header"; // 헤더 컴포넌트 추가
 import RoomList from "../component/RoomList"; // room list 컴포넌트 추가
 import Filter from '../component/Filter'; //filter 컴포넌트 추가
 import Footer from "../component/Footer"; // Footer 컴포넌트 추가
+import NavBottom from '../component/NavBottom';
+
+import { useRecoilState } from "recoil";
+import { navMapState, navState } from "../recoil/EtcInfo";
 
 import "swiper/css"; //basic
 import "swiper/css/navigation";
@@ -21,8 +25,11 @@ const MainView = () => {
     }, []);
 
     const [isFixed,setFixed] = useState(false);
+    const [btnMap, setBtnMap] = useRecoilState(navMapState);
+    const [navSat, setNavSat] = useRecoilState(navState);
     const refFilter = useRef();
 
+    let prevScrollTop = 0;
     const handleScroll = () => {
         const scrollY = window.scrollY;
         if(refFilter.current) {
@@ -38,6 +45,22 @@ const MainView = () => {
                 });
             }
         }
+
+        if(scrollY > 0 ){
+            setBtnMap(true);
+        }else{
+            setBtnMap(false);
+        }
+
+        const nextScrollTop = window.pageYOffset || 0;
+        if (nextScrollTop > prevScrollTop){
+            setNavSat(false);
+            // 스크롤 내리는 중에 실행코드
+        } else if (nextScrollTop < prevScrollTop) {
+            setNavSat(true);
+            // 스크롤 올리는 중에 실행코드
+        }
+        prevScrollTop = nextScrollTop;
     }
 
     return (
@@ -70,6 +93,8 @@ const MainView = () => {
                 </div>
             </main>
             {/* // Container */}
+
+            <NavBottom />
 
             {/* <!-- Footer --> */}
             <Footer currentPage={"main"}/>

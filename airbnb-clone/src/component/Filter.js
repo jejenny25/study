@@ -14,16 +14,27 @@ function Filter() {
 
     const filter_settings = {
         slidesPerView: "auto",
-        slidesPerGroup : 15,
         spaceBetween: 35, 
-        touchRatio: 0,//드래그 금지
+        allowTouchMove: true,
+        slidesPerGroup : 5,        
         speed : 1000,
-
         // Navigation arrows
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         }, 
+
+        breakpoints: {
+            1200: {
+                slidesPerGroup : 15,
+                allowTouchMove: false,
+            },
+            768: {
+                slidesPerGroup :10,
+                allowTouchMove: false,
+                navigation:false,
+            },            
+        },
     };
 
     return (
