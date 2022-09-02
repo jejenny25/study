@@ -49,7 +49,7 @@ const Map = () =>{
     };
 
     return (
-        <div className="map" style={{ height: '480px', width: '100%' }}>
+        <div className="map" >
             <GoogleMapReact
                 bootstrapURLKeys={{ 
                     key: "AIzaSyBYMFlWPPaJLPACgTKGXC5DE51hLRvD6Tg",

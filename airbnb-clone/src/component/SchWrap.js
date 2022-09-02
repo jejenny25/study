@@ -45,7 +45,7 @@ export const SchWrap = () => {
                         <div className="item item-place is-active">
                             <div className="input-wrap">    
                                 <label htmlFor="input01" className="txt-label">여행지</label>
-                                <input type="input" name="" value="" className="txt-input" placeholder="여행지 검색"/>
+                                <input type="input" name="" className="txt-input" placeholder="여행지 검색"/>
                             </div>
 
                             <div className="item-detail">

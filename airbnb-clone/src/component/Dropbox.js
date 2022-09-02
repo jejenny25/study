@@ -29,7 +29,7 @@ const Dropbox = () =>{
                 <ul className="select-list">
                     <li>
                         <div className="radio-btn btn-select-item btn-card">
-                            <input type="radio" name="card_sel" id="card01" value="9417" checked={payment === "9417"} onChange={selPayment}/>
+                            <input type="radio" name="card_sel" id="card01" defaultValue="9417" checked={payment === "9417"} onChange={selPayment}/>
                             <label htmlFor="card01">
                                 <span className="img">
                                     <ImgCardMaster />
@@ -41,7 +41,7 @@ const Dropbox = () =>{
                     </li>
                     <li>
                         <div className="radio-btn btn-select-item btn-card">
-                            <input type="radio" name="card_sel" id="card02" value="5684" checked={payment === "5684"} onChange={selPayment}/>
+                            <input type="radio" name="card_sel" id="card02" defaultValue="5684" checked={payment === "5684"} onChange={selPayment}/>
                             <label htmlFor="card02">
                                 <span className="img">
                                     <ImgCardMaster />
@@ -53,7 +53,7 @@ const Dropbox = () =>{
                     </li>
                     <li>
                         <div className="radio-btn btn-select-item btn-card">
-                            <input type="radio" name="card_sel" id="card03" value="7526" checked={payment === "7526"} onChange={selPayment}/>
+                            <input type="radio" name="card_sel" id="card03" defaultValue="7526" checked={payment === "7526"} onChange={selPayment}/>
                             <label htmlFor="card03">
                                 <span className="img">
                                     <ImgCardMaster />

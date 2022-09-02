@@ -89,7 +89,7 @@ input::-webkit-calendar-picker-indicator {-webkit-appearance:none;}
 
 .btn-red {background:linear-gradient(to right,#E61E4D 0%,#E31C5F 50%,#D70466 100%); color:#fff;}
 
-.btn-basic-border {display:flex; padding:13px 23px; border:1px solid #222; border-radius:8px; background-color:#fff; align-items:center; font-size:16px; font-weight:600;}
+.btn-basic-border {display:flex; padding:13px 23px; border:1px solid #222; border-radius:8px; background-color:#fff; align-items:center; font-size:16px; font-weight:600; justify-content:center;}
 .btn-basic-border:hover {background-color:#F7F7F7;}
 .btn-basic-border .ico {margin-right:8px;}
 .btn-basic-border.type-small {padding:7px 15px; font-size:14px;}

@@ -9,13 +9,13 @@ import { startDateState, endDateState, daysState } from "../recoil/ReserveInfo";
 import moment from "moment";
 import "moment/locale/ko"
 
-//function DatePicker() {
 const DatePicker = forwardRef((props, ref)  => {    
     const [dates, setDates] = useState({ startDate: moment().add(1, "d") , endDate: moment().add(8, "d") });
     
     const [startDate, setStartDate] = useRecoilState(startDateState);
     const [endDate, setEndDate] = useRecoilState(endDateState);
     const [days, setDays] = useRecoilState(daysState);
+    const [numMonth, setNumMonth] = useState(1);
 
     useImperativeHandle(ref, () => ({
         setDates
@@ -37,6 +37,35 @@ const DatePicker = forwardRef((props, ref)  => {
 
     moment.locale('ko');
 
+    const [mQuery_1200, setMQuery1200] = useState(window.innerWidth < 1200 ? true : false);
+    const [mQuery_560, setMQuery560] = useState(window.innerWidth < 560 ? true : false);
+    const [daySize, setdaySize] = useState(44);
+    
+    const screenChange = (event) => {
+        const matches = event.matches;
+        console.log(' mQuery_1200  matches : ' + matches);
+        setMQuery1200(!matches);
+        console.log(' mQuery_1200 : ' + mQuery_1200);
+        if(mQuery_1200 === false){
+            console.log('test1');
+            setdaySize(70);
+        }else{
+            setdaySize(44);
+        }
+    }
+
+    const screenChange2 = (event) => {
+        const matches = event.matches;
+        setMQuery560(matches);
+        console.log(' mQuery_560 durl : ' + mQuery_560);
+        if(mQuery_560 === true){
+            console.log('test2');
+            setdaySize(44);
+        }else{
+            setdaySize(70);
+        }
+    }
+
     useEffect(() => {
         //props.setParentDates(dates);
         setStartDate(dates.startDate);
@@ -45,6 +74,16 @@ const DatePicker = forwardRef((props, ref)  => {
             setDays(dates.endDate.diff(dates.startDate, "days"))
         }else{
             setDays(0);
+        }
+
+        let mql_1200 = window.matchMedia("screen and (max-width:1200px)");
+        mql_1200.addEventListener("change", screenChange);
+        //let mql_560 = window.matchMedia("screen (min-width:560px) and (max-width:1199px)");
+        let mql_560 = window.matchMedia("screen and (max-width:560px)");
+        mql_560.addEventListener("change", screenChange2);
+        return () => {
+            mql_1200.removeEventListener("change", screenChange);
+            mql_560.removeEventListener("change", screenChange2)
         }
     }, [dates])
     
@@ -66,10 +105,11 @@ const DatePicker = forwardRef((props, ref)  => {
                     onDatesChange={handleDatesChange}
                     focusedInput={focusedInput || defaultFocusedInput}
                     onFocusChange={onFocusChange}
-                    numberOfMonths={2}
+                    numberOfMonths={mQuery_1200?1:2}
                     noBorder={true}
                     isOutsideRange={(day) => day.isBefore(moment().add('days'))}
-                    daySize={44}
+                    // daySize={44}
+                    daySize={daySize}
                 />
             </div>
 

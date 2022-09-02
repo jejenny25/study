@@ -15,10 +15,10 @@ const Roomtype = () => {
     Swipercore.use([Navigation, Pagination]);
 
     const room_settings = {
-        slidesPerView:3,
+        slidesPerView:2.1,
         slidesPerGroup : 1,
         spaceBetween: 16, 
-        touchRatio: 0,//드래그 금지
+        allowTouchMove: true,//드래그 금지
         speed : 1200,
 
         // Navigation arrows
@@ -26,6 +26,12 @@ const Roomtype = () => {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         }, 
+        breakpoints: {
+            1200: {
+                slidesPerView:3,
+                allowTouchMove: false,
+            },
+        },
     };
 
   return (

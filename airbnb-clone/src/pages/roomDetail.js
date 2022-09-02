@@ -1,9 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Header from "../component/Header";
 import Footer from "../component/Footer";
+import RoomPictures from '../component/RoomPictures';
+import MoRoomPictures from '../component/MoRoomPictures'
 import ReviewList from '../component/ReviewList';
+import MoReviewList from '../component/MoReviewList';
 import Roomtype from '../component/Roomtype';
 import BookBox from '../component/BookBox';
+import AwareInfo from '../component/AwareInfo'
+import MoAwareInfo from '../component/MoAwareInfo'
+import MoReserveFixed from '../component/MoReserveFixed'
 
 //달력
 import 'react-dates/initialize';
@@ -17,7 +23,7 @@ import Map from "../component/Map";
 import { ReactComponent as BtnTranslate } from "../assets/svg/btn-translate.svg";
 import { ReactComponent as IcoShare } from "../assets/svg/ico-share.svg";
 import { ReactComponent as IcoSave } from "../assets/svg/ico-save.svg";
-import { ReactComponent as IcoPicAll } from "../assets/svg/ico-picall.svg";
+
 import { ReactComponent as IcoHostMark } from "../assets/svg/ico-host-mark.svg";
 import { ReactComponent as IcoSuperHost } from "../assets/svg/ico-superhost.svg";
 import { ReactComponent as IcoLocation } from "../assets/svg/ico-location.svg";
@@ -31,17 +37,27 @@ import { ReactComponent as IcoCarbon } from "../assets/svg/ico-carbon.svg";
 import { ReactComponent as IcoKeyboard } from "../assets/svg/ico-keyboard.svg";
 import { ReactComponent as IcoCertify } from "../assets/svg/ico-certify.svg";
 import { ReactComponent as IcoSecurity } from "../assets/svg/ico-security.svg";
-import { ReactComponent as IcoClock } from "../assets/svg/ico-clock.svg";
-import { ReactComponent as IcoPet } from "../assets/svg/ico-pet.svg";
 
 
 const RoomDetail = () => {
 
-    // 스크롤 관련
+    const [mQuery, setMQuery] = useState(
+        window.innerWidth < 760 ? true : false
+    );
+    
+    const screenChange = (event) => {
+        const matches = event.matches;
+        setMQuery(matches);
+    }
+
     useEffect(() => { 
         window.addEventListener('scroll', handleScroll); // 스크롤 이벤트 등록
+
+        let mql = window.matchMedia("screen and (max-width:760px)");
+        mql.addEventListener("change", screenChange);
         return () => {
             window.removeEventListener('scroll', handleScroll); // 스크롤 이벤트 등록 제거(성능저하방지)
+            mql.removeEventListener("change", screenChange)
         };
     }, []);
 
@@ -108,7 +124,7 @@ const RoomDetail = () => {
     const dateRef = useRef();
 
     return(
-        <div className="wrapper sub-page">
+        <div className="wrapper sub-page room-detail">
             <div className={`header-wrapper ${isFixed ? 'is-fixed' : ''} ${isReservBtn ? 'is-reserve-btn' : ''}`} // 얘를 변경 해서 메뉴바를 붙여줌 
             >
                 <Header currentPage={"roomDetail"} onMoveToElement={onMoveToElement} />
@@ -120,6 +136,7 @@ const RoomDetail = () => {
                     <div className="content">
                         
                         <div className="preview-area" ref={previewArea}>
+                            {mQuery ? <MoRoomPictures /> :''}
                             <div className="tit-area">
                                 <div className="tit-wrap">
                                     <h2 className="tit">
@@ -146,30 +163,7 @@ const RoomDetail = () => {
                                     </div>
                                 </div>
                             </div>
-
-                            <div className="picture-area">
-                                <div className="pictures-wrap">
-                                    <div className="item">
-                                        <button type="button" className="btn"><img src="https://a0.muscache.com/im/pictures/78fb8268-b999-4389-b072-e2a66910e41b.jpg?im_w=720" /></button>
-                                    </div>
-                                    <div className="item">
-                                        <button type="button" className="btn"><img src="https://a0.muscache.com/im/pictures/444a8225-e657-4d62-97db-42f7423ae890.jpg?im_w=720" /></button>
-                                    </div>
-                                    <div className="item">
-                                        <button type="button" className="btn"><img src="https://a0.muscache.com/im/pictures/45f20fc7-9a56-4ef0-b482-79abfb2ddf7e.jpg?im_w=720" /></button>
-                                    </div>
-                                    <div className="item">
-                                        <button type="button" className="btn"><img src="https://a0.muscache.com/im/pictures/1b922648-4f72-4648-95d4-1568f7ed04f0.jpg?im_w=720" /></button>
-                                    </div>
-                                    <div className="item">
-                                        <button type="button" className="btn"><img src="https://a0.muscache.com/im/pictures/582ec202-2d72-4742-bdfe-38b56e50e0f6.jpg?im_w=720" /></button>
-                                    </div>
-                                </div>
-                                <button type="button" className="btn btn-basic-border type-small">
-                                    <span className="ico"><IcoPicAll /></span>
-                                    <span className="txt">사진 모두 보기</span>
-                                </button>
-                            </div>
+                            {mQuery ? '' :<RoomPictures />}
                         </div>
 
                         <div className="room-detail-area" id="roomDetailArea" ref={refRoomDetail}> 
@@ -380,7 +374,7 @@ const RoomDetail = () => {
                             </div>
 
                             <div className="review-txt-wrap">
-                                <ReviewList />
+                                {mQuery ? <MoReviewList /> : <ReviewList />}
                             </div>
 
                             <div className="btn-wrap">
@@ -461,80 +455,14 @@ const RoomDetail = () => {
                         </div>
 
                         <div className="explain-item aware-info-area">
-                            <div className="tit-wrap">
-                                <p className="tit">알아두어야 할 사항</p>
-                            </div>
-                            
-                            <div className="aware-list-wrap">
-                                <div className="aware-item">
-                                    <p className="tit">숙소 이용 규칙</p>
-                                    <ul className="aware-list">
-                                        <li>
-                                            <div className="ico"><IcoClock /></div>
-                                            <p className="txt">체크인: 오후 2:00 이후</p>
-                                        </li>
-                                        <li>
-                                            <div className="ico"><IcoClock /></div>
-                                            <p className="txt">체크아웃 시간: 오전 10:00</p>
-                                        </li>
-                                        <li>
-                                            <div className="ico"><IcoPet /></div>
-                                            <p className="txt">반려동물 동반 가능</p>
-                                        </li>
-                                        <li>
-                                            <div className="ico"><span>🚬</span></div>
-                                            <p className="txt">흡연 가능</p>
-                                        </li>
-                                    </ul>
-                                    <div className="btn-wrap">
-                                        <button type="button" className="btn btn-txt-link btn-more"><span className="txt">더 보기</span></button>
-                                    </div>
-                                </div>
-                                <div className="aware-item">
-                                    <p className="tit">건강과 안전</p>
-                                    <ul className="aware-list">
-                                        <li>
-                                            <div className="ico"><span>✨</span></div>
-                                            <p className="txt">에어비앤비 코로나19 방역 수칙을 준수하셔야 합니다.</p>
-                                        </li>
-                                        <li>
-                                            <div className="ico ico-exclamation"><span>!</span></div>
-                                            <p className="txt">일산화탄소 경보기 없음</p>
-                                        </li>
-                                        <li>
-                                            <div className="ico ico-exclamation"><span>!</span></div>
-                                            <p className="txt">보안 카메라/녹화 장치<button type="button" className="btn btn-txt-link"><span className="txt">더 보기</span></button></p>
-                                        </li>
-                                        <li>
-                                            <div className="ico ico-exclamation"><span>!</span></div>
-                                            <p className="txt">근처에 호수, 강, 바다 등이 있음</p>
-                                        </li>
-                                        <li>
-                                            <div className="ico ico-exclamation"><span>!</span></div>
-                                            <p className="txt">난간이나 보호 장치가 없는 높은 곳</p>
-                                        </li>
-                                    </ul>
-                                    <div className="btn-wrap">
-                                        <button type="button" className="btn btn-txt-link btn-more"><span className="txt">더 보기</span></button>
-                                    </div>
-                                </div>
-                                <div className="aware-item">
-                                    <p className="tit">환불 정책</p>
-                                    <ul className="aware-list">
-                                        <li>
-                                            <p className="txt">8월 20일 오후 12:00 전에 취소하면 부분 환불을 받으실 수 있습니다.</p>
-                                        </li>
-                                    </ul>
-                                    <div className="btn-wrap">
-                                        <button type="button" className="btn btn-txt-link btn-more"><span className="txt">더 보기</span></button>
-                                    </div>
-                                </div>
-                            </div>
+                            {mQuery ? <MoAwareInfo /> : <AwareInfo />}
                         </div>
                     </div>
                 </div>
             </main>
             {/* // Container */}
+
+            {mQuery ? <MoReserveFixed /> : ''}
 
             {/* <!-- Footer --> */}
             <Footer currentPage={"roomDetail"}/>
