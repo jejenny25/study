@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Header from "../component/Header";
 import Footer from "../component/Footer";
 import Dropbox from "../component/Dropbox";
+import BottomSheet from "../component/BottomSheet"
 
 import { useRecoilValue } from "recoil";
 import { startDateState , endDateState, daysState, cntPriceState, dayPriceState, totPriceState} from "../recoil/ReserveInfo";
@@ -26,6 +27,22 @@ const Reserve = () => {
         return date ? moment(date).format("MM월 DD일") : null;
     };
 
+    const [mQuery, setMQuery] = useState(
+        window.innerWidth < 760 ? true : false
+    );
+    
+    const screenChange = (event) => {
+        const matches = event.matches;
+        setMQuery(matches);
+    }
+
+    useEffect(() => { 
+        let mql = window.matchMedia("screen and (max-width:760px)");
+        mql.addEventListener("change", screenChange);
+        return () => {
+            mql.removeEventListener("change", screenChange)
+        };
+    }, []);
 
     return(
         <div className="wrapper sub-page">
@@ -71,6 +88,36 @@ const Reserve = () => {
                                         </div>
                                     </div>
 
+                                    <div className="reserve-item pricedetail-info-wrap">
+                                        <div className="tit-wrap">
+                                            <p className="tit">요금 세부정보</p>
+                                        </div>
+                                        <div className="price-items-wrap">
+                                            <ul className="price-items">
+                                                <li>
+                                                    <p><span className="txt">₩{dayPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} x {days}박</span></p>
+                                                    <p className="txt-basic">₩{cntPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+                                                </li>
+                                                <li>
+                                                    <p><span className="txt">청소비</span></p>
+                                                    <p className="txt-basic">₩87,536</p>
+                                                </li>
+                                                <li>
+                                                    <p><span className="txt">서비스 수수료</span></p>
+                                                    <p className="txt-basic">₩38,379</p>
+                                                </li>
+                                                <li>
+                                                    <p className='tot txt-medium'>총 합계 <button type="button" className="btn btn-txt-link"><span className="txt txt-medium">(KRW)</span></button></p>
+                                                    <p className="txt-medium">₩{totPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+                                                </li>
+                                            </ul>
+                                            <div className="btn-wrap">
+                                                <button type="button" className="btn btn-txt-link"><span className="txt txt-medium f16">상세 정보</span></button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
                                     <div className="reserve-item pay-info-wrap ">
                                         <div className="tit-wrap">
                                             <p className="tit">결제 수단</p>
@@ -82,8 +129,8 @@ const Reserve = () => {
                                                 </ul>
                                             </div>
                                         </div>
-                                        <Dropbox />
-                                        <div className="btn-wrap">
+                                        {mQuery?<BottomSheet />:<Dropbox />}
+                                        <div className="btn-wrap mar-t24">
                                             <button type="button" className="btn btn-txt-link"><span className="txt txt-medium f16">쿠폰 입력하기</span></button>
                                         </div>
                                     </div>

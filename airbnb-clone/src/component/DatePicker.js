@@ -36,18 +36,15 @@ const DatePicker = forwardRef((props, ref)  => {
     };
 
     moment.locale('ko');
-
+    
     const [mQuery_1200, setMQuery1200] = useState(window.innerWidth < 1200 ? true : false);
     const [mQuery_560, setMQuery560] = useState(window.innerWidth < 560 ? true : false);
     const [daySize, setdaySize] = useState(44);
     
     const screenChange = (event) => {
-        const matches = event.matches;
-        console.log(' mQuery_1200  matches : ' + matches);
-        setMQuery1200(!matches);
-        console.log(' mQuery_1200 : ' + mQuery_1200);
-        if(mQuery_1200 === false){
-            console.log('test1');
+        const matches = event.matches;    
+        setMQuery1200(matches);
+        if(matches){
             setdaySize(70);
         }else{
             setdaySize(44);
@@ -57,9 +54,7 @@ const DatePicker = forwardRef((props, ref)  => {
     const screenChange2 = (event) => {
         const matches = event.matches;
         setMQuery560(matches);
-        console.log(' mQuery_560 durl : ' + mQuery_560);
-        if(mQuery_560 === true){
-            console.log('test2');
+        if(matches){
             setdaySize(44);
         }else{
             setdaySize(70);
@@ -89,6 +84,8 @@ const DatePicker = forwardRef((props, ref)  => {
     
     return (
         <div>
+            {/* <h1> mQuery_1200 matches:  {matches}</h1>
+            <h1> mQuery_1200 :  {mQuery_1200}</h1> */}
             <div className="tit-wrap">
                 <p className="tit">{days > 0 ? 'El Nido에서 '+ days +'박' : '체크인 날짜를 선택해주세요.'}</p>
                 <p className="txt">

@@ -11,13 +11,15 @@
 .main-page .container {padding-top:110px;}
 
 .header {display:flex; height:80px; justify-content:space-between; align-items:center;}
+.header.header-reserve {padding:0 24px;}
 .header .logo {flex:1 0 140px;}
 .header .logo a {display:flex; height:80px; color:#FF385C; align-items:center;}
 .header-logo {display:block;}
 .heder-logo-only {display:none;}
 
 .header .sch-wrap {padding:0 24px;}
-.header .sch-wrap .sch-before-wrap {display:flex; visibility:visible; border:1px solid #ddd; border-radius:40px; align-items:center; box-shadow:0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%); flex: 0 1 auto; height:48px; opacity:1; transform:scale(1); transition: transform 250ms ease,opacity 100ms ease,visibility 0ms 50ms;}
+.header .sch-wrap .sch-before-wrap {display:flex; visibility:visible; border:1px solid #ddd; border-radius:40px; align-items:center; box-shadow:0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%); flex: 0 1 auto; height:48px; opacity:1; 
+    transform:scale(1); transition: transform 250ms ease,opacity 100ms ease,visibility 0ms 50ms;}
 .header .sch-wrap .sch-before-wrap .btn {height:48px; font-weight:600; line-height:48px;}
 .header .sch-wrap .sch-before-wrap .btn .txt {padding:0 16px;}
 .header .sch-wrap .sch-before-wrap .btn + .btn::before {display:inline-block; content:''; position:absolute; top:50%; left:0; width:1px; height:14px; margin-top:-7px; background-color:#ddd;}
@@ -70,6 +72,8 @@
 .sch-after-wrap .sch-detail-wrap .btn-sch .txt {display:block; padding:0 4px 0 8px; }
 .sch-after-wrap .sch-detail-wrap .item .item-detail{display:none; width:100%; width:850px; height:474px; position:absolute; bottom:-486px; left:0; background:#fff; border-radius: 32px; box-shadow: 0 0 0 1px rgb(0 0 0 / 4%), 0 8px 16px rgb(0 0 0 / 15%); margin-top: 12px; padding: 16px 32px;}
 .sch-after-wrap .sch-detail-wrap .item.is-active .item-detail {display:block;}
+
+.header.header-reserve .reserve-header {display: none;}
 
 /* active */
 .main-page .header-wrap.is-active {height:162px;}
@@ -475,7 +479,7 @@
 .reserve-content .book-box .room-info-wrap .txt-wrap .top-wrap .room-type {font-size:12px; color:#717171;}
 .reserve-content .book-box .room-info-wrap .txt-wrap .top-wrap .room-name {margin-top:4px; word-break:keep-all;}
 .reserve-content .book-box .room-info-wrap .txt-wrap .bot-wrap {margin-top:auto;}
-.reserve-content .book-box .room-info-wrap .txt-wrap .bot-wrap ul {display:flex;}
+.reserve-content .book-box .room-info-wrap .txt-wrap .bot-wrap ul {display:flex; flex-flow:row wrap;}
 .reserve-content .book-box .room-info-wrap .txt-wrap .bot-wrap ul li {display:flex; font-size:12px; align-items:center;}
 .reserve-content .book-box .room-info-wrap .txt-wrap .bot-wrap ul li + li:before {display:block; margin:0 5px; font-size:16px; content:'•';}
 .reserve-content .book-box .air-corver-wrap {margin-top:24px; padding:24px 0; border-top:1px solid #d3d3d3;}
@@ -484,6 +488,8 @@
 .reserve-content .book-box .air-corver-wrap .txt-wrap .img img {width:100%;}
 .reserve-content .book-box .price-items-wrap { border-top:1px solid #d3d3d3;}
 .reserve-content .book-box .price-items-wrap .tit-wrap {padding:24px 0; font-size:22px; font-weight:600;}
+
+.pricedetail-info-wrap {display:none;}
 
 /* dim */
 .dim {display:none; position:fixed; width:100%; height:100vh; bottom: 0; top: 0; background-color: rgba(0,0,0,0.25); z-index: 99;} 
@@ -633,6 +639,53 @@
     .mo-reserve-fixed-area .book-summury-wrap {display:flex; align-items: center; justify-content:space-between;}
     .mo-reserve-fixed-area .book-summury-wrap .book-info .price {font-size:18px; font-weight:800;}
     .mo-reserve-fixed-area .book-summury-wrap .book-info .price .day {font-size:14px; font-weight:normal;}
+
+    /* 결제하기 */
+    .header.header-reserve.is-fixed {position:fixed;top:0; left:0; width:100%; background-color:#fff; box-shadow: rgb(0 0 0 / 16%) 0px -2px 8px;}
+    .header.header-reserve .reserve-header {position:relative; display:flex; width:100%; height:64px; align-items:center; justify-content:center;}
+    .reserve-header .btn-back {position:absolute; top:50%; left:0; width:25px; height:25px; margin-top:-12px;}
+    .reserve-header .btn-back::before {position:absolute; top:8px; left:9px; width:8px; height:8px; border-right:2px solid #000; border-bottom:2px solid #000;transform: rotate(135deg); content:'';}
+    .reserve-header .page-tit {font-size:1rem; font-weight:600;}
+
+    .reserve-tit-area {display: none;}
+    .containner-reserve .reserve-area .reserve-content {flex-direction: column-reverse;}
+    .containner-reserve .reserve-area .reserve-content .book-area,
+    .containner-reserve .reserve-area .reserve-content .reserve-info-area {width:100%; margin-left:0;}
+    .containner-reserve .reserve-area .reserve-content .book-area .book-box-wrap {position:relative; top:inherit;}
+    .reserve-content .book-area .book-box {padding:0; border:none}
+    .reserve-content .book-area .book-box .price-items-wrap,
+    .reserve-content .book-area .book-box .tot-wrap {display:none;}
+    .containner-reserve .reserve-area .reserve-item {position:relative; padding: 32px 0 24px;}
+    .containner-reserve .reserve-area .reserve-item::before {display:block; position:absolute; top:0; left:-24px; width:calc(100% + 48px); height:8px; background-color:#ebebeb; content:'';}
+    .reserve-item + .reserve-item {border-top:0;}
+
+    .pricedetail-info-wrap {display:block;}
+    .pricedetail-info-wrap .price-items li {display:flex; justify-content:space-between; font-size:16px;}
+    .pricedetail-info-wrap .price-items li + li {margin-top:16px;}
+    .pricedetail-info-wrap .price-items li .tot {display:flex;}
+    .pricedetail-info-wrap .price-items + .btn-wrap {margin-top:16px; justify-content: flex-end;}
+
+    .reserve-content .pay-info-wrap .card-type-wrap {display:none;}
+    .pay-info-wrap .card-select-wrap {display:flex; padding-bottom:24px; border-bottom: 1px solid #ebebeb; align-items:center; justify-content: space-between;}
+    .pay-info-wrap .card-select-wrap .txt-area {display:flex; align-items:center; }
+    .pay-info-wrap .card-select-wrap .txt-area .txt {display:inline-block; margin-left:10px; font-size:16px;}
+
+    .bottom-sheet-wrap {position: fixed; width: 100vw; max-width: 100vw; max-height: 100%; z-index:600; background-color:#fff; bottom:0; left:0; border-radius:12px 12px 0 0; opacity:0; transform:translateY(100%); transition:transform 250ms ease,opacity 200ms ease;}
+    .bottom-sheet-wrap.is-active {transform:translateY(0); opacity:1; }    
+    .bottom-sheet-wrap .bottom-sheet-header {display:flex; justify-content:center; align-items:center; height:48px; border-bottom:1px solid #ebebeb;}
+    .bottom-sheet-wrap .bottom-sheet-header .tit {font-size: 16px; font-weight:600;}
+    .bottom-sheet-wrap .bottom-sheet-body {padding: 0 24px}
+    .bottom-sheet-wrap .select-list .btn-select-item input[type='radio']:checked + label, 
+    .bottom-sheet-wrap .select-list .btn-select-item:hover, .select-list .btn-select-item:focus {background-color:#fff;}
+    .bottom-sheet-wrap .select-list .btn-select-item.btn-pay-add, 
+    .bottom-sheet-wrap .select-list .btn-select-item label {padding:20px 40px 20px 0px;}
+    .bottom-sheet-wrap .select-list li + li {border-top:1px solid #EBEBEB;}
+    .bottom-sheet-wrap .btn-close {position:absolute; top:15px; left:24px;}
+    .bottom-sheet-wrap .btn-close .ico {display: inline-block; width:16px; height:16px; stroke-width:3px;}
+
+    .reserve-content .confirm-info-wrap .confirm-info .desc-wrap {font-size:12px !important;}
+
+    .policy-info-wrap .btn-wrap .btn-big {width:100%;}
 }
 
 
