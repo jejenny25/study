@@ -31,10 +31,6 @@ const DatePicker = forwardRef((props, ref)  => {
         setFocusedInput(focusedInput);
     };
 
-    const renderDate = (date) => {
-        return date ? moment(date).format("YYYY년 MM월 DD일") : null;
-    };
-
     moment.locale('ko');
     
     const [mQuery_1200, setMQuery1200] = useState(window.innerWidth < 1200 ? true : false);
@@ -83,15 +79,6 @@ const DatePicker = forwardRef((props, ref)  => {
     
     return (
         <div>
-            <div className="tit-wrap">
-                <p className="tit">{days > 0 ? 'El Nido에서 '+ days +'박' : '체크인 날짜를 선택해주세요.'}</p>
-                <p className="txt">
-                    {dates.startDate != null && dates.endDate != null
-                    ? renderDate(dates.startDate) + " - " + renderDate(dates.endDate)
-                    : '여행 날짜를 입력하여 정확한 요금을 확인하세요.'}
-                </p>
-            </div>
-
             <div className="calendar-wrap">
                 <DayPickerRangeController
                     startDate={dates.startDate}

@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { isActiveState } from "../recoil/EtcInfo";
 
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
+import DatePicker from "../component/DatePicker";
+
 import { ReactComponent as IcoSch } from "../assets/svg/ico-sch.svg";
+import { ReactComponent as IcoClock } from "../assets/svg/ico-clock2.svg";
 
 export const SchWrap = () => {
     
@@ -49,7 +54,87 @@ export const SchWrap = () => {
                             </div>
 
                             <div className="item-detail">
-                                최근검색내역, 지역으로 검색하기
+                                <div className="sch-history-wrap">
+                                    <div className="tit-wrap">
+                                        <p className="tit">최근 검색 내역</p>
+                                    </div>
+                                    <div className="history-wrap">
+                                        <ul className="history-list">
+                                            <li>
+                                                <Link to="#">
+                                                    <div className="ico-wrap"><span className="ico"><IcoClock /></span></div>
+                                                    <div className="txt-wrap">
+                                                        <p className="name">Lough, County Wexford · 숙소</p>
+                                                        <p className="sch-type">언제든지</p>
+                                                    </div>
+                                                </Link>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div className="sch-region-wrap">
+                                    <div className="tit-wrap">
+                                        <p className="tit">지역으로 검색하기</p>
+                                    </div>
+                                    <div className="region-list-wrap">
+                                        <ul className="region-list">
+                                            <li>
+                                                <div className="radio-btn">
+                                                    <input type="radio" name="region_sel" id="region01"/>
+                                                    <label htmlFor="region01">
+                                                        <span className="img"><img src="images/map_type01.jpg" alt="" /></span>
+                                                        <span className="txt">유연한 검색</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div className="radio-btn">
+                                                    <input type="radio" name="region_sel" id="region02"/>
+                                                    <label htmlFor="region02">
+                                                        <span className="img"><img src="images/map_type02.jpg" alt="" /></span>
+                                                        <span className="txt">유럽</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div className="radio-btn">
+                                                    <input type="radio" name="region_sel" id="region03"/>
+                                                    <label htmlFor="region03">
+                                                        <span className="img"><img src="images/map_type03.jpg" alt="" /></span>
+                                                        <span className="txt">프랑스</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div className="radio-btn">
+                                                    <input type="radio" name="region_sel" id="region04"/>
+                                                    <label htmlFor="region04">
+                                                        <span className="img"><img src="images/map_type04.jpg" alt="" /></span>
+                                                        <span className="txt">동남아시아</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div className="radio-btn">
+                                                    <input type="radio" name="region_sel" id="region05"/>
+                                                    <label htmlFor="region05">
+                                                        <span className="img"><img src="images/map_type05.jpg" alt="" /></span>
+                                                        <span className="txt">이탈리아</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div className="radio-btn">
+                                                    <input type="radio" name="region_sel" id="region06"/>
+                                                    <label htmlFor="region06">
+                                                        <span className="img"><img src="images/map_type06.jpg" alt="" /></span>
+                                                        <span className="txt">미국</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         {/* 여행지 검색 끝 */}
@@ -67,7 +152,7 @@ export const SchWrap = () => {
 
 
                             <div className="item-detail">
-                                날짜 선택, 유연한일정
+                                <DatePicker />
                             </div>
                         </div>
                         {/* 체크인 체크아웃 끝 */}

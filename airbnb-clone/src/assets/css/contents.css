@@ -6,7 +6,7 @@
 .wrapper.sub-page {padding:80px 0 0;}
 
 /* header */
-.header-wrap {position:absolute; width:100%; top:0; left:0; border-bottom:1px solid rgba(0, 0, 0, 8%); background-color:#fff; z-index:500;}
+.header-wrap {position:absolute; width:100%; top:0; left:0; border-bottom:1px solid rgba(0, 0, 0, 8%); background-color:#fff; z-index:700;}
 .main-page .header-wrap { position:fixed; }
 .main-page .container {padding-top:110px;}
 
@@ -58,7 +58,7 @@
 
 .sch-after-wrap .sch-detail-wrap {display: flex; height: 66px; position: relative; width: 100%; border:1px solid #ddd; background:#EBEBEB; border-radius:32px;}
 .sch-after-wrap .sch-detail-wrap .sch-tab-wrap {display:flex; width:100%;}
-.sch-after-wrap .sch-detail-wrap .sch-tab-wrap .item {display:flex; position:relative; flex:1 0 0%; align-items:center;}
+.sch-after-wrap .sch-detail-wrap .sch-tab-wrap .item {display:flex; flex:1 0 0%; align-items:center;}
 .sch-after-wrap .sch-detail-wrap .sch-tab-wrap .item.item-place {flex:1.25 0 0%;}
 .sch-after-wrap .sch-detail-wrap .sch-tab-wrap .item + .item:before {display:block; width:1px; height:32px; background:#ddd; content:'';}
 .sch-after-wrap .sch-detail-wrap .sch-tab-wrap .item .input-wrap {display:flex; width:100%; padding:13px 32px; margin:-1px; flex-direction:column; border-radius: 32px; cursor:pointer; border:1px solid transparent;}
@@ -70,8 +70,24 @@
 .sch-after-wrap .sch-detail-wrap .btn-sch {display:flex; height:48px; padding:16px; border-radius:24px; background:linear-gradient(to right,#E61E4D 0%,#E31C5F 50%,#D70466 100%); color:#fff; font-size:16px; font-weight:600; align-items:center;}
 .sch-after-wrap .sch-detail-wrap .btn-sch .ico {width:16px; height:16px; stroke-width:5px;}
 .sch-after-wrap .sch-detail-wrap .btn-sch .txt {display:block; padding:0 4px 0 8px; }
-.sch-after-wrap .sch-detail-wrap .item .item-detail{display:none; width:100%; width:850px; height:474px; position:absolute; bottom:-486px; left:0; background:#fff; border-radius: 32px; box-shadow: 0 0 0 1px rgb(0 0 0 / 4%), 0 8px 16px rgb(0 0 0 / 15%); margin-top: 12px; padding: 16px 32px;}
-.sch-after-wrap .sch-detail-wrap .item.is-active .item-detail {display:block;}
+.sch-after-wrap .sch-detail-wrap .item .item-detail{visibility:hidden; width:100%; width:850px; height:auto; position:absolute; bottom:0; left:0; background:#fff; border-radius: 32px; box-shadow: 0 0 0 1px rgb(0 0 0 / 4%), 0 8px 16px rgb(0 0 0 / 15%); margin-top: 12px; padding:32px; transform: translateY(calc(100% + 15px));}
+.sch-after-wrap .sch-detail-wrap .item.is-active .item-detail {visibility:visible;}
+.sch-detail-wrap .item.item-place .item-detail {display:flex;}
+.sch-detail-wrap .item.item-place .item-detail .tit-wrap {padding:8px 0 18px;}
+.sch-detail-wrap .item.item-place .item-detail .tit-wrap .tit {font-weight:700;}
+.sch-detail-wrap .item.item-place .item-detail .history-wrap {min-width:345px;}
+/* .sch-detail-wrap .item.item-place .item-detail .history-list {padding:0 32px 0 24px} */
+.sch-detail-wrap .item.item-place .item-detail .history-list a {display:flex; width:100%; align-items:center;}
+.sch-detail-wrap .item.item-place .item-detail .history-list .ico-wrap {display:flex; align-items:center; justify-content:center; width:48px; height:48px; margin-right:16px; border-radius:12px; background-color:#ebebeb;}
+.sch-detail-wrap .item.item-place .item-detail .history-list .ico-wrap .ico {width:22px; height:22px;}
+.sch-detail-wrap .item.item-place .item-detail .history-list .txt-wrap .name {font-size:16px;}
+.sch-detail-wrap .item.item-place .item-detail .history-list .txt-wrap .sch-type {font-size:12px; color:#717171;}
+.sch-detail-wrap .item.item-place .item-detail .sch-region-wrap {padding-left:44px; border-left:1px solid #ebebeb;}
+.sch-detail-wrap .item.item-place .item-detail .region-list {display:grid; grid-template-columns:repeat(3, 1fr); grid-gap:24px 10px}
+.sch-detail-wrap .item.item-place .item-detail .region-list .radio-btn .img {display:block; width:124px; height:124px; border-radius:12px; border:1px solid #ddd; overflow:hidden; }
+.sch-detail-wrap .item.item-place .item-detail .region-list .radio-btn label:hover .img {border-color: #000;}
+.sch-detail-wrap .item.item-place .item-detail .region-list .radio-btn .img img {width:100%;}
+.sch-detail-wrap .item.item-place .item-detail .region-list .radio-btn .txt {display:block; margin-top:8px;}
 
 .header.header-reserve .reserve-header {display: none;}
 

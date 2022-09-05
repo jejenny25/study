@@ -15,6 +15,10 @@ import MoReserveFixed from '../component/MoReserveFixed'
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import DatePicker from "../component/DatePicker";
+import { useRecoilValue } from "recoil";
+import { startDateState , endDateState, daysState} from "../recoil/ReserveInfo";
+import moment from "moment";
+import "moment/locale/ko"
 
 // 지도
 import Map from "../component/Map";
@@ -122,6 +126,13 @@ const RoomDetail = () => {
 
     // 날짜 관련
     const dateRef = useRef();
+    const startDate = useRecoilValue(startDateState);
+    const endDate = useRecoilValue(endDateState);
+    const days = useRecoilValue(daysState);
+
+    const renderDate = (date) => {
+        return date ? moment(date).format("YYYY년 MM월 DD일") : null;
+    };
 
     return(
         <div className="wrapper sub-page room-detail">
@@ -294,6 +305,14 @@ const RoomDetail = () => {
 
                                 
                                 <div className="explain-item calendar-area">
+                                <div className="tit-wrap">
+                                    <p className="tit">{days > 0 ? 'El Nido에서 '+ days +'박' : '체크인 날짜를 선택해주세요.'}</p>
+                                    <p className="txt">
+                                        {startDate != null && endDate != null
+                                        ? renderDate(startDate) + " - " + renderDate(endDate)
+                                        : '여행 날짜를 입력하여 정확한 요금을 확인하세요.'}
+                                    </p>
+                                </div>
 
                                     <DatePicker ref={dateRef}/>
 
