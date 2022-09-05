@@ -292,9 +292,10 @@
 
 .room-explain-area .calendar-area .tit-wrap .txt {color:#717171}
 .calendar-wrap {margin-left:-20px;}
+.calendar-wrap .DayPicker,
 .calendar-wrap .DayPicker__withBorder {width:100%; box-shadow:none;}
 .calendar-wrap .CalendarMonth_caption strong {font-size:16px; font-weight:600;}
-.calendar-wrap .DayPicker_transitionContainer {min-height:350px;}
+.calendar-wrap .DayPicker_transitionContainer { min-height:350px;}
 .calendar-wrap .DayPicker_weekHeader_li {font-size: 12px; font-weight:600; color: #717171;}
 .calendar-wrap .CalendarDay__default.CalendarDay__blocked_out_of_range, 
 .calendar-wrap .CalendarDay__default.CalendarDay__blocked_out_of_range:active, 
@@ -490,6 +491,7 @@
 .reserve-content .book-box .price-items-wrap .tit-wrap {padding:24px 0; font-size:22px; font-weight:600;}
 
 .pricedetail-info-wrap {display:none;}
+.nav-bottom-wrap .btn-map-wrap .btn-map {visibility: hidden;}
 
 /* dim */
 .dim {display:none; position:fixed; width:100%; height:100vh; bottom: 0; top: 0; background-color: rgba(0,0,0,0.25); z-index: 99;} 
@@ -498,7 +500,9 @@
 /* 미디어 쿼리 */
 @media screen and (max-width: 1600px) {
     .inner,
+    .sub-page .inner,
     .wrapper.sub-page .footer .inner {width:100%; max-width:none; padding:0 80px;}
+    
     .room-list{grid-template-columns: repeat(4, 1fr);}
 }
 
@@ -525,6 +529,7 @@
     .header-wrap {border-bottom:none;}
     .header-wrap .inner {padding:14px 24px 0 24px;}
     .inner,
+    .sub-page .inner,
     .wrapper.sub-page .footer .inner {padding:0 24px;}
     .header-wrap .header {height:auto;}
     .header .logo,
@@ -571,7 +576,7 @@
     .btn-map-wrap.nav-active {transform: translateY(-25px)}
     .btn-map-wrap .btn-map {display:flex; visibility:hidden; opacity:0; padding:11px 19px; background-color:#222; border-radius:45px; font-size:0.75rem; font-weight:600; color:#fff; align-items:center; 
     transition: -ms-transform 0.2s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s, opacity 0.15s linear 0s, visibility 0.5s ease 0s !important;}
-    .btn-map-wrap .btn-map.is-active{visibility:visible; opacity:1;}
+    .nav-bottom-wrap .btn-map-wrap .btn-map.is-active{visibility:visible; opacity:1;}
     .btn-map-wrap .btn-map .ico {margin-left:8px;}
 
     /* 방 상세 */

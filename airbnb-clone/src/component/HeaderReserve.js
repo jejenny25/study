@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import { Link } from "react-router-dom";
-import styled from 'styled-components';
 
 import { ReactComponent as AirbnbLogo } from "../assets/svg/logo.svg";
 import { ReactComponent as AirbnbLogoOnly } from "../assets/svg/logo_only.svg";

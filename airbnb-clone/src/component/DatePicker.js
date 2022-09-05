@@ -73,7 +73,6 @@ const DatePicker = forwardRef((props, ref)  => {
 
         let mql_1200 = window.matchMedia("screen and (max-width:1200px)");
         mql_1200.addEventListener("change", screenChange);
-        //let mql_560 = window.matchMedia("screen (min-width:560px) and (max-width:1199px)");
         let mql_560 = window.matchMedia("screen and (max-width:560px)");
         mql_560.addEventListener("change", screenChange2);
         return () => {
@@ -84,8 +83,6 @@ const DatePicker = forwardRef((props, ref)  => {
     
     return (
         <div>
-            {/* <h1> mQuery_1200 matches:  {matches}</h1>
-            <h1> mQuery_1200 :  {mQuery_1200}</h1> */}
             <div className="tit-wrap">
                 <p className="tit">{days > 0 ? 'El Nido에서 '+ days +'박' : '체크인 날짜를 선택해주세요.'}</p>
                 <p className="txt">
@@ -105,7 +102,7 @@ const DatePicker = forwardRef((props, ref)  => {
                     numberOfMonths={mQuery_1200?1:2}
                     noBorder={true}
                     isOutsideRange={(day) => day.isBefore(moment().add('days'))}
-                    // daySize={44}
+                    //daySize={44}
                     daySize={daySize}
                 />
             </div>
