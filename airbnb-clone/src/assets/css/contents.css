@@ -65,7 +65,8 @@
 .sch-after-wrap .sch-detail-wrap .sch-tab-wrap .item .input-wrap:hover {background:#ddd;}
 .sch-after-wrap .sch-detail-wrap .sch-tab-wrap .item.is-active .input-wrap {background:#fff; box-shadow:0px 7px 12px 7px rgb(0 0 0 / 10%);}
 .sch-after-wrap .sch-detail-wrap .sch-tab-wrap .item .input-wrap .txt-label {display:inline-block; padding-bottom:2px; font-size:12px; font-weight:600;}
-.sch-after-wrap .sch-detail-wrap .sch-tab-wrap .item .input-wrap .txt-input {color:#717171}
+.sch-after-wrap .sch-detail-wrap .sch-tab-wrap .item .input-wrap .txt-input {color:#717171; background:transparent;}
+.sch-after-wrap .sch-detail-wrap .sch-tab-wrap .item .input-wrap .txt-input.txt-date-on {color:#222; font-weight:600;}
 .sch-after-wrap .sch-detail-wrap .item-guest .btn-wrap {position:absolute; top:8px; right:8px;}
 .sch-after-wrap .sch-detail-wrap .btn-sch {display:flex; height:48px; padding:16px; border-radius:24px; background:linear-gradient(to right,#E61E4D 0%,#E31C5F 50%,#D70466 100%); color:#fff; font-size:16px; font-weight:600; align-items:center;}
 .sch-after-wrap .sch-detail-wrap .btn-sch .ico {width:16px; height:16px; stroke-width:5px;}

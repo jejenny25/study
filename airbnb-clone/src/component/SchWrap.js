@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { isActiveState } from "../recoil/EtcInfo";
@@ -10,19 +10,57 @@ import DatePicker from "../component/DatePicker";
 import { ReactComponent as IcoSch } from "../assets/svg/ico-sch.svg";
 import { ReactComponent as IcoClock } from "../assets/svg/ico-clock2.svg";
 
+import { useRecoilValue } from "recoil";
+import { startDateState , endDateState, daysState} from "../recoil/ReserveInfo";
+
+import moment from "moment";
+import "moment/locale/ko"
+
 export const SchWrap = () => {
     
     const [isActive, setIsActive] = useRecoilState(isActiveState);
-    const onClick = () => {
-        setIsActive(!isActive)
+    const [isTabActive1, setIsTabActive1] = useState(false);
+    const [isTabActive2, setIsTabActive2] = useState(false);
+    const [isTabActive3, setIsTabActive3] = useState(false);
+
+    const onClick = (_sch_type) => {
+        setIsActive(!isActive);
+        moveTab(_sch_type);
     };
+
+    const moveTab = (_sch_type) => {
+        if(_sch_type === 1){
+            setIsTabActive1(true);
+            setIsTabActive2(false);
+            setIsTabActive3(false);
+        }else if(_sch_type === 2){
+            setIsTabActive1(false);
+            setIsTabActive2(true);
+            setIsTabActive3(false);
+        }else if(_sch_type === 3){
+            setIsTabActive1(false);
+            setIsTabActive2(false);
+            setIsTabActive3(true);
+        }
+    };
+
+
+    //날짜검색
+    const startDate = useRecoilValue(startDateState);
+    const endDate = useRecoilValue(endDateState);
+    const days = useRecoilValue(daysState);
+
+    const renderDate = (date) => {
+        return date ? moment(date).format("MM월 DD일") : null;
+    };
+
 
   return (
     <div className="sch-wrap">
         <div className="sch-before-wrap">
-            <button type="button" className="btn btn-where" onClick={onClick}><span className="txt">어디든지</span></button>
-            <button type="button" className="btn btn-when" onClick={onClick}><span className="txt">언제든 일주일</span></button>
-            <button className="btn has-sch-ico" onClick={onClick}>
+            <button type="button" className="btn btn-where" onClick={() => {onClick(1)}}><span className="txt">어디든지</span></button>
+            <button type="button" className="btn btn-when" onClick={() => {onClick(2)}}><span className="txt">언제든 일주일</span></button>
+            <button className="btn has-sch-ico" onClick={() => {onClick(3)}}>
                 <span className="txt">게스트 추가</span>
                 <p><span className="ico"><IcoSch /></span></p>
             </button>
@@ -47,8 +85,8 @@ export const SchWrap = () => {
                 <div className="sch-detail-wrap">
                     <div className="sch-tab-wrap">
                         {/* 여행지 검색 시작 */}
-                        <div className="item item-place is-active">
-                            <div className="input-wrap">    
+                        <div className={`item item-place ${isTabActive1 ? 'is-active' : ''}`}>
+                            <div className="input-wrap" onClick={() => {moveTab(1)}} >    
                                 <label htmlFor="input01" className="txt-label">여행지</label>
                                 <input type="input" name="" className="txt-input" placeholder="여행지 검색"/>
                             </div>
@@ -140,14 +178,14 @@ export const SchWrap = () => {
                         {/* 여행지 검색 끝 */}
 
                         {/* 체크인 체크아웃 시작 */}
-                        <div className="item item-date">
-                            <div className="input-wrap"> 
+                        <div className={`item item-date ${isTabActive2 ? 'is-active' : ''}`}>
+                            <div className="input-wrap" onClick={() => {moveTab(2)}} > 
                                 <span className="txt-label">체크인</span>
-                                <p className="txt-input">날짜 입력</p>
+                                <p className={`txt-input ${startDate === "" ? '' : 'txt-date-on'}`}> {startDate === "" ? "날짜 입력" : renderDate(startDate)} </p>
                             </div>
-                            <div className="input-wrap"> 
+                            <div className="input-wrap" onClick={() => {moveTab(2)}} > 
                                 <span className="txt-label">체크인</span>
-                                <p className="txt-input">날짜 입력</p>
+                                <p className={`txt-input ${endDate === "" ? '' : 'txt-date-on'}`}> {endDate === "" ? "날짜 입력" : renderDate(endDate)}</p>
                             </div>
 
 
@@ -158,8 +196,8 @@ export const SchWrap = () => {
                         {/* 체크인 체크아웃 끝 */}
 
                         {/* 게스트 시작 */}
-                        <div className="item item-guest">
-                            <div className="input-wrap"> 
+                        <div className={`item item-guest ${isTabActive3 ? 'is-active' : ''}`}>
+                            <div className="input-wrap"  onClick={() => {moveTab(3)}} > 
                                 <span className="txt-label">여행자</span>
                                 <p className="txt-input">게스트 추가</p>
                             </div>
