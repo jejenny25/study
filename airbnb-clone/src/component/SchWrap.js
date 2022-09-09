@@ -7,6 +7,7 @@ import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import DatePicker from "../component/DatePicker";
 import FlexibleDate from "../component/FlexibleDate"
+import GuestCnt from "../component/GuestCnt";
 
 import { ReactComponent as IcoSch } from "../assets/svg/ico-sch.svg";
 import { ReactComponent as IcoClock } from "../assets/svg/ico-clock2.svg";
@@ -240,7 +241,7 @@ export const SchWrap = () => {
                             </div>
 
                             <div className="item-detail">
-                                게스트 명수
+                                <GuestCnt />
                             </div>
                         </div>
                         {/* 게스트 끝 */}

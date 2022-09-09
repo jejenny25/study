@@ -92,7 +92,7 @@
 .sch-detail-wrap .item.item-place .item-detail .region-list .radio-btn .txt {display:block; margin-top:8px;}
 
 /* 날짜 검색 */
-.sch-detail-wrap .item-date .date-tab-wrap {text-align:center;}
+.sch-detail-wrap .item-date .date-tab-wrap {text-align:center; padding:10px 0;}
 .sch-detail-wrap .item-date .date-tab-type {display:inline-flex; min-width:303px; background-color:#ebebeb; border-radius:100px; padding:4px;}
 .sch-detail-wrap .item-date .date-tab-type .datetype-btn {padding:8px 12px; flex:1; font-weight:600; border-radius:100px; }
 .sch-detail-wrap .item-date .date-tab-type .datetype-btn.is-active,
@@ -114,18 +114,29 @@
 .sch-detail-wrap .item-date .flexible-item .btn-stay-length:hover {border-color:#333;}
 .sch-detail-wrap .item-date .flexible-item .btn-stay-length + .btn-stay-length {margin-left:10px;}
 
-.flexible-wrap .swiper-flex-date {position: relative;}
+.flexible-wrap .swiper-flex-date {position: relative; padding-top:10px;}
 .flexible-wrap .swiper-flex-date .swiper-button-next, 
-.flexible-wrap .swiper-flex-date .swiper-button-prev {width:28px; height:28px; z-index: 15;}
+.flexible-wrap .swiper-flex-date .swiper-button-prev {width:32px; height:32px; z-index: 15;}
 .flexible-wrap .swiper-flex-date .swiper-button-next:after, 
 .flexible-wrap .swiper-flex-date .swiper-button-prev:after {font-size:0;}
 .flexible-wrap .swiper-flex-date .swiper-button-next span, 
-.flexible-wrap .swiper-flex-date .swiper-button-prev span {display:flex; align-items:center; justify-content:center; position:relative; width:28px; height:28px; border-radius:50%; right:0; border:1px solid #fff; background:#fff; z-index:11;}
+.flexible-wrap .swiper-flex-date .swiper-button-prev span {display:flex; align-items:center; justify-content:center; position:relative; width:32px; height:32px; border-radius:50%; right:-20px; border:1px solid rgba(0, 0, 0, 0.08); background:#fff; z-index:11;}
+.flexible-wrap .swiper-flex-date .swiper-button-prev span {right: inherit; left:-20px;}
 .flexible-wrap .swiper-flex-date .swiper-button-next span:after, 
 .flexible-wrap .swiper-flex-date .swiper-button-prev span:after {display:block; font-size:0; width:8px;height:8px; border-right:2px solid #000;border-bottom:2px solid #000;transform: rotate(-45deg); margin-left:-2px; content:'';}
 .flexible-wrap .swiper-flex-date .swiper-button-prev span:after {transform:rotate(135deg); margin-left:3px;}
 .flexible-wrap .swiper-flex-date .swiper-button-next.swiper-button-disabled, 
 .flexible-wrap .swiper-flex-date .swiper-button-prev.swiper-button-disabled {display:none;}
+
+.sch-after-wrap .sch-detail-wrap .item.item-guest .item-detail {width:406px; left:inherit; right:0; padding:16px 32px;}
+.item-guest .guest-cnt-wrap .cnt-item {display:flex; padding:24px 0; justify-content:space-between; align-items:center;}
+.item-guest .guest-cnt-wrap .cnt-item + .cnt-item {border-top:1px solid #ebebeb;}
+.item-guest .guest-cnt-wrap .cnt-item .name {font-size: 16px;line-height:20px;font-weight:600;}
+.item-guest .guest-cnt-wrap .cnt-item .desc {color:#717171; margin-top:8px;}
+.item-guest .guest-cnt-wrap .cnt-item .btn-cnt-wrap {display:flex; width:104px; align-items:center; justify-content:space-between;}
+/* .item-guest .guest-cnt-wrap .cnt-item .bnt-cnt {display:flex; width:32px; height:32px; border-radius:50%; align-items:center; justify-content:center; color:#717171; border:1px solid #b0b0b0;}
+.item-guest .guest-cnt-wrap .cnt-item .bnt-cnt .ico {display:block; width:12px; height:12px; stroke-width: 5.33333;} */
+.item-guest .guest-cnt-wrap .cnt-item .cnt {}
 
 .header.header-reserve .reserve-header {display: none;}
 

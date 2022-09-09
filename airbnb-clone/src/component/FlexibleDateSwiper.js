@@ -18,7 +18,7 @@ const FlexibleDateSwiper = () => {
     const flexdate_settings = {
         slidesPerView:6,
         slidesPerGroup : 1,
-        spaceBetween: 16, 
+        spaceBetween: 8, 
         allowTouchMove: true,//드래그 금지
         speed : 1200,
 
