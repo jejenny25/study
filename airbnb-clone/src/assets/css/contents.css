@@ -73,6 +73,7 @@
 .sch-after-wrap .sch-detail-wrap .btn-sch .txt {display:block; padding:0 4px 0 8px; }
 .sch-after-wrap .sch-detail-wrap .item .item-detail{visibility:hidden; width:100%; width:850px; height:auto; position:absolute; bottom:0; left:0; background:#fff; border-radius: 32px; box-shadow: 0 0 0 1px rgb(0 0 0 / 4%), 0 8px 16px rgb(0 0 0 / 15%); margin-top: 12px; padding:32px; transform: translateY(calc(100% + 15px));}
 .sch-after-wrap .sch-detail-wrap .item.is-active .item-detail {visibility:visible;}
+/* 여행지 검색 */
 .sch-detail-wrap .item.item-place .item-detail {display:flex;}
 .sch-detail-wrap .item.item-place .item-detail .tit-wrap {padding:8px 0 18px;}
 .sch-detail-wrap .item.item-place .item-detail .tit-wrap .tit {font-weight:700;}
@@ -89,6 +90,42 @@
 .sch-detail-wrap .item.item-place .item-detail .region-list .radio-btn label:hover .img {border-color: #000;}
 .sch-detail-wrap .item.item-place .item-detail .region-list .radio-btn .img img {width:100%;}
 .sch-detail-wrap .item.item-place .item-detail .region-list .radio-btn .txt {display:block; margin-top:8px;}
+
+/* 날짜 검색 */
+.sch-detail-wrap .item-date .date-tab-wrap {text-align:center;}
+.sch-detail-wrap .item-date .date-tab-type {display:inline-flex; min-width:303px; background-color:#ebebeb; border-radius:100px; padding:4px;}
+.sch-detail-wrap .item-date .date-tab-type .datetype-btn {padding:8px 12px; flex:1; font-weight:600; border-radius:100px; }
+.sch-detail-wrap .item-date .date-tab-type .datetype-btn.is-active,
+.sch-detail-wrap .item-date .date-tab-type .datetype-btn:hover {background-color:#fff;}
+.sch-detail-wrap .date-tab-content .tab-content {display:none;}
+.sch-detail-wrap .date-tab-content .tab-content.is-active {display:block;}
+.sch-detail-wrap .item-date .plus-date-wrap {display:flex; padding:10px 60px;}
+.sch-detail-wrap .item-date .plus-date-wrap .btn-plus-date {display:flex; min-height:32px; padding:4px 12px; border-radius:16px; border:1px solid #ddd; font-size:12px; line-height:18px; align-items:center;}
+.sch-detail-wrap .item-date .plus-date-wrap .btn-plus-date:hover {border-color:#333;}
+.sch-detail-wrap .item-date .plus-date-wrap .btn-plus-date + .btn-plus-date {margin-left:10px;}
+.sch-detail-wrap .item-date .plus-date-wrap .btn-plus-date .ico {width:12px; height:12px; margin-right:4px;}
+
+.sch-detail-wrap .item-date .flexible-wrap {margin-top:25px;}
+.sch-detail-wrap .item-date .flexible-item + .flexible-item {margin-top:30px;}
+.sch-detail-wrap .item-date .flexible-item .tit-wrap {margin:8px 0 14px;}
+.sch-detail-wrap .item-date .flexible-item .tit-wrap .tit {font-size:18px; line-height:24px; font-weight:600;}
+.sch-detail-wrap .item-date .flexible-item .stay-length-wrap {display:flex; justify-content:center; align-items:center;}
+.sch-detail-wrap .item-date .flexible-item .btn-stay-length {padding:11px 16px; border:1px solid #ddd; border-radius:50px;}
+.sch-detail-wrap .item-date .flexible-item .btn-stay-length:hover {border-color:#333;}
+.sch-detail-wrap .item-date .flexible-item .btn-stay-length + .btn-stay-length {margin-left:10px;}
+
+.flexible-wrap .swiper-flex-date {position: relative;}
+.flexible-wrap .swiper-flex-date .swiper-button-next, 
+.flexible-wrap .swiper-flex-date .swiper-button-prev {width:28px; height:28px; z-index: 15;}
+.flexible-wrap .swiper-flex-date .swiper-button-next:after, 
+.flexible-wrap .swiper-flex-date .swiper-button-prev:after {font-size:0;}
+.flexible-wrap .swiper-flex-date .swiper-button-next span, 
+.flexible-wrap .swiper-flex-date .swiper-button-prev span {display:flex; align-items:center; justify-content:center; position:relative; width:28px; height:28px; border-radius:50%; right:0; border:1px solid #fff; background:#fff; z-index:11;}
+.flexible-wrap .swiper-flex-date .swiper-button-next span:after, 
+.flexible-wrap .swiper-flex-date .swiper-button-prev span:after {display:block; font-size:0; width:8px;height:8px; border-right:2px solid #000;border-bottom:2px solid #000;transform: rotate(-45deg); margin-left:-2px; content:'';}
+.flexible-wrap .swiper-flex-date .swiper-button-prev span:after {transform:rotate(135deg); margin-left:3px;}
+.flexible-wrap .swiper-flex-date .swiper-button-next.swiper-button-disabled, 
+.flexible-wrap .swiper-flex-date .swiper-button-prev.swiper-button-disabled {display:none;}
 
 .header.header-reserve .reserve-header {display: none;}
 
@@ -309,6 +346,8 @@
 
 .room-explain-area .calendar-area .tit-wrap .txt {color:#717171}
 .calendar-wrap {margin-left:-20px;}
+.sch-after-wrap .calendar-wrap .DayPicker,
+.sch-after-wrap .calendar-wrap .DayPicker__withBorder {margin:auto}
 .calendar-wrap .DayPicker,
 .calendar-wrap .DayPicker__withBorder {width:100%; box-shadow:none;}
 .calendar-wrap .CalendarMonth_caption strong {font-size:16px; font-weight:600;}

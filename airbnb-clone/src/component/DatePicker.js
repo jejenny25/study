@@ -90,6 +90,7 @@ const DatePicker = forwardRef((props, ref)  => {
                     noBorder={true}
                     isOutsideRange={(day) => day.isBefore(moment().add('days'))}
                     //daySize={44}
+                    monthFormat="YYYY년 MMMM"
                     daySize={daySize}
                 />
             </div>

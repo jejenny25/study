@@ -6,9 +6,11 @@ import { isActiveState } from "../recoil/EtcInfo";
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import DatePicker from "../component/DatePicker";
+import FlexibleDate from "../component/FlexibleDate"
 
 import { ReactComponent as IcoSch } from "../assets/svg/ico-sch.svg";
 import { ReactComponent as IcoClock } from "../assets/svg/ico-clock2.svg";
+import { ReactComponent as IcoPlusMinus } from "../assets/svg/ico-plusminus.svg";
 
 import { useRecoilValue } from "recoil";
 import { startDateState , endDateState, daysState} from "../recoil/ReserveInfo";
@@ -53,6 +55,17 @@ export const SchWrap = () => {
     const renderDate = (date) => {
         return date ? moment(date).format("MM월 DD일") : null;
     };
+
+
+    const [tabDateType, setisTabDateType] = useState(1);
+    // const moveTabDate = (_sch_date_type) => {
+    //     if(_sch_date_type === 1){
+    //         setisTabDateType("date");
+    //     }else if(_sch_date_type === 2){
+    //         setisTabDateType("flex");
+    //     }
+    // };
+    
 
 
   return (
@@ -190,7 +203,28 @@ export const SchWrap = () => {
 
 
                             <div className="item-detail">
-                                <DatePicker />
+                                <div className="date-tab-wrap">
+                                    <div className="date-tab-type">
+                                        <button type='button' className={`datetype-btn ${tabDateType === 1 ? 'is-active' : ''}`} onClick={() => {setisTabDateType(1)}}><span>날짜 선택</span></button>
+                                        <button type='button' className={`datetype-btn ${tabDateType === 2 ? 'is-active' : ''}`} onClick={() => {setisTabDateType(2)}}><span>유연한 일정</span></button>
+                                    </div>
+                                    <div className="date-tab-content">
+                                        <div className={`tab-content date-calendar ${tabDateType === 1 ? 'is-active' : ''}`}>
+                                            <DatePicker />
+                                            <div className="plus-date-wrap">
+                                                <button type="button" className="btn btn-plus-date"><span className="txt">정확한 날짜</span></button>
+                                                <button type="button" className="btn btn-plus-date"><span className="ico"><IcoPlusMinus /></span> <span className="txt">1일</span></button>
+                                                <button type="button" className="btn btn-plus-date"><span className="ico"><IcoPlusMinus /></span> <span className="txt">2일</span></button>
+                                                <button type="button" className="btn btn-plus-date"><span className="ico"><IcoPlusMinus /></span> <span className="txt">3일</span></button>
+                                                <button type="button" className="btn btn-plus-date"><span className="ico"><IcoPlusMinus /></span> <span className="txt">7일</span></button>
+                                            </div>
+                                        </div>
+                                        <div className={`tab-content date-flexible ${tabDateType === 2 ? 'is-active' : ''}`}>
+                                            <FlexibleDate />
+                                        </div>
+                                    </div>
+                                </div>
+                                
                             </div>
                         </div>
                         {/* 체크인 체크아웃 끝 */}
