@@ -4,7 +4,7 @@ import { isActiveState } from "../recoil/EtcInfo";
 import styled from 'styled-components';
 
 const DimBox = (props) => {
-  const [isActive, setIsActive] = useRecoilState(isActiveState);
+    const [isActive, setIsActive] = useRecoilState(isActiveState);
     const onClick = () => {
         setIsActive(!isActive)
     };

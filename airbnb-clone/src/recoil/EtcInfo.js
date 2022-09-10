@@ -14,3 +14,9 @@ export const navState = atom({
     key: "navActive",
     default: ""
 })
+
+export const schWordState = atom({
+    key: "schWord",
+    default: ""
+})
+

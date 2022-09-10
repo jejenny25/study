@@ -314,7 +314,7 @@ const RoomDetail = () => {
                                     </p>
                                 </div>
 
-                                    <DatePicker ref={dateRef}/>
+                                    <DatePicker ref={dateRef} startDate={null} endDate={null}/>
 
                                     <div className="btn-wrap align-both-end">
                                         <button type="button" className="btn btn-hover ico-only"><span><IcoKeyboard /></span></button>

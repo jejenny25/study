@@ -10,12 +10,21 @@ import moment from "moment";
 import "moment/locale/ko"
 
 const DatePicker = forwardRef((props, ref)  => {    
-    const [dates, setDates] = useState({ startDate: moment().add(1, "d") , endDate: moment().add(8, "d") });
+    //const [dates, setDates] = useState({ startDate: moment().add(1, "d") , endDate: moment().add(8, "d") });
+    const [dates, setDates] = useState({ startDate: null, endDate: null });
     
     const [startDate, setStartDate] = useRecoilState(startDateState);
     const [endDate, setEndDate] = useRecoilState(endDateState);
     const [days, setDays] = useRecoilState(daysState);
     const [numMonth, setNumMonth] = useState(1);
+
+    useEffect(() => {
+        if(props.startDate === null || props.startDate === "") {
+            setDates({ startDate: moment().add(1, "d") , endDate: moment().add(8, "d") });
+        }        
+        return () => {
+        }
+    }, [])
 
     useImperativeHandle(ref, () => ({
         setDates
@@ -75,6 +84,7 @@ const DatePicker = forwardRef((props, ref)  => {
             mql_1200.removeEventListener("change", screenChange);
             mql_560.removeEventListener("change", screenChange2)
         }
+        handleDatesChange();
     }, [dates])
     
     return (

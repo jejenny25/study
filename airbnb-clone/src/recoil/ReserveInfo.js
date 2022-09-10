@@ -29,3 +29,28 @@ export const cntPriceState = atom({
     key: "CntPrice",
     default: 0
 })
+
+export const adultGuestState = atom({
+    key: "AdultGuest",
+    default: 0
+})
+
+export const kidGuestState = atom({
+    key: "KidGuest",
+    default: 0
+})
+
+export const toddlerGuestState = atom({
+    key: "ToddlerGuest",
+    default: 0
+})
+
+export const petGuestState = atom({
+    key: "PetGuest",
+    default: 0
+})
+
+export const delGuestState = atom({
+    key: "del",
+    default: 0
+})

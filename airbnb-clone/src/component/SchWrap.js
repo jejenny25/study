@@ -1,7 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import { Link } from "react-router-dom";
-import { useRecoilState } from "recoil";
-import { isActiveState } from "../recoil/EtcInfo";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { isActiveState, schWordState } from "../recoil/EtcInfo";
+import { startDateState , endDateState, adultGuestState, kidGuestState, toddlerGuestState, petGuestState, delGuestState} from "../recoil/ReserveInfo";
 
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
@@ -12,12 +13,12 @@ import GuestCnt from "../component/GuestCnt";
 import { ReactComponent as IcoSch } from "../assets/svg/ico-sch.svg";
 import { ReactComponent as IcoClock } from "../assets/svg/ico-clock2.svg";
 import { ReactComponent as IcoPlusMinus } from "../assets/svg/ico-plusminus.svg";
-
-import { useRecoilValue } from "recoil";
-import { startDateState , endDateState, daysState} from "../recoil/ReserveInfo";
+import { ReactComponent as IcoDel} from "../assets/svg/ico-del.svg"
 
 import moment from "moment";
 import "moment/locale/ko"
+
+import styled from 'styled-components';
 
 export const SchWrap = () => {
     
@@ -49,9 +50,8 @@ export const SchWrap = () => {
 
 
     //날짜검색
-    const startDate = useRecoilValue(startDateState);
-    const endDate = useRecoilValue(endDateState);
-    const days = useRecoilValue(daysState);
+    const [startDate, setStartDate] = useRecoilState(startDateState);
+    const [endDate, setEndDate] = useRecoilState(endDateState);
 
     const renderDate = (date) => {
         return date ? moment(date).format("MM월 DD일") : null;
@@ -59,16 +59,44 @@ export const SchWrap = () => {
 
 
     const [tabDateType, setisTabDateType] = useState(1);
-    // const moveTabDate = (_sch_date_type) => {
-    //     if(_sch_date_type === 1){
-    //         setisTabDateType("date");
-    //     }else if(_sch_date_type === 2){
-    //         setisTabDateType("flex");
-    //     }
-    // };
+
+    const [adultCnt, setAdultCnt] = useRecoilState(adultGuestState);
+    const [kidCnt, setKidCnt] = useRecoilState(kidGuestState);
+    const [toddlerCnt, setToddlerCnt] = useRecoilState(toddlerGuestState);
+    const [petCnt, setPetCnt] = useRecoilState(petGuestState);    
+    const [delGuest, setDelGuest] = useRecoilState(delGuestState);    
+
+    let guestTxt = "";
     
+    if(adultCnt > 0){
+        guestTxt = "게스트 " + adultCnt + "명";
+    }
+    if(kidCnt > 0){
+        guestTxt += ", 어린이 " + kidCnt + "명";
+    }
+    if(toddlerCnt > 0){
+        guestTxt += ", 유아 " + toddlerCnt + "명";
+    }
+    if(petCnt > 0){
+        guestTxt += ", 반려동물 " + petCnt + "마리";
+    }
 
-
+    const deleteGuest = () =>{
+        setAdultCnt();
+        setKidCnt();
+        setToddlerCnt();
+        setPetCnt();
+        guestTxt = "";
+        setDelGuest(true);
+    }
+    
+    const [_schWord, _setSchWord] = useState("");
+    const [schWord, setSchWord] = useRecoilState(schWordState);    
+    //const [isActive, setIsActive] = useRecoilState(isActiveState);
+    const goSearch = () =>{
+        setSchWord(_schWord);
+        setIsActive(false);
+    }
   return (
     <div className="sch-wrap">
         <div className="sch-before-wrap">
@@ -102,7 +130,8 @@ export const SchWrap = () => {
                         <div className={`item item-place ${isTabActive1 ? 'is-active' : ''}`}>
                             <div className="input-wrap" onClick={() => {moveTab(1)}} >    
                                 <label htmlFor="input01" className="txt-label">여행지</label>
-                                <input type="input" name="" className="txt-input" placeholder="여행지 검색"/>
+                                <input type="text" className="txt-input" placeholder="여행지 검색" value={_schWord} onChange={(e)=> _setSchWord(e.target.value)}/>
+                                <DelBtn active={isTabActive1} onClick={()=>{_setSchWord("")}}><span className='ico'><IcoDel /></span></DelBtn>
                             </div>
 
                             <div className="item-detail">
@@ -193,13 +222,15 @@ export const SchWrap = () => {
 
                         {/* 체크인 체크아웃 시작 */}
                         <div className={`item item-date ${isTabActive2 ? 'is-active' : ''}`}>
-                            <div className="input-wrap" onClick={() => {moveTab(2)}} > 
+                            <div className={`input-wrap ${endDate === null ? 'has-date' : ''}`} onClick={() => {moveTab(2)}} > 
                                 <span className="txt-label">체크인</span>
-                                <p className={`txt-input ${startDate === "" ? '' : 'txt-date-on'}`}> {startDate === "" ? "날짜 입력" : renderDate(startDate)} </p>
+                                <p className={`txt-input ${startDate === null ? '' : 'txt-date-on'}`}> {startDate === null ? "날짜 입력" : renderDate(startDate)} </p>
+                                <DelBtn active={startDate != null && isTabActive2 ? true : false} onClick={() => {setStartDate(null);}}><span className='ico'><IcoDel /></span></DelBtn>
                             </div>
-                            <div className="input-wrap" onClick={() => {moveTab(2)}} > 
-                                <span className="txt-label">체크인</span>
-                                <p className={`txt-input ${endDate === "" ? '' : 'txt-date-on'}`}> {endDate === "" ? "날짜 입력" : renderDate(endDate)}</p>
+                            <div className={`input-wrap ${endDate === null ? '' : 'has-date'}`} onClick={() => {moveTab(2)}} > 
+                                <span className="txt-label">체크아웃</span>
+                                <p className={`txt-input ${endDate === null ? '' : 'txt-date-on'}`}> {endDate === null ? "날짜 입력" : renderDate(endDate)}</p>
+                                <DelBtn active={endDate != null && isTabActive2 ? true : false} onClick={() => {setEndDate(null);}}><span className='ico'><IcoDel /></span></DelBtn>
                             </div>
 
 
@@ -234,10 +265,11 @@ export const SchWrap = () => {
                         <div className={`item item-guest ${isTabActive3 ? 'is-active' : ''}`}>
                             <div className="input-wrap"  onClick={() => {moveTab(3)}} > 
                                 <span className="txt-label">여행자</span>
-                                <p className="txt-input">게스트 추가</p>
+                                <p className={`txt-input ${guestTxt === "" ? '' : 'on-guest'}`}>{guestTxt === "" ? '게스트 추가' : guestTxt} </p>
+                                <DelBtn active={isTabActive3} onClick={deleteGuest}><span className='ico'><IcoDel /></span></DelBtn>
                             </div>
                             <div className="btn-wrap">
-                                <button type="button" className="btn-sch"><span className="ico"><IcoSch /></span><span className="txt">검색</span></button>
+                                <button type="button" className="btn-sch" onClick={()=> goSearch()}><span className="ico"><IcoSch /></span><span className="txt">검색</span></button>
                             </div>
 
                             <div className="item-detail">
@@ -252,5 +284,11 @@ export const SchWrap = () => {
     </div>
   )
 }
+
+const DelBtn = styled.button`
+    position:absolute; width:24px; height:24px; border-radius:50%; top:50%; right:15px; margin-top:-12px; align-items:center; color:#222; justify-content:center; background-color:#ebebeb;
+    .ico {display:block; width:12px; height:12px; stroke-width:4px;}
+    display:${props=>props.active?'flex':'none'};}
+`;
 
 export default SchWrap
