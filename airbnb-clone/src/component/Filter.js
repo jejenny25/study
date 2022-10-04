@@ -14,7 +14,7 @@ function Filter() {
 
     const filter_settings = {
         slidesPerView: "auto",
-        spaceBetween: 35, 
+        spaceBetween: 24, 
         allowTouchMove: true,
         slidesPerGroup : 5,        
         speed : 1000,

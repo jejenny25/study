@@ -34,7 +34,7 @@ const RoomList = () => {
     const schWord = useRecoilValue(schWordState);
 
     const dataRooms = data.rooms.filter(item => item.name.includes(schWord));
-    console.log(dataRooms);
+    //console.log(dataRooms);
     
     return(
         <div className={`room-list ${dataRooms.length > 0 ? '': 'no-result'}`}>

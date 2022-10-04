@@ -78,9 +78,9 @@ const GuestBtn = (props) => {
 const BtnCnt = styled.button`
     display:flex; width:32px; height:32px; border-radius:50%; align-items:center; justify-content:center; border:1px solid #b0b0b0;
     .ico {display:block; width:12px; height:12px; stroke-width: 5.33333;}
-    cursor:${props=>props.active?'cusor':'not-allowed'};}
-    color: ${props=>props.active?'#717171':'#ebebeb'};}
-    border-color: ${props=>props.active?'#b0b0b0':'#ebebeb'};}
+    cursor:${props=>props.active?'cusor':'not-allowed'};
+    color: ${props=>props.active?'#717171':'#ebebeb'};
+    border-color: ${props=>props.active?'#b0b0b0':'#ebebeb'};
 `;
 
 export default GuestBtn

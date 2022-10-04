@@ -18,6 +18,7 @@ const AfterLogin = () => {
                 Kakao.Auth.getAccessToken(),
             );
             Kakao.Auth.logout(() => {
+                
                 console.log('로그아웃 되었습니다.', Kakao.Auth.getAccessToken());
                 setUserId(null);
                 setProfileImage(null);
