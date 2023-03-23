@@ -1,8 +1,12 @@
 {
-    "include": ["src"],
-    "compilerOptions": {
-        "outDir": "build",
-        "target": "ES6",
-        "lib": ["ES6", "DOM"] // ES6를 지원하는 서버와 DOM, 즉 브라우저 환경에서 코드를 실행 시킬 것이다. 그럼 타입스크립트는 이 코드가 어디서 작동될지를 알기때문에 자동완성기능을 제공함
-    }
+  "include": ["src"],
+  "compilerOptions": {
+    "outDir": "build",
+    "target": "ES6",
+    "lib": ["ES6"], // ES6를 지원하는 서버와 DOM, 즉 브라우저 환경에서 코드를 실행 시킬 것이다. 그럼 타입스크립트는 이 코드가 어디서 작동될지를 알기때문에 자동완성기능을 제공함
+    "strict": true,
+    //"allowJs": true,
+    "esModuleInterop": true,
+    "module": "CommonJS"
+  }
 }
