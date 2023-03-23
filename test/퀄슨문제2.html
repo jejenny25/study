@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function solution(grade) {
+        // let answer = Array.from({length: grade.length}, () => 1)
+        // for (let i = 0; i < grade.length; i++) {
+        //   for (let j = 0; j < grade.length; j++) {
+        //     if (grade[j] > grade[i]) answer[i]++
+        //   }
+        // }
+
+        // const n = grade.length
+        // const sorted = grade.slice().sort((a, b) => b - a)
+        // const cnt = new Array(n + 1).fill(0)
+        // for (let i = 0; i < n; i++) {
+        //   let rank = i + 1
+        //   if (i > 0 && sorted[i] === sorted[i - 1]) {
+        //     rank = cnt[i]
+        //   }
+        //   cnt[i] = rank
+        // }
+        // const result = new Array(n)
+        // for (let i = 0; i < n; i++) {
+        //   result[i] = cnt[sorted.indexOf(grade[i])]
+        // }
+
+        // return result
+
+        const sortedGrade = grade.slice().sort((a, b) => b - a) // grade 배열을 내림차순으로 정렬한 배열을 만듭니다.
+        const result = []
+
+        for (let i = 0; i < grade.length; i++) {
+          let rank = sortedGrade.indexOf(grade[i]) + 1 // grade[i]의 등수는 sortedGrade에서 grade[i]가 위치한 인덱스 + 1 입니다.
+          result.push(rank)
+        }
+
+        return result
+      }
+      var result = solution([3, 2, 1, 2])
+      console.log(`답은 ::::: ${result} ::::: 입니다.`)
+    </script>
+  </head>
+  <body>
+    N명의 학생이 시험을 보았습니다. 각 학생에는 1부터 N까지의 번호가 붙어있습니다. N명의 학생의 시험점수를 바탕으로
+    등수를 부여하려고 합니다. 각 학생의 등수는 자신보다 높은 점수를 받은 학생의 수에 1을 더한 수 입니다. 예를 들어, 세
+    학생이 있고 1,2,3번의 학생의 성적이 각각 2,2,1이라면 1,2번의 학생은 가장 점수가 높고 동점이기때문에 1등이고, 3번
+    학생은 1,2번 학생보다 점수가 낮기 때문에 3등입니다. 1번부터 N번 학생까지의 점수가 순서대로 들어있는 배열 grade가
+    주어질때 1번부터 N번 학생까지의 등수가 순서대로 들어있는 배열을 return하도록 solution 함수를 javascript로
+    완성해주세요. 제한사항 : grade의 길이는 1이상 1,000,000 이하입니다. grade의 각 원소는 1이상 1,000,000,000
+    이하입니다.
+  </body>
+</html>

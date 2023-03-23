@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      solution(52160)
+      function solution(N) {
+        // Implement your solution here
+        const binaryNum = N.toString(2)
+        console.log(' binaryNum : ' + binaryNum)
+        const binaryGap = binaryNum.substr(0, binaryNum.lastIndexOf('1') + 1) // 문자열 0번째부터 끝에서 부터 검색할 값인 '1'까지 자른 뒤 1을 더해준다
+        console.log(' binaryGap : ' + binaryGap)
+        return Math.max(...binaryGap.split('1').map(item => item.length))
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

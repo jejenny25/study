@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function createObject(A) {
+        var proto = {
+          value: function () {
+            return A[this.index]
+          },
+        }
+        return function (index) {
+          var obj = Object.create(proto)
+          obj.index = index
+          return obj
+        }
+      }
+      function solution(A) {
+        // Implement your solution here
+        var create = createObject(A)
+        var T = []
+        for (var i = 0; i < A.length; i++) {
+          T.push(create(i))
+        }
+        console.log(T)
+        return T
+      }
+      solution([5, 5, 10, 12, 80])
+    </script>
+  </head>
+  <body></body>
+</html>
