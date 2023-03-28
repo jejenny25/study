@@ -18,7 +18,9 @@
   --black: #000000;
   --translucent-black: #00000099;
 }
-
+ul {
+  padding-left: 0;
+}
 li {
   list-style: none;
   padding-left: 0;
@@ -42,10 +44,26 @@ dialog {
 }
 
 button {
-  border: transparent;
+  border: 0;
+  background: transparent;
+  outline: 0;
   padding: 0;
   margin: 0;
   cursor: pointer;
+}
+input,
+textarea {
+  background-color: #fff;
+  padding: 1rem;
+  border: 1px solid #000;
+  color: var(--black);
+  font-size: 1.6rem;
+  resize: none;
+}
+
+* {
+  outline: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -99,7 +117,8 @@ body {
 .control-panel li + li {
   margin-left: 1rem;
 }
-.create-button {
+.create-button,
+.dialog__submit {
   text-align: center;
   user-select: none;
   padding: 1rem 3.5rem;
@@ -162,13 +181,164 @@ body {
 }
 
 .dialog__container {
+  position: relative;
   display: flex;
   flex-direction: column;
-  padding: 0.4em;
+  padding: 1.5rem;
   width: 32em;
-  background: var(--bg-accent-color);
-  background: var(--component-bg-gradient);
+  background: #fff;
   border: 1px solid var(--border-color);
-  border-radius: 0.5rem;
   box-shadow: 2px 2px 20px var(--shadow-color);
+}
+
+.dialog__container .close {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.form__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__container + .form__container {
+  margin-top: 1.5rem;
+}
+
+.form__container label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #000;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.close {
+  align-self: flex-end;
+  padding: 0.2rem;
+  color: var(--accent-color);
+  font-size: 28px;
+  font-weight: bold;
+  margin: 3px;
+  transition: color 250ms ease;
+}
+
+.close:hover,
+.close:focus {
+  transform: scale(1.5);
+  color: var(--shadow-color);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.dialog__submit {
+  width: 100%;
+  margin-top: 1.5rem;
+  align-self: flex-end;
+  padding: 1.3rem 1.5rem;
+}
+
+/* -- PAGE ITEM -- */
+.page-item {
+  margin: 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 2px 2px 6px var(--shadow-color);
+  background: #fff;
+}
+
+.page-item__controls {
+  padding-right: 0.5em;
+}
+
+.page-item__title {
+  color: #000;
+  font-size: 2rem;
+}
+
+.page-item__title.note__title,
+.page-item__title.todo__title {
+  margin: 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #000;
+}
+
+.page-item__body {
+  width: 100%;
+}
+
+/* -- Image & Video -- */
+.video,
+.image {
+  display: flex;
+  width: 100%;
+  height: 250px;
+}
+
+.video__player,
+.image__holder {
+  flex: 60% 1 1;
+}
+
+.video__title,
+.image__title {
+  flex: 40% 1 1;
+  margin-left: 1rem;
+}
+
+.video__iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+.image__thumbnail {
+  width: 100%;
+  height: 100%;
+}
+
+/* -- Note -- */
+.note {
+  padding: 1.5rem;
+}
+.note__body {
+  font-size: 1.6rem;
+  color: var(--bg-accent-color);
+}
+/* -- TODO -- */
+.todo {
+  padding: 1.5em;
+}
+
+.todo__list,
+.todo-label {
+  font-size: 1.6rem;
+  padding: 0 1rem;
+  color: var(--bg-accent-color);
+}
+
+/* ---- Drag and Drop ---- */
+
+.mute-children * {
+  pointer-events: none;
+}
+
+.lifted {
+  animation: drag_start 250ms;
+  opacity: 0.2;
+}
+
+@keyframes drag_start {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+.drop-area {
+  border: 2px solid var(--accent-color);
 }
