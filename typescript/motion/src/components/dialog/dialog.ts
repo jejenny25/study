@@ -33,7 +33,7 @@ export class InputDialog
       this.closeListener && this.closeListener();
     };
     const submiBtn = this.element.querySelector(
-      '.dialog_submit'
+      '.dialog__submit'
     )! as HTMLButtonElement;
     submiBtn.onclick = () => {
       this.submitListener && this.submitListener();

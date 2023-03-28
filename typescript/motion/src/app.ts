@@ -26,24 +26,6 @@ class App {
     this.page = new PageComponent(PageItemComponent);
     this.page.attachTo(appRoot);
 
-    // const image = new ImageComponent(
-    //   'Image Title',
-    //   'http://picsum.photos/600/300'
-    // );
-    // this.page.addChild(image);
-
-    // const video = new VideoComponent(
-    //   'video title',
-    //   'https://www.youtube.com/embed/8vC1i9NgOoo'
-    // );
-    // this.page.addChild(video);
-
-    // const note = new NoteComponent('Note title', 'note body');
-    // this.page.addChild(note);
-
-    // const todo = new TodoComponent('Todo title', 'Todo body');
-    // this.page.addChild(todo);
-
     this.bindElementToDialog<MediaSectionInput>(
       '#new-image',
       MediaSectionInput,
