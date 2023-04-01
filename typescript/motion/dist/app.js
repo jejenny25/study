@@ -15,6 +15,13 @@ class App {
         this.bindElementToDialog('#new-video', MediaSectionInput, (input) => new VideoComponent(input.title, input.url));
         this.bindElementToDialog('#new-note', TextSectionInput, (input) => new NoteComponent(input.title, input.body));
         this.bindElementToDialog('#new-todo', TextSectionInput, (input) => new TodoComponent(input.title, input.body));
+        this.page.addChild(new ImageComponent('Image title 1', 'https://picsum.photos/800/400'));
+        this.page.addChild(new VideoComponent('Video title 1', 'https://www.youtube.com/watch?v=dP95z1QgnXk'));
+        this.page.addChild(new ImageComponent('Image title 2', 'https://picsum.photos/800/400'));
+        this.page.addChild(new NoteComponent('노트 타이틀 1', '안녕하세요. 반갑습니다'));
+        this.page.addChild(new TodoComponent('TODO title 1', '타입스크립트 공부하기'));
+        this.page.addChild(new VideoComponent('Video title 2', 'https://www.youtube.com/watch?v=d-3cEQ1d1E4'));
+        this.page.addChild(new TodoComponent('TODO title 2', '오늘은 날씨가 좋으니 산책'));
     }
     bindElementToDialog(selector, InputComponent, makeSection) {
         const element = document.querySelector(selector);

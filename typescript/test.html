@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button type="button" class="button" id="my-button">button1</button>
+    <button type="button" class="button">button2</button>
+    <button type="button" class="button">button3</button>
+  </body>
+  <script>
+    // const result = arr.map((item) => (item > 5 || item < 21 ? item : ''));
+    // console.log(
+    //   Array.from({ length: 20 }, (v, i) => i).filter(
+    //     (item) => item > 6 && item % 2 === 1
+    //   )
+    // );
+    // console.log(
+    //   parseFloat(strPrice.substr(1, strPrice.length).split(',').join(''))
+    // );
+    // document.getElementById('my-button').onclick = function () {
+    //   alert('Hello World');
+    // };
+    // document.getElementsByClassName('button').onclick = function () {
+    //   alert('Hello World');
+    // };
+
+    var dataState = {
+      alabama: '35004',
+      alaska: '99501',
+      arizona: '85001',
+      arkansas: '71601',
+      california: '90001',
+      colorado: '800001',
+      hawaii: '930000',
+      'north carolina': '27006',
+      'new jersey': '07001',
+    };
+    console.log(dataState['New Jersey'.toLowerCase()]);
+    console.log(dataState['new jersey'.toLowerCase()]);
+  </script>
+</html>
