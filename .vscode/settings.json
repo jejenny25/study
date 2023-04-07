@@ -1,6 +1,9 @@
 {
-    "emmet.includeLanguages": {
-        "javascript": "javascriptreact"
-    },
-    "px-to-rem.px-per-rem": 16
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx"
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "px-to-rem.px-per-rem": 16
 }

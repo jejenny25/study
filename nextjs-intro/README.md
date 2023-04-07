@@ -14,3 +14,9 @@
 ---
 
 - NextJS가 index를 랜더링 하기 전에 \_app.js를 먼저 확인함
+
+### api key 숨기기
+
+- next.config.js에서 rewrites에 api 주소와 key 넣기
+
+* redirects는 사용자가 진입한 주소를 강제로 내가 설정한 주소로 보냄.
