@@ -20,3 +20,23 @@
 - next.config.js에서 rewrites에 api 주소와 key 넣기
 
 * redirects는 사용자가 진입한 주소를 강제로 내가 설정한 주소로 보냄.
+
+---
+
+### getServerSideProps
+
+- 서버사이드에서 이루어지는 걸 여기서 작성
+- 데이터가 다 준비되어야만 유저들에게 페이지가 보여짐
+- 서치엔진은 당연히 이것을 좋아함 => SEO에도 좋음
+
+---
+
+### Dynamic URL - url로 변수를 받는 법
+
+- 대괄호 안에 변수명을 넣고 그걸 파일명으로 씀 ex)[id].js
+
+---
+
+### catch-all URL
+
+- 여러개 query를 받게 -> [...변수명].js
